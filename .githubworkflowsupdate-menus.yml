@@ -1,0 +1,40 @@
+name: Päivitä Rantakadun lounaslistat
+
+on:
+  # Ajetaan automaattisesti arkisin (ma-pe) klo 07:30 Suomen kesäaikaa (04:30 UTC)
+  schedule:
+    - cron: "30 4 * * 1-5"
+
+  # Mahdollistaa päivityksen käynnistämisen myös käsin GitHubin Actions-välilehdeltä
+  workflow_dispatch:
+
+# Annetaan automaatiolle oikeus tallentaa päivittynyt lounasdata.json repositorioon
+permissions:
+  contents: write
+
+jobs:
+  update-lunch-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Haetaan repositorion tiedostot
+        uses: actions/checkout@v4
+
+      - name: Asennetaan Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Asennetaan tarvittavat kirjastot
+        run: pip install requests beautifulsoup4
+
+      - name: Ajetaan ruokalistojen hakuskripti
+        run: python update_menus.py
+
+      - name: Tallennetaan päivittynyt lounasdata.json GitHubiin
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add lounasdata.json
+          git diff --staged --quiet || git commit -m "Automaattinen lounaslistojen päivitys"
+          git push
