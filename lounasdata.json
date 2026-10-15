@@ -1,0 +1,184 @@
+{
+  "updated": "15.10.2026 klo 23.40",
+  "city": "Kokkola",
+  "restaurants": [
+    {
+      "id": "harjun-rinkeli",
+      "name": "Harjun Rinkeli",
+      "address": "Rantakatu 5",
+      "hours": "10:30–14:00",
+      "price": "11,00–14,00 €",
+      "lat": 63.8388,
+      "lon": 23.1304,
+      "url": "https://harjunleipomo.fi/lounas",
+      "menus": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": []
+      }
+    },
+    {
+      "id": "hilda",
+      "name": "Ravintola Hilda",
+      "address": "Rantakatu 7",
+      "hours": "10:30–14:00",
+      "price": "13,40 €",
+      "lat": 63.8386,
+      "lon": 23.1308,
+      "url": "https://www.ravintolahilda.fi",
+      "menus": {
+        "0": [
+          {
+            "title": "Hildan jauhelihakastike",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Muusi, pasta",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Mustikkarahka",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "1": [
+          {
+            "title": "Pyttipannu",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Paistettu kananmuna",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Paistetut muikut",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Muusi",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Jälkkäri",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "2": [
+          {
+            "title": "Se parempi broilerikastike",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Riisi, perunat",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Lettuja",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "3": [
+          {
+            "title": "Porsaanleike",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Pyydettäessä",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Kermainen sweet chili -kastike",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Perunat",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Kiisseli",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "4": [
+          {
+            "title": "Jauhelihamureke",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Bolognesekastikkeessa",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Perunat",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Jälkkäri",
+            "diets": [],
+            "price": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "kulma",
+      "name": "Ravintola Kulma",
+      "address": "Rantakatu 10",
+      "hours": "10:45–14:00",
+      "price": "13,60 € (Keitto 11,70 €)",
+      "lat": 63.8383,
+      "lon": 23.1312,
+      "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
+      "menus": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": []
+      }
+    },
+    {
+      "id": "pancho-villa",
+      "name": "Pancho Villa",
+      "address": "Tehtaankatu 3–5",
+      "hours": "11:00–14:00",
+      "price": "13,00–15,00 €",
+      "lat": 63.8378,
+      "lon": 23.1322,
+      "url": "https://panchovilla.fi/ravintolat/kokkola/",
+      "staticNote": [
+        "Lounasburgerit (Pekoni / Juusto / Kana / Kasvis) + ranut 14,00 € (L, saatavilla G)",
+        "Lounaspihvi (Porsaan ulkofilee tai pariloitu kana) 14,50 € (L, G)",
+        "Lounassalaatti (Kana / Halloumi / Lohi) 14,50 € (L, G)"
+      ],
+      "menus": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": []
+      }
+    }
+  ]
+}
