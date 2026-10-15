@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <!-- Luotu automaattisesti make_city_pages.py:llä index.html:stä. Älä muokkaa käsin. -->
+  <base href="/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1b2228" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1a30" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Ratinan lounas – Tampere</title>
+  <meta name="description" content="Ratinan ja Hatanpään päivän lounaslistat: Juvenes Bistro Elisa, Saarni ja Dynamo, Caffitella, Momento, John Scott's, Via Tribunali, Robert's Coffee ja Neste Hatanpää." />
+
+  <!-- Favicon: Kokkolan vesitorni -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon-ratina.svg" id="faviconSvg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/ratina-favicon-32.png" id="faviconPng" />
+  <link rel="apple-touch-icon" href="assets/ratina-apple-touch-icon.png" id="touchIcon" />
+  <script>
+    // Kaupunki: ?kaupunki=… > muistettu valinta > osoite (ratinanlounas.* = Tampere)
+    (function () {
+      var city = null;
+      try {
+        var q = new URLSearchParams(location.search).get("kaupunki");
+        if (q === "kokkola" || q === "tampere") city = q;
+        if (!city) city = localStorage.getItem("lounas_city");
+      } catch (e) {}
+      if (city !== "kokkola" && city !== "tampere") {
+        city = /^ratinanlounas\./.test(location.hostname) ? "tampere" : "kokkola";
+      }
+      document.documentElement.dataset.city = city;
+    })();
+  </script>
+  <meta property="og:title" content="Ratinan lounas – Tampere" />
+  <meta property="og:description" content="Ratinan päivän lounaslistat yhdellä silmäyksellä." />
+  <meta property="og:image" content="https://ratinanlounas.aihio.fyi/assets/og-image-tampere.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    /* ==========================================================================
+       1. MUUTTUJAT & JÄRJESTELMÄN OLETUSFONTTI
+       ========================================================================== */
+    :root {
+      --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --bg-page: #f2f6fc;
+      --bg-header-start: #163b6d;
+      --bg-header-end: #1e4b8a;
+      --surface: #ffffff;
+      --surface-soft: #f7faff;
+      --surface-Tint: #eaf1fb;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-soft: #dbeafe;
+      --text-main: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border-soft: rgba(37, 99, 235, 0.09);
+      --border-hairline: #f1f5f9;
+      --shadow-soft: 0 10px 30px -5px rgba(20, 50, 100, 0.06), 0 2px 6px -1px rgba(20, 50, 100, 0.03);
+      --shadow-hover: 0 14px 34px -5px rgba(20, 50, 100, 0.09), 0 4px 10px -2px rgba(20, 50, 100, 0.04);
+      --radius-card: 20px;
+      --radius-control: 14px;
+      --radius-pill: 999px;
+      --brick: #b9472e;
+      --brick-dark: #7c2d1a;
+      --brick-soft: #fbeae5;
+      --hero-image: url("assets/vesitorni.jpg");
+      --hero-position: center 18%;
+      --hero-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28' viewBox='0 0 44 28'%3E%3Cpath d='M0 14 11 2l11 12 11-12 11 12M0 14l11 12 11-12 11 12 11-12' fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'/%3E%3C/svg%3E");
+      --hero-gradient: linear-gradient(135deg, #12325e 0%, #1e4b8a 60%, #3a6fb8 100%);
+      --hero-accent: #93c5fd;
+      --text-strong: #0f172a;
+      --chip-bg: #eff6ff;
+      --chip-border: #bfdbfe;
+      --control-bg: #f8fafc;
+      --control-border: #e2e8f0;
+      --control-border-hover: #cbd5e1;
+      --tag-bg: #f1f5f9;
+      --fav-bg: #fff1f2;
+      --fav-border: #fecdd3;
+      --package-title: var(--brick);
+      --open: #16a34a;
+      --open-bg: #dcfce7;
+      --soon: #b45309;
+      --soon-bg: #fef3c7;
+      --closed: #64748b;
+      --closed-bg: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: var(--font-system);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, summary {
+      font-family: var(--font-system);
+    }
+
+    /* ==========================================================================
+       2. PEHMEÄ SININEN YLÄPALKKI & LOGO (Rantakadun lounas)
+       ========================================================================== */
+    .site-header {
+      background: linear-gradient(135deg, var(--bg-header-start) 0%, var(--bg-header-end) 100%);
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 6px 24px -4px rgba(16, 42, 76, 0.18);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .brand-badge img {
+      width: 40px;
+      height: 40px;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      font-size: 1.4rem;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+    }
+
+    .brand-text .word-main {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .brand-text .word-sub {
+      font-weight: 400;
+      color: var(--hero-accent);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* Kaupunkikytkin (liukukytkin) */
+    .city-switch {
+      position: relative;
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      isolation: isolate;
+    }
+
+    .city-switch button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #e2e8f0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.32rem 0.85rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: color 0.2s ease;
+      min-width: 76px;
+    }
+
+    .city-switch button[aria-checked="true"] {
+      color: var(--bg-header-start);
+    }
+
+    .city-switch .thumb {
+      position: absolute;
+      z-index: -1;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      width: calc(50% - 3px);
+      border-radius: var(--radius-pill);
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    :root[data-city="tampere"] .city-switch .thumb {
+      transform: translateX(100%);
+    }
+
+    .city-switch button:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+
+    .header-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #e2e8f0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #93c5fd;
+      flex-shrink: 0;
+    }
+
+    .status-dot.open {
+      background-color: #4ade80;
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.22);
+    }
+
+    /* ==========================================================================
+       3. OHJAUSPANEELI (Päivävalitsin, Haku, Heitä kolikkoa, Suodattimet)
+       ========================================================================== */
+    .main-wrap {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.25rem 1rem 2rem;
+      flex: 1;
+    }
+
+    /* Hero: koristekuvana Kokkolan vesitorni */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+      margin-bottom: 1.1rem;
+      min-height: 230px;
+      display: flex;
+      align-items: flex-end;
+      color: #ffffff;
+      background-color: #163b6d;
+      /* Tiilitornin timanttikuvio taustalla */
+      background-image: var(--hero-pattern), var(--hero-gradient);
+      box-shadow: 0 18px 40px -18px rgba(16, 42, 76, 0.45);
+    }
+
+    .hero-photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      background: var(--hero-image) var(--hero-position) / cover no-repeat;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+    }
+
+    .hero-text {
+      position: relative;
+      padding: 1.6rem 1.5rem 1.45rem;
+      max-width: 62%;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fcd5c8;
+      margin-bottom: 0.55rem;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 18px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--brick);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.55rem, 4.6vw, 2.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 span {
+      color: var(--hero-accent);
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: #dbe7f7;
+      max-width: 30ch;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .hero-chip {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .hero-chip:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    @media (max-width: 559px) {
+      .hero { min-height: 250px; }
+      .hero h1 { font-size: 1.6rem; text-shadow: 0 2px 12px rgba(10, 30, 60, 0.45); }
+      .hero-photo {
+        width: 55%;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.55) 45%, #000 80%);
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.55) 45%, #000 80%);
+      }
+      .hero-text { max-width: 78%; padding: 1.3rem 1.15rem 1.2rem; }
+      .hero-sub { font-size: 0.84rem; }
+      /* Pikalinkit yhdeksi vieritettäväksi riviksi */
+      .hero-chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        width: calc(100vw - 4.3rem);
+        padding-bottom: 0.1rem;
+      }
+      .hero-chips::-webkit-scrollbar { display: none; }
+      .hero-chip { white-space: nowrap; flex-shrink: 0; background: rgba(15, 23, 42, 0.35); }
+      /* Kevyempi yläpalkki: ei kiinnitetä pienellä näytöllä */
+      .site-header { position: static; padding: 0.8rem 1rem; }
+      .header-right { width: 100%; justify-content: flex-start; }
+      .city-switch button { min-width: 68px; padding: 0.28rem 0.7rem; }
+    }
+
+    .controls-panel {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem;
+      margin-bottom: 1.35rem;
+    }
+
+    /* Pehmeä сегmentoitu viikonpäivävalitsin */
+    .day-segmented {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.35rem;
+      background: var(--surface-Tint);
+      padding: 0.32rem;
+      border-radius: var(--radius-control);
+      margin-bottom: 0.95rem;
+    }
+
+    .day-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.52rem 0.25rem;
+      border-radius: 11px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .day-btn:hover {
+      color: var(--primary-dark);
+    }
+
+    .day-btn.active {
+      background: var(--surface);
+      color: var(--primary-dark);
+      box-shadow: 0 2px 8px rgba(20, 50, 100, 0.08);
+    }
+
+    .today-indicator {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+    }
+
+    /* Hakukenttä ja toimintonapit */
+    .search-actions-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 210px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box svg.search-icon {
+      position: absolute;
+      left: 0.9rem;
+      width: 17px;
+      height: 17px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.68rem 2.2rem 0.68rem 2.55rem;
+      background: var(--surface-soft);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      border-radius: var(--radius-control);
+      font-size: 0.92rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      background: var(--surface);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.11);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 0.6rem;
+      background: var(--control-border);
+      border: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .clear-search-btn.visible {
+      display: inline-flex;
+    }
+
+    .soft-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      background: var(--surface-soft);
+      border: 1px solid rgba(37, 99, 235, 0.14);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.65rem 0.95rem;
+      border-radius: var(--radius-control);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .soft-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .soft-btn:hover {
+      background: var(--primary-soft);
+      border-color: rgba(37, 99, 235, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .soft-btn:active {
+      transform: translateY(0);
+    }
+
+    .soft-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
+    }
+
+    /* Kolikon pyöräytysanimaatio */
+    @keyframes coinFlip {
+      0% { transform: rotateY(0deg) scale(1); }
+      50% { transform: rotateY(180deg) scale(1.15); }
+      100% { transform: rotateY(360deg) scale(1); }
+    }
+
+    .coin-spinning svg {
+      animation: coinFlip 0.55s ease-in-out;
+    }
+
+    /* Ruokavaliosuodattimet (Pehmeät pillerit) */
+    .diet-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding-bottom: 0.15rem;
+      scrollbar-width: none;
+    }
+
+    .diet-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .diet-pill {
+      appearance: none;
+      background: var(--control-bg);
+      border: 1px solid var(--control-border);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .diet-pill:hover {
+      background: var(--surface-Tint);
+      border-color: var(--control-border-hover);
+      color: var(--text-main);
+    }
+
+    .diet-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.9rem;
+      margin-top: 0.8rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .diet-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .diet-legend .diet-badge {
+      font-size: 0.66rem;
+    }
+
+    .restaurant-info {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .diet-pill.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.2);
+    }
+
+    /* ==========================================================================
+       4. RAVINTOLAKORTIT (Yhtenäinen, pehmeä ja ilmava muotoilu)
+       ========================================================================== */
+    .restaurants-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    @media (min-width: 740px) {
+      .restaurants-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .restaurant-card {
+      min-width: 0;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.25rem 1.25rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      position: relative;
+      scroll-margin-top: 90px;
+    }
+
+    .restaurant-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .restaurant-card.coin-winner {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16), var(--shadow-hover);
+    }
+
+    .coin-winner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      align-self: flex-start;
+      background: var(--chip-bg);
+      color: var(--primary-dark);
+      border: 1px solid var(--chip-border);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.22rem 0.65rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.65rem;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .restaurant-title-group {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .restaurant-name-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .restaurant-name {
+      font-size: 1.14rem;
+      font-weight: 700;
+      color: var(--text-strong);
+      text-decoration: none;
+      letter-spacing: -0.015em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.15s ease;
+    }
+
+    .restaurant-name:hover {
+      color: var(--primary);
+    }
+
+    .restaurant-name svg.ext-icon {
+      width: 13px;
+      height: 13px;
+      opacity: 0.45;
+      transition: opacity 0.15s;
+    }
+
+    .restaurant-name:hover svg.ext-icon {
+      opacity: 0.9;
+    }
+
+    .distance-pill {
+      background: var(--chip-bg);
+      color: var(--primary-dark);
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 0.14rem 0.55rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .restaurant-meta {
+      font-size: 0.81rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .card-top-right {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .price-badge {
+      background: var(--chip-bg);
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.32rem 0.75rem;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .fav-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--control-border);
+      background: var(--control-bg);
+      color: #94a3b8;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .fav-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .fav-btn:hover {
+      background: var(--fav-bg);
+      border-color: var(--fav-border);
+      color: #e11d48;
+    }
+
+    .fav-btn.active {
+      background: var(--fav-bg);
+      border-color: var(--fav-border);
+      color: #e11d48;
+    }
+
+    /* ==========================================================================
+       5. RUOKALISTAN ANNOKSET
+       ========================================================================== */
+    .menu-list {
+      list-style: none;
+      padding: 0.35rem 0 0;
+      flex: 1;
+    }
+
+    .menu-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border-hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0.25rem;
+    }
+
+    .dish-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .dish-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .dish-title {
+      font-size: 0.93rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+
+    .dish-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-top: 0.1rem;
+    }
+
+    .diet-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.14rem 0.48rem;
+      border-radius: 7px;
+      letter-spacing: 0.01em;
+    }
+
+    .diet-G { background: #fef3c7; color: #92400e; }
+    .diet-L { background: #e0f2fe; color: #0369a1; }
+    .diet-M { background: #ede9fe; color: #5b21b6; }
+    .diet-Veg { background: #dcfce7; color: #15803d; }
+    .diet-PG { background: #fff7e6; color: #92400e; border: 1px dashed #f5c26b; }
+    .diet-VL { background: #f0f9ff; color: #0369a1; border: 1px dashed #7dd3fc; }
+    .diet-other { background: #f1f5f9; color: #475569; }
+
+    /* Annoskokonaisuuden osat (esim. Kulman buffet) */
+    .menu-item.has-parts {
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .package-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .package-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--package-title);
+    }
+
+    .part-list {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      border-left: 2px solid var(--brick-soft);
+      padding-left: 0.7rem;
+    }
+
+    .part-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      transition: opacity 0.15s ease;
+    }
+
+    .part-item .dish-badges .diet-badge {
+      font-size: 0.64rem;
+      padding: 0.1rem 0.4rem;
+    }
+
+    /* Suodatin päällä: sopimattomat osat himmennetään, eikä niitä piiloteta */
+    .part-item.dimmed {
+      opacity: 0.38;
+    }
+
+    .part-item.match .part-title {
+      font-weight: 600;
+    }
+
+    .filter-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--control-border);
+    }
+
+    .dish-price-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: var(--tag-bg);
+      padding: 0.14rem 0.5rem;
+      border-radius: 7px;
+    }
+
+    /* Pancho Villan pehmeä vakiolounas-laajennus */
+    .static-menu-box {
+      margin-top: 0.75rem;
+      background: var(--surface-soft);
+      border: 1px solid rgba(37, 99, 235, 0.1);
+      border-radius: 13px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.82rem;
+    }
+
+    .static-menu-box summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-dark);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    .static-menu-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .static-menu-box summary .chevron {
+      width: 15px;
+      height: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .static-menu-box[open] summary .chevron {
+      transform: rotate(180deg);
+    }
+
+    .static-menu-list {
+      margin-top: 0.55rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(37, 99, 235, 0.08);
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      color: var(--text-secondary);
+      font-size: 0.81rem;
+    }
+
+    .empty-box {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    .empty-box p {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Ravintolan aukiolotila */
+    .open-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .open-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .open-pill.open { color: var(--open); background: var(--open-bg); }
+    .open-pill.soon { color: var(--soon); background: var(--soon-bg); }
+    .open-pill.closed { color: var(--closed); background: var(--closed-bg); }
+
+    /* Ilmoituslaatikko (viikonloppu, vanhentunut lista, latausvirhe) */
+    .notice-box {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .notice-box img {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      margin-bottom: 0.25rem;
+    }
+
+    .notice-box h2 {
+      font-size: 1.15rem;
+      color: var(--text-strong);
+      letter-spacing: -0.01em;
+    }
+
+    .notice-box p {
+      max-width: 42ch;
+      font-size: 0.92rem;
+    }
+
+    .notice-box .soft-btn {
+      margin-top: 0.4rem;
+    }
+
+    .past-week-banner {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      background: var(--soon-bg);
+      color: var(--soon);
+      border-radius: var(--radius-control);
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .past-week-banner button {
+      background: none;
+      border: none;
+      color: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+
+    /* ==========================================================================
+       6. ALAPALKKI
+       ========================================================================== */
+    .site-footer {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0.5rem 1rem 2.5rem;
+    }
+
+    .footer-card {
+      background: var(--surface);
+      border: 1px solid var(--border-soft);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      padding: 1rem 1.15rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .sync-dot {
+      width: 9px;
+      height: 9px;
+      margin-top: 0.4rem;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+      flex-shrink: 0;
+    }
+
+    .sync-dot.error {
+      background: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.16);
+    }
+
+    .footer-title {
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+    }
+
+    .footer-sources {
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-hairline);
+      line-height: 1.6;
+    }
+
+    .footer-sources a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-sources a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       7. PEHMEÄ ILMOITUSKUPLA (Toast)
+       ========================================================================== */
+    .toast-wrap {
+      position: fixed;
+      bottom: 1.35rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #163b6d;
+      color: #ffffff;
+      padding: 0.65rem 1.15rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(16, 42, 76, 0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 100;
+      white-space: nowrap;
+    }
+
+    .toast-wrap.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ==========================================================================
+       7b. TAMPEREEN TEEMA – Toimistotalo Ratina (grafiitti lasi, tiili, mintunvihreät ikkunat)
+       ========================================================================== */
+    :root[data-city="tampere"] {
+      --bg-page: #f2f5f4;
+      --bg-header-start: #1b2228;
+      --bg-header-end: #2d3842;
+      --surface-soft: #f6faf8;
+      --surface-Tint: #e6f0ec;
+      --primary: #0f7f6c;
+      --primary-dark: #0b6555;
+      --primary-soft: #d3efe6;
+      --border-soft: rgba(15, 127, 108, 0.1);
+      --chip-bg: #e7f5f0;
+      --chip-border: #a9dccb;
+      --brick: #b9532f;
+      --hero-image: url("assets/ratina.svg");
+      --hero-position: 72% 70%;
+      /* Lasijulkisivun pystylamellit */
+      --hero-pattern: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 14px);
+      --hero-gradient: linear-gradient(135deg, #161c21 0%, #26313a 55%, #3b4955 100%);
+      --hero-accent: #9fe0c8;
+    }
+
+    :root[data-city="tampere"] .soft-btn.active,
+    :root[data-city="tampere"] .diet-pill.active {
+      box-shadow: 0 4px 12px rgba(15, 127, 108, 0.25);
+    }
+
+    /* ==========================================================================
+       8. TUMMA TILA (seuraa laitteen asetusta)
+       ========================================================================== */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #0b1220;
+        --bg-header-start: #0b1a30;
+        --bg-header-end: #12305a;
+        --surface: #131c2e;
+        --surface-soft: #18233a;
+        --surface-Tint: #1b2740;
+        --primary: #60a5fa;
+        --primary-dark: #93c5fd;
+        --primary-soft: #1e3a5f;
+        --text-main: #e2e8f0;
+        --text-secondary: #b6c2d4;
+        --text-muted: #8a99b0;
+        --text-strong: #f8fafc;
+        --border-soft: rgba(148, 163, 184, 0.14);
+        --border-hairline: rgba(148, 163, 184, 0.12);
+        --shadow-soft: 0 10px 30px -8px rgba(0, 0, 0, 0.45);
+        --shadow-hover: 0 14px 34px -8px rgba(0, 0, 0, 0.55);
+        --chip-bg: rgba(96, 165, 250, 0.14);
+        --chip-border: rgba(96, 165, 250, 0.3);
+        --control-bg: #18233a;
+        --control-border: #2a3852;
+        --control-border-hover: #3b4d6d;
+        --tag-bg: #1f2a40;
+        --fav-bg: rgba(244, 63, 94, 0.14);
+        --fav-border: rgba(244, 63, 94, 0.35);
+        --brick-soft: rgba(207, 93, 62, 0.35);
+        --package-title: #f2937a;
+        --open: #4ade80;
+        --open-bg: rgba(74, 222, 128, 0.12);
+        --soon: #fbbf24;
+        --soon-bg: rgba(251, 191, 36, 0.12);
+        --closed: #94a3b8;
+        --closed-bg: rgba(148, 163, 184, 0.12);
+      }
+
+      .search-input { border-color: var(--control-border); }
+      .search-input::placeholder { color: #6b7a92; }
+      .soft-btn { border-color: var(--control-border); }
+      .soft-btn.active, .diet-pill.active { color: #0b1220; }
+      .day-btn.active { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+      .static-menu-box { border-color: var(--control-border); }
+
+      .diet-G { background: rgba(251, 191, 36, 0.16); color: #fcd34d; }
+      .diet-L { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+      .diet-M { background: rgba(167, 139, 250, 0.18); color: #c4b5fd; }
+      .diet-Veg { background: rgba(74, 222, 128, 0.15); color: #86efac; }
+      .diet-PG { background: rgba(251, 191, 36, 0.08); color: #fcd34d; border-color: rgba(251, 191, 36, 0.45); }
+      .diet-VL { background: rgba(56, 189, 248, 0.08); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.45); }
+      .diet-other { background: var(--tag-bg); color: var(--text-secondary); }
+
+      .hero { box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.7); }
+      .hero-photo { filter: brightness(0.85) saturate(0.95); }
+
+      :root[data-city="tampere"] {
+        --bg-page: #0b1013;
+        --bg-header-start: #0d1215;
+        --bg-header-end: #1b242b;
+        --surface: #131b20;
+        --surface-soft: #18232a;
+        --surface-Tint: #1b2830;
+        --primary: #5fd0b5;
+        --primary-dark: #8fe3cf;
+        --primary-soft: #133a33;
+        --border-soft: rgba(148, 196, 184, 0.14);
+        --chip-bg: rgba(95, 208, 181, 0.13);
+        --chip-border: rgba(95, 208, 181, 0.3);
+        --control-bg: #17222a;
+        --control-border: #26363f;
+        --tag-bg: #1c2930;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- YLÄPALKKI & LOGO -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="./" class="brand-link">
+        <div class="brand-badge" aria-hidden="true">
+          <img src="assets/favicon.svg" alt="" width="40" height="40" id="brandIcon" />
+        </div>
+        <div class="brand-text">
+          <span class="word-main" id="brandMain">Rantakadun</span>
+          <span class="word-sub">lounas</span>
+        </div>
+      </a>
+
+      <div class="header-right">
+        <div class="city-switch" id="citySwitch" role="radiogroup" aria-label="Valitse kaupunki">
+          <span class="thumb" aria-hidden="true"></span>
+          <button type="button" role="radio" data-city="kokkola" aria-checked="true">Kokkola</button>
+          <button type="button" role="radio" data-city="tampere" aria-checked="false">Tampere</button>
+        </div>
+        <div class="header-status-pill" id="liveStatusPill">
+          <span class="status-dot" id="liveStatusDot"></span>
+          <span id="liveStatusText"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PÄÄSISÄLTÖ -->
+  <main class="main-wrap">
+    <section class="hero" aria-label="Rantakadun lounas">
+      <div class="hero-photo" role="img" aria-label="Koristekuva: Kokkolan vesitorni" id="heroPhoto"></div>
+      <div class="hero-text">
+        <p class="hero-kicker" id="heroKicker">Kokkola · Rantakatu</p>
+        <h1>Päivän lounas<br /><span id="heroPlace">Rantakadulla</span></h1>
+        <p class="hero-sub" id="heroSub">Rantakadun lounaslistat yhdellä silmäyksellä.</p>
+        <div class="hero-chips" id="heroChips"></div>
+      </div>
+    </section>
+
+    <section class="controls-panel" aria-label="Päivän valinta ja suodatus">
+      <!-- Viikonpäivävalitsin (Ma - Pe) -->
+      <div class="day-segmented" id="dayTabs" role="tablist">
+        <button type="button" class="day-btn" data-day="0">Maanantai</button>
+        <button type="button" class="day-btn" data-day="1">Tiistai</button>
+        <button type="button" class="day-btn" data-day="2">Keskiviikko</button>
+        <button type="button" class="day-btn" data-day="3">Torstai</button>
+        <button type="button" class="day-btn" data-day="4">Perjantai</button>
+      </div>
+
+      <!-- Hakupalkki, Lähimmät ja Heitä kolikkoa -->
+      <div class="search-actions-row">
+        <div class="search-box">
+          <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Etsi ruokaa tai ravintolaa (esim. lohi, keitto, kana)..."
+          />
+          <button type="button" id="clearSearchBtn" class="clear-search-btn" aria-label="Tyhjennä haku">✕</button>
+        </div>
+
+        <button type="button" class="soft-btn" id="geoBtn" title="Järjestä lähimmät ravintolat ensin">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.25-6-10a6 6 0 1 1 12 0c0 4.75-6 10-6 10z"></path>
+            <circle cx="12" cy="11" r="2.2"></circle>
+          </svg>
+          <span id="geoBtnLabel">Lähimmät</span>
+        </button>
+
+        <button type="button" class="soft-btn" id="coinBtn" title="Etkö osaa päättää? Heitä kolikkoa!">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8.5"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-2.2-5.5c0-1 1-1.8 2.2-1.8s2.2.8 2.2 1.8c0 2-4.4 1.5-4.4 3.6 0 1 1 1.8 2.2 1.8s2.2-.8 2.2-1.8"></path>
+          </svg>
+          <span>Heitä kolikkoa</span>
+        </button>
+      </div>
+
+      <!-- Ruokavaliosuodattimet -->
+      <div class="diet-pills-row" id="dietFilters">
+        <button type="button" class="diet-pill active" data-diet="ALL">Kaikki</button>
+        <button type="button" class="diet-pill" data-diet="FAV">Suosikit</button>
+        <button type="button" class="diet-pill" data-diet="G">G · Gluteeniton</button>
+        <button type="button" class="diet-pill" data-diet="L">L · Laktoositon</button>
+        <button type="button" class="diet-pill" data-diet="M">M · Maidoton</button>
+        <button type="button" class="diet-pill" data-diet="Veg">Veg · Kasvis</button>
+      </div>
+
+      <!-- Merkintöjen selite -->
+      <p class="diet-legend" aria-label="Ruokavaliomerkinnät">
+        <span><b class="diet-badge diet-G">G</b> gluteeniton</span>
+        <span><b class="diet-badge diet-PG">(G)</b> gluteeniton pyydettäessä</span>
+        <span><b class="diet-badge diet-L">L</b> laktoositon</span>
+        <span><b class="diet-badge diet-VL">VL</b> vähälaktoosinen</span>
+        <span><b class="diet-badge diet-M">M</b> maidoton</span>
+        <span><b class="diet-badge diet-Veg">Veg</b> vegaaninen</span>
+      </p>
+    </section>
+
+    <!-- Ravintolakortit -->
+    <section id="restaurantsContainer" class="restaurants-grid" aria-live="polite"></section>
+  </main>
+
+  <!-- ALAPALKKI: GITHUB ACTIONS -PÄIVITYSSTATUS -->
+  <footer class="site-footer">
+    <div class="footer-card">
+      <div class="footer-row">
+        <span class="sync-dot" id="syncDot" aria-hidden="true"></span>
+        <div>
+          <span class="footer-title">Listat päivittyvät arkiaamuisin klo 7.30 ja 10.00</span>
+          <span id="lastUpdatedStatus">Ladataan lounaslistoja…</span>
+        </div>
+      </div>
+      <p class="footer-sources" id="footerSources">
+        Listat haetaan ravintoloiden omilta sivuilta ja lounaat.info-palvelusta.
+        Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Pehmeä ilmoituskupla -->
+  <div id="toast" class="toast-wrap" role="status" aria-live="polite"></div>
+
+  <script>
+    // ==========================================================================
+    // 2. SOVELLUKSEN TILA
+    // ==========================================================================
+    // Kaupunkikohtaiset asetukset. Data ladataan kaupungin JSON-tiedostosta (GitHub Actions).
+    const CITIES = {
+      kokkola: {
+        data: "./lounasdata.json",
+        brandMain: "Rantakadun",
+        title: "Rantakadun lounas – Kokkola",
+        kicker: "Kokkola · Rantakatu",
+        place: "Rantakadulla",
+        placeGenitive: "Rantakadun",
+        centerName: "Rantakadulta",
+        heroLabel: "Koristekuva: Kokkolan vesitorni",
+        icons: { svg: "assets/favicon.svg", png: "assets/favicon-32.png", touch: "assets/apple-touch-icon.png" },
+        themeColor: "#163b6d",
+        center: { lat: 63.8369, lon: 23.1325 },
+      },
+      tampere: {
+        data: "./lounasdata-tampere.json",
+        brandMain: "Ratinan",
+        title: "Ratinan lounas – Tampere",
+        kicker: "Tampere · Ratina",
+        place: "Ratinassa",
+        placeGenitive: "Ratinan",
+        centerName: "Ratinasta",
+        heroLabel: "Piirros: Toimistotalo Ratina",
+        icons: { svg: "assets/favicon-ratina.svg", png: "assets/ratina-favicon-32.png", touch: "assets/ratina-apple-touch-icon.png" },
+        themeColor: "#1b2228",
+        center: { lat: 61.4933, lon: 23.7673 },
+      },
+    };
+    let currentCity = CITIES[document.documentElement.dataset.city] ? document.documentElement.dataset.city : "kokkola";
+    let loadToken = 0;
+
+    // Keksittyä varadataa ei näytetä.
+    let appData = { restaurants: [] };
+    let loadState = "loading"; // loading | ok | error
+    let showPastWeek = false;
+    const todayIndex = getTodayWeekdayIndex();
+    let selectedDay = todayIndex;
+    let activeDiet = "ALL";
+    let searchQuery = "";
+    let favorites = loadSavedFavorites();
+    let userLocation = null;
+    let coinPickId = null;
+    let toastTimer = null;
+
+    function getTodayWeekdayIndex() {
+      const jsDay = new Date().getDay(); // 0=Su, 1=Ma ... 6=La
+      if (jsDay >= 1 && jsDay <= 5) return jsDay - 1;
+      return 0;
+    }
+
+    function loadSavedFavorites() {
+      try {
+        return JSON.parse(localStorage.getItem("rantakatu_favs") || "[]");
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function showToast(message) {
+      const el = document.getElementById("toast");
+      el.textContent = message;
+      el.classList.add("show");
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        el.classList.remove("show");
+      }, 2800);
+    }
+
+    // ==========================================================================
+    // 3. DATAN HAKU (GitHub Actionsin luoma lounasdata.json)
+    // ==========================================================================
+    function formatUpdateTime(rawUpdated) {
+      if (!rawUpdated) return "";
+      // Jos ISO-aikaleima (esim. 2026-10-14T07:30:00), muotoillaan luettavaksi
+      if (rawUpdated.includes("T") && !rawUpdated.includes("klo")) {
+        const parsed = new Date(rawUpdated);
+        if (!isNaN(parsed.getTime())) {
+          const d = String(parsed.getDate()).padStart(2, "0");
+          const m = String(parsed.getMonth() + 1).padStart(2, "0");
+          const y = parsed.getFullYear();
+          const hh = String(parsed.getHours()).padStart(2, "0");
+          const mm = String(parsed.getMinutes()).padStart(2, "0");
+          return `${d}.${m}.${y} klo ${hh}:${mm}`;
+        }
+      }
+      return rawUpdated;
+    }
+
+    function renderFooterSources() {
+      const el = document.getElementById("footerSources");
+      const links = appData.restaurants
+        .filter((r) => r.source && r.source.url)
+        .map(
+          (r) =>
+            `<a href="${r.source.url}" target="_blank" rel="noopener noreferrer">${r.name}</a>` +
+            (r.source.label && !r.name.includes(r.source.label.split(".")[0]) ? ` (${r.source.label})` : "")
+        );
+      if (!links.length) return;
+      el.innerHTML = `Listat haetaan näistä lähteistä: ${links.join(" · ")}. Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.`;
+    }
+
+    // Vaihtaa kaupungin ilman sivun uudelleenlatausta ja muistaa valinnan
+    function applyCity(city, { save = false } = {}) {
+      if (!CITIES[city]) return;
+      const cfg = CITIES[city];
+      currentCity = city;
+      document.documentElement.dataset.city = city;
+      if (save) {
+        try {
+          localStorage.setItem("lounas_city", city);
+        } catch (e) {}
+      }
+      document.title = cfg.title;
+      document.getElementById("brandMain").textContent = cfg.brandMain;
+      document.getElementById("brandIcon").src = cfg.icons.svg;
+      document.getElementById("faviconSvg").href = cfg.icons.svg;
+      document.getElementById("faviconPng").href = cfg.icons.png;
+      document.getElementById("touchIcon").href = cfg.icons.touch;
+      document.querySelectorAll('meta[name="theme-color"]')[0].content = cfg.themeColor;
+      document.getElementById("heroKicker").textContent = cfg.kicker;
+      document.getElementById("heroPlace").textContent = cfg.place;
+      document.getElementById("heroPhoto").setAttribute("aria-label", cfg.heroLabel);
+      document.querySelector(".hero").setAttribute("aria-label", cfg.title);
+      document.querySelectorAll("#citySwitch button").forEach((b) => {
+        b.setAttribute("aria-checked", String(b.dataset.city === city));
+      });
+    }
+
+    async function loadLunchData() {
+      const statusEl = document.getElementById("lastUpdatedStatus");
+      const syncDot = document.getElementById("syncDot");
+      const token = ++loadToken;
+      try {
+        const res = await fetch(CITIES[currentCity].data + "?t=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const json = await res.json();
+        if (!json || !Array.isArray(json.restaurants)) throw new Error("Virheellinen data");
+        if (token !== loadToken) return; // käyttäjä vaihtoi kaupunkia latauksen aikana
+        appData = json;
+        loadState = "ok";
+        renderFooterSources();
+        syncDot.classList.remove("error");
+        statusEl.textContent = "Viimeisin päivitys: " + formatUpdateTime(json.updated);
+      } catch (err) {
+        if (token !== loadToken) return;
+        loadState = "error";
+        syncDot.classList.add("error");
+        statusEl.textContent = "Lounaslistoja ei saatu ladattua.";
+      }
+      renderAll();
+    }
+
+    // ==========================================================================
+    // 4. NÄKYMÄN PIIRTÄMINEN
+    // ==========================================================================
+    // "10:30–14:00" tai "10.30–14.00" -> [630, 840] (minuutteina)
+    function parseHours(hours) {
+      const m = String(hours || "").match(/(\d{1,2})[:.](\d{2})\s*[–-]\s*(\d{1,2})[:.](\d{2})/);
+      if (!m) return null;
+      return [Number(m[1]) * 60 + Number(m[2]), Number(m[3]) * 60 + Number(m[4])];
+    }
+
+    function formatMinutes(min) {
+      return `${Math.floor(min / 60)}.${String(min % 60).padStart(2, "0")}`;
+    }
+
+    function isWeekday(date = new Date()) {
+      const d = date.getDay();
+      return d >= 1 && d <= 5;
+    }
+
+    // Ravintolan lounastila juuri nyt: open | soon | closed (vain tänään arkipäivänä)
+    function getOpenState(rest) {
+      const range = parseHours(rest.hours);
+      if (!range || !isWeekday()) return null;
+      const now = new Date();
+      const mins = now.getHours() * 60 + now.getMinutes();
+      if (mins < range[0]) return { cls: "soon", text: `Lounas alkaa klo ${formatMinutes(range[0])}` };
+      if (mins < range[1]) return { cls: "open", text: `Lounas nyt · päättyy ${formatMinutes(range[1])}` };
+      return { cls: "closed", text: "Lounas päättynyt tältä päivältä" };
+    }
+
+    function updateHeaderStatus() {
+      const dot = document.getElementById("liveStatusDot");
+      const text = document.getElementById("liveStatusText");
+      const dayNames = ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"];
+      const day = dayNames[new Date().getDay()];
+
+      const states = appData.restaurants.map(getOpenState).filter(Boolean);
+      const openCount = states.filter((st) => st.cls === "open").length;
+      dot.classList.toggle("open", openCount > 0);
+
+      if (!isWeekday()) {
+        text.textContent = `${day} • Lounaat arkisin`;
+      } else if (!states.length) {
+        text.textContent = day;
+      } else if (openCount > 0) {
+        // Kapealla näytöllä lyhyt muoto, jotta kaupunkikytkin mahtuu samalle riville
+        text.textContent =
+          window.innerWidth < 560
+            ? `${openCount}/${states.length} auki`
+            : `${day} • ${openCount}/${states.length} lounaspaikkaa auki`;
+      } else if (states.every((st) => st.cls === "soon")) {
+        const first = Math.min(...appData.restaurants.map((r) => (parseHours(r.hours) || [Infinity])[0]));
+        text.textContent = `${day} • Lounas alkaa klo ${formatMinutes(first)}`;
+      } else {
+        text.textContent = `${day} • Lounasaika on päättynyt`;
+      }
+    }
+
+    function renderDayButtons() {
+      const shortNames = ["Ma", "Ti", "Ke", "To", "Pe"];
+      const fullNames = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
+      const isMobile = window.innerWidth < 560;
+
+      document.querySelectorAll(".day-btn").forEach((btn) => {
+        const idx = Number(btn.dataset.day);
+        const isCurrent = idx === selectedDay;
+        const isToday = idx === todayIndex && new Date().getDay() >= 1 && new Date().getDay() <= 5;
+        btn.classList.toggle("active", isCurrent);
+        btn.innerHTML = `
+          <span>${isMobile ? shortNames[idx] : fullNames[idx]}</span>
+          ${isToday ? '<span class="today-indicator" title="Tänään"></span>' : ""}
+        `;
+      });
+    }
+
+    function getDistanceMeters(lat1, lon1, lat2, lon2) {
+      const R = 6371e3;
+      const toRad = (deg) => (deg * Math.PI) / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+    }
+
+    function getItemsForDay(rest) {
+      if (rest.menus && rest.menus[selectedDay]) return rest.menus[selectedDay];
+      if (rest.menusByDay) {
+        const keys = ["ma", "ti", "ke", "to", "pe"];
+        const key = keys[selectedDay];
+        if (rest.menusByDay[key]) return rest.menusByDay[key];
+      }
+      if (Array.isArray(rest.items)) return rest.items;
+      return [];
+    }
+
+    // Ruokavaliosuodatin. "PG" (gluteeniton pyydettäessä) kelpaa G-suodattimeen.
+    function dietMatches(diets, title, groupTitle) {
+      if (activeDiet === "ALL" || activeDiet === "FAV") return true;
+      const ds = (diets || []).map((d) => d.toUpperCase());
+      const text = ((title || "") + " " + (groupTitle || "")).toLowerCase();
+      if (activeDiet === "G") return ds.includes("G") || ds.includes("PG");
+      if (activeDiet === "L") return ds.includes("L") || ds.includes("M") || ds.includes("VEG");
+      if (activeDiet === "M") return ds.includes("M") || ds.includes("VEG");
+      if (activeDiet === "Veg") return ds.includes("VEG") || text.includes("kasvis");
+      return true;
+    }
+
+    const DIET_TITLES = {
+      G: "Gluteeniton",
+      PG: "Gluteeniton pyydettäessä",
+      L: "Laktoositon",
+      VL: "Vähälaktoosinen",
+      M: "Maidoton",
+      Veg: "Vegaaninen",
+    };
+
+    // Merkinnän näkyvä teksti: "pyydettäessä gluteeniton" näytetään sulkeissa, kuten (G)
+    const DIET_LABELS = { PG: "(G)" };
+
+    function renderBadges(diets) {
+      return (diets || [])
+        .map((d) => {
+          const known = ["G", "PG", "L", "VL", "M", "Veg"].includes(d) ? `diet-${d}` : "diet-other";
+          const label = DIET_LABELS[d] || d;
+          return `<span class="diet-badge ${known}" title="${DIET_TITLES[d] || d}" aria-label="${DIET_TITLES[d] || d}">${label}</span>`;
+        })
+        .join("");
+    }
+
+    function renderMenuItem(item) {
+      const priceHtml = item.price ? `<span class="dish-price-tag">${item.price}</span>` : "";
+
+      if (Array.isArray(item.parts)) {
+        const partsHtml = item.parts
+          .map(
+            (part) => `
+              <li class="part-item ${activeDiet !== "ALL" && activeDiet !== "FAV" ? (part.match ? "match" : "dimmed") : ""}">
+                <span class="part-title">${part.title}</span>
+                <span class="dish-badges">${renderBadges(part.diets)}</span>
+              </li>`
+          )
+          .join("");
+        return `
+          <li class="menu-item has-parts">
+            <div class="package-head">
+              <span class="package-title">${item.title}</span>
+              <div class="dish-badges">${priceHtml}</div>
+            </div>
+            <ul class="part-list">${partsHtml}</ul>
+          </li>
+        `;
+      }
+
+      return `
+        <li class="menu-item">
+          <div class="dish-text">
+            <span class="dish-title">${item.title}</span>
+            ${item.desc ? `<span class="dish-desc">${item.desc}</span>` : ""}
+          </div>
+          <div class="dish-badges">
+            ${renderBadges(item.diets)}
+            ${priceHtml}
+          </div>
+        </li>
+      `;
+    }
+
+    // ISO-viikko muodossa "2026-W42" (sama kuin lounasdata.jsonin "week")
+    function isoWeekKey(date = new Date()) {
+      const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+      const dayNum = d.getUTCDay() || 7;
+      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+      const week = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+      return `${d.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+    }
+
+    // Miksi tämän viikon listoja ei ole: "weekend" | "stale" | null
+    function getListNotice() {
+      if (!isWeekday()) return "weekend";
+      if (appData.week && appData.week !== isoWeekKey()) return "stale";
+      return null;
+    }
+
+    function renderNotice(kind) {
+      const container = document.getElementById("restaurantsContainer");
+      const content = {
+        weekend: {
+          title: "Viikonloppu – lounaat taas maanantaina",
+          text: `${CITIES[currentCity].placeGenitive} lounaspaikat tarjoavat lounasta arkisin. Seuraavan viikon listat julkaistaan maanantaiaamuna.`,
+        },
+        stale: {
+          title: "Tämän viikon listat ovat tulossa",
+          text: "Ravintolat eivät ole vielä julkaisseet tämän viikon listoja. Sivu päivittyy arkiaamuisin klo 7.30 ja 10.00.",
+        },
+        error: {
+          title: "Lounaslistoja ei saatu ladattua",
+          text: "Yritä hetken päästä uudelleen tai katso lista suoraan ravintolan sivuilta (linkit sivun alareunassa).",
+        },
+      }[kind];
+      const button =
+        kind === "error"
+          ? `<button type="button" class="soft-btn" id="retryBtn">Yritä uudelleen</button>`
+          : appData.restaurants.length
+          ? `<button type="button" class="soft-btn" id="showPastBtn">Näytä kuluneen viikon listat</button>`
+          : "";
+      container.innerHTML = `
+        <div class="notice-box">
+          <img src="assets/favicon.svg" alt="" width="56" height="56" />
+          <h2>${content.title}</h2>
+          <p>${content.text}</p>
+          ${button}
+        </div>
+      `;
+      const retry = document.getElementById("retryBtn");
+      if (retry) retry.addEventListener("click", () => {
+        loadState = "loading";
+        document.getElementById("lastUpdatedStatus").textContent = "Ladataan lounaslistoja…";
+        loadLunchData();
+      });
+      const past = document.getElementById("showPastBtn");
+      if (past) past.addEventListener("click", () => {
+        showPastWeek = true;
+        renderAll();
+      });
+    }
+
+    function renderHero() {
+      const sub = document.getElementById("heroSub");
+      const chips = document.getElementById("heroChips");
+      const dayNames = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
+      const notice = getListNotice();
+      const count = appData.restaurants.length;
+
+      if (loadState !== "ok" || !count) {
+        sub.textContent = `${CITIES[currentCity].placeGenitive} lounaslistat yhdellä silmäyksellä.`;
+        chips.innerHTML = "";
+        return;
+      }
+
+      if (notice && !showPastWeek) {
+        sub.textContent =
+          notice === "weekend"
+            ? "Lounaat tarjolla arkisin. Uudet listat julkaistaan maanantaina."
+            : "Tämän viikon listat päivittyvät aamun aikana.";
+      } else if (notice) {
+        sub.textContent = `${dayNames[selectedDay]} – kuluneen viikon lista.`;
+      } else {
+        const now = new Date();
+        const monday = new Date(now);
+        monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+        const shown = new Date(monday);
+        shown.setDate(monday.getDate() + selectedDay);
+        sub.textContent = `${dayNames[selectedDay]} ${shown.getDate()}.${shown.getMonth() + 1}. – ${count} lounaspaikan listat yhdellä silmäyksellä.`;
+      }
+      chips.innerHTML = appData.restaurants
+        .map((r) => `<a class="hero-chip" href="#card-${r.id}">${r.name}</a>`)
+        .join("");
+    }
+
+    function renderAll() {
+      updateHeaderStatus();
+      renderDayButtons();
+      renderHero();
+
+      const container = document.getElementById("restaurantsContainer");
+      container.innerHTML = "";
+
+      if (loadState === "loading") return;
+      if (loadState === "error") {
+        renderNotice("error");
+        return;
+      }
+      const notice = getListNotice();
+      if (notice && !showPastWeek) {
+        renderNotice(notice);
+        return;
+      }
+      const viewingPastWeek = Boolean(notice);
+      if (viewingPastWeek) {
+        const banner = document.createElement("div");
+        banner.className = "past-week-banner";
+        banner.innerHTML = `<span>Näytetään kuluneen viikon listat.</span><button type="button">Piilota</button>`;
+        banner.querySelector("button").addEventListener("click", () => {
+          showPastWeek = false;
+          renderAll();
+        });
+        container.appendChild(banner);
+      }
+
+      let list = appData.restaurants.map((r) => {
+        const dist =
+          userLocation && r.lat && r.lon
+            ? getDistanceMeters(userLocation.lat, userLocation.lon, r.lat, r.lon)
+            : null;
+        return { ...r, distance: dist, isFav: favorites.includes(r.id) };
+      });
+
+      if (userLocation) {
+        list.sort((a, b) => (a.distance || 99999) - (b.distance || 99999));
+      } else {
+        list.sort((a, b) => Number(b.isFav) - Number(a.isFav));
+      }
+
+      let visibleCards = 0;
+
+      list.forEach((rest) => {
+        if (activeDiet === "FAV" && !rest.isFav) return;
+
+        const dayItems = getItemsForDay(rest);
+        const q = searchQuery.trim().toLowerCase();
+        const restMatchesSearch = !q || rest.name.toLowerCase().includes(q);
+
+        const filteredItems = dayItems
+          .map((item) => {
+            const parts = Array.isArray(item.parts) ? item.parts : null;
+            if (!parts) {
+              const matchesDiet = dietMatches(item.diets, item.title);
+              const matchesSearch =
+                restMatchesSearch ||
+                item.title.toLowerCase().includes(q) ||
+                (item.desc || "").toLowerCase().includes(q);
+              return matchesDiet && matchesSearch ? item : null;
+            }
+            // Annoskokonaisuus: näytetään, jos jokin osa sopii. Sopimattomat osat himmennetään.
+            const markedParts = parts.map((part) => ({
+              ...part,
+              match: activeDiet === "ALL" || activeDiet === "FAV" || dietMatches(part.diets, part.title, item.title),
+            }));
+            const anyDiet = markedParts.some((p) => p.match);
+            const matchesSearch =
+              restMatchesSearch ||
+              item.title.toLowerCase().includes(q) ||
+              parts.some((p) => p.title.toLowerCase().includes(q));
+            return anyDiet && matchesSearch ? { ...item, parts: markedParts } : null;
+          })
+          .filter(Boolean);
+
+        if (filteredItems.length === 0) return;
+        visibleCards++;
+
+        const card = document.createElement("article");
+        const isWinner = coinPickId === rest.id;
+        card.className = "restaurant-card" + (isWinner ? " coin-winner" : "");
+        card.id = "card-" + rest.id;
+
+        const winnerBadgeHtml = isWinner
+          ? `<div class="coin-winner-badge">Kolikon valinta tänään!</div>`
+          : "";
+
+        const openState = selectedDay === todayIndex && !viewingPastWeek ? getOpenState(rest) : null;
+        const openPillHtml = openState
+          ? `<span class="open-pill ${openState.cls}">${openState.text}</span>`
+          : "";
+
+        const distanceHtml =
+          rest.distance !== null
+            ? `<span class="distance-pill">${rest.distance} m</span>`
+            : "";
+
+        const itemsHtml = filteredItems.map(renderMenuItem).join("");
+        const hasDimmed = filteredItems.some((it) => Array.isArray(it.parts) && it.parts.some((p) => !p.match));
+        const filterNoteHtml = hasDimmed
+          ? `<p class="filter-note">Himmennetyt osat eivät sovi valittuun ruokavalioon.</p>`
+          : "";
+
+        const staticBoxHtml =
+          rest.staticNote && rest.staticNote.length
+            ? `
+              <details class="static-menu-box">
+                <summary>
+                  <span>Vakiolounaat (${rest.staticNote.length} vaihtoehtoa)</span>
+                  <svg class="chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </summary>
+                <ul class="static-menu-list">
+                  ${rest.staticNote.map((line) => `<li>• ${line}</li>`).join("")}
+                </ul>
+              </details>
+            `
+            : "";
+
+        card.innerHTML = `
+          ${winnerBadgeHtml}
+          <div class="card-top">
+            <div class="restaurant-title-group">
+              <div class="restaurant-name-row">
+                <a href="${rest.url}" target="_blank" rel="noopener noreferrer" class="restaurant-name">
+                  <span>${rest.name}</span>
+                  <svg class="ext-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 4h6m0 0v6m0-6L10 14M6 6H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-1"></path>
+                  </svg>
+                </a>
+                ${distanceHtml}
+              </div>
+              <div class="restaurant-meta">
+                <span>${rest.address}</span>
+                <span>•</span>
+                <span>Lounas ${rest.hours}</span>
+                ${openPillHtml}
+              </div>
+              ${(rest.info || []).map((line) => `<p class="restaurant-info">${line}</p>`).join("")}
+            </div>
+
+            <div class="card-top-right">
+              ${rest.price ? `<span class="price-badge">${rest.price}</span>` : ""}
+              <button
+                type="button"
+                class="fav-btn ${rest.isFav ? "active" : ""}"
+                data-fav="${rest.id}"
+                aria-label="Tallenna suosikiksi"
+                title="Kiinnitä suosikiksi"
+              >
+                <svg fill="${rest.isFav ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.5s-7-4.35-7-9.6A4.15 4.15 0 0 1 9.2 6.7c1.3 0 2.2.6 2.8 1.5.6-.9 1.5-1.5 2.8-1.5a4.15 4.15 0 0 1 4.2 4.2c0 5.25-7 9.6-7 9.6z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <ul class="menu-list">
+            ${itemsHtml}
+          </ul>
+          ${filterNoteHtml}
+          ${staticBoxHtml}
+        `;
+
+        container.appendChild(card);
+      });
+
+      if (visibleCards === 0) {
+        container.innerHTML = `
+          <div class="empty-box">
+            <p><strong>Ei hakuehtoihin sopivia lounasannoksia.</strong></p>
+            <button type="button" class="soft-btn" id="resetFiltersBtn">Näytä kaikki ravintolat</button>
+          </div>
+        `;
+        const resetBtn = document.getElementById("resetFiltersBtn");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            searchQuery = "";
+            activeDiet = "ALL";
+            document.getElementById("searchInput").value = "";
+            document.getElementById("clearSearchBtn").classList.remove("visible");
+            document.querySelectorAll(".diet-pill").forEach((p) => {
+              p.classList.toggle("active", p.dataset.diet === "ALL");
+            });
+            renderAll();
+          });
+        }
+      }
+    }
+
+    // ==========================================================================
+    // 5. TAPAHTUMAKUUNTELIJAT
+    // ==========================================================================
+    document.getElementById("dayTabs").addEventListener("click", (e) => {
+      const btn = e.target.closest(".day-btn");
+      if (!btn) return;
+      selectedDay = Number(btn.dataset.day);
+      coinPickId = null;
+      renderAll();
+    });
+
+    const searchInputEl = document.getElementById("searchInput");
+    const clearSearchBtnEl = document.getElementById("clearSearchBtn");
+
+    searchInputEl.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtnEl.classList.toggle("visible", searchQuery.length > 0);
+      coinPickId = null;
+      renderAll();
+    });
+
+    clearSearchBtnEl.addEventListener("click", () => {
+      searchQuery = "";
+      searchInputEl.value = "";
+      clearSearchBtnEl.classList.remove("visible");
+      renderAll();
+      searchInputEl.focus();
+    });
+
+    document.getElementById("dietFilters").addEventListener("click", (e) => {
+      const pill = e.target.closest(".diet-pill");
+      if (!pill) return;
+      const chosen = pill.dataset.diet;
+      activeDiet = activeDiet === chosen && chosen !== "ALL" ? "ALL" : chosen;
+      document.querySelectorAll(".diet-pill").forEach((p) => {
+        p.classList.toggle("active", p.dataset.diet === activeDiet);
+      });
+      coinPickId = null;
+      renderAll();
+    });
+
+    document.getElementById("restaurantsContainer").addEventListener("click", (e) => {
+      const favBtn = e.target.closest(".fav-btn");
+      if (!favBtn) return;
+      const id = favBtn.dataset.fav;
+      const rest = appData.restaurants.find((r) => r.id === id);
+      if (favorites.includes(id)) {
+        favorites = favorites.filter((item) => item !== id);
+        showToast(`${rest ? rest.name : "Ravintola"} poistettu suosikeista`);
+      } else {
+        favorites.push(id);
+        showToast(`${rest ? rest.name : "Ravintola"} tallennettu suosikiksi`);
+      }
+      try {
+        localStorage.setItem("rantakatu_favs", JSON.stringify(favorites));
+      } catch (err) {}
+      renderAll();
+    });
+
+    // Etäisyysjärjestys ("Lähimmät")
+    document.getElementById("geoBtn").addEventListener("click", (e) => {
+      const btn = e.currentTarget;
+      const label = document.getElementById("geoBtnLabel");
+
+      if (userLocation) {
+        userLocation = null;
+        btn.classList.remove("active");
+        label.textContent = "Lähimmät";
+        renderAll();
+        return;
+      }
+
+      label.textContent = "Paikannetaan...";
+      const fallbackCenter = CITIES[currentCity].center; // Rantakatu / Ratina
+
+      if (!navigator.geolocation) {
+        userLocation = fallbackCenter;
+        btn.classList.add("active");
+        label.textContent = "Lähimmät ensin";
+        showToast(`Etäisyydet laskettu ${CITIES[currentCity].centerName}`);
+        renderAll();
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const distFromKokkola = getDistanceMeters(
+            pos.coords.latitude,
+            pos.coords.longitude,
+            fallbackCenter.lat,
+            fallbackCenter.lon
+          );
+          if (distFromKokkola > 15000) {
+            userLocation = fallbackCenter;
+            showToast(`Näytetään kävelyetäisyydet ${CITIES[currentCity].centerName}`);
+          } else {
+            userLocation = { lat: pos.coords.latitude, lon: pos.coords.longitude };
+            showToast("Ravintolat järjestetty sijaintisi mukaan");
+          }
+          btn.classList.add("active");
+          label.textContent = "Lähimmät ensin";
+          renderAll();
+        },
+        () => {
+          userLocation = fallbackCenter;
+          btn.classList.add("active");
+          label.textContent = "Lähimmät ensin";
+          showToast(`Näytetään kävelyetäisyydet ${CITIES[currentCity].centerName}`);
+          renderAll();
+        },
+        { timeout: 4000 }
+      );
+    });
+
+    // Kolikonheitto ("Heitä kolikkoa")
+    document.getElementById("coinBtn").addEventListener("click", (e) => {
+      const btn = e.currentTarget;
+      btn.classList.add("coin-spinning");
+      setTimeout(() => btn.classList.remove("coin-spinning"), 600);
+
+      const cards = document.querySelectorAll(".restaurant-card");
+      if (!cards.length) return;
+      const randomCard = cards[Math.floor(Math.random() * cards.length)];
+      coinPickId = randomCard.id.replace("card-", "");
+      const pickedRest = appData.restaurants.find((r) => r.id === coinPickId);
+
+      renderAll();
+      if (pickedRest) {
+        showToast(`Kolikko valitsi: ${pickedRest.name}`);
+      }
+      const target = document.getElementById("card-" + coinPickId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      renderDayButtons();
+      updateHeaderStatus();
+    });
+
+    // Kaupunkikytkin
+    document.getElementById("citySwitch").addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-city]");
+      if (!btn || btn.dataset.city === currentCity) return;
+      applyCity(btn.dataset.city, { save: true });
+      // Uuden kaupungin data: tyhjennetään näkymä ja haetaan lista
+      appData = { restaurants: [] };
+      loadState = "loading";
+      showPastWeek = false;
+      coinPickId = null;
+      userLocation = null;
+      document.getElementById("geoBtn").classList.remove("active");
+      document.getElementById("geoBtnLabel").textContent = "Lähimmät";
+      document.getElementById("lastUpdatedStatus").textContent = "Ladataan lounaslistoja…";
+      renderAll();
+      loadLunchData();
+    });
+
+    // Käynnistys
+    applyCity(currentCity);
+    loadLunchData();
+    // Aukiolotila päivittyy minuutin välein ilman sivun latausta
+    setInterval(updateHeaderStatus, 60000);
+  </script>
+</body>
+</html>

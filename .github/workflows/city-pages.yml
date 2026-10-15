@@ -1,0 +1,31 @@
+name: Päivitä Tampereen sivuversio
+
+# tampere/index.html on index.html Tampereen otsikoilla ja linkin esikatselukuvalla.
+# Se luodaan uudelleen aina, kun index.html muuttuu.
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - make_city_pages.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-city-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Haetaan repositorion tiedostot
+        uses: actions/checkout@v4
+
+      - name: Luodaan tampere/index.html
+        run: python3 make_city_pages.py
+
+      - name: Tallennetaan muutos GitHubiin
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add tampere/index.html
+          git diff --staged --quiet || (git commit -m "Päivitä Tampereen sivuversio" && git pull --rebase && git push)
