@@ -1,5 +1,5 @@
 {
-  "updated": "15.10.2026 klo 23.40",
+  "updated": "16.10.2026 klo 00.02",
   "city": "Kokkola",
   "restaurants": [
     {
@@ -12,11 +12,96 @@
       "lon": 23.1304,
       "url": "https://harjunleipomo.fi/lounas",
       "menus": {
-        "0": [],
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": []
+        "0": [
+          {
+            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Päivän keittolounas & leipäpöytä",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "11,00 €"
+          }
+        ],
+        "1": [
+          {
+            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Päivän keittolounas & leipäpöytä",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "11,00 €"
+          }
+        ],
+        "2": [
+          {
+            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Päivän keittolounas & leipäpöytä",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "11,00 €"
+          }
+        ],
+        "3": [
+          {
+            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Päivän keittolounas & leipäpöytä",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "11,00 €"
+          }
+        ],
+        "4": [
+          {
+            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Päivän keittolounas & leipäpöytä",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "11,00 €"
+          }
+        ]
       }
     },
     {
@@ -151,11 +236,66 @@
       "lon": 23.1312,
       "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
       "menus": {
-        "0": [],
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": []
+        "0": [
+          {
+            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "1": [
+          {
+            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "2": [
+          {
+            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "3": [
+          {
+            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "4": [
+          {
+            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Lounasravintoloita lähistöllä",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "/5.0",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "HILDA",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "/5.0",
+            "diets": [],
+            "price": null
+          },
+          {
+            "title": "Harjun Rinkeli",
+            "diets": [],
+            "price": null
+          }
+        ]
       }
     },
     {
@@ -173,11 +313,94 @@
         "Lounassalaatti (Kana / Halloumi / Lohi) 14,50 € (L, G)"
       ],
       "menus": {
-        "0": [],
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": []
+        "0": [
+          {
+            "title": "Päivän Meksikolounas: Crispy chicken Calzone",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "15,00 €"
+          }
+        ],
+        "1": [
+          {
+            "title": "Päivän Meksikolounas: Chili con Carne Pocket",
+            "diets": [
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "15,00 €"
+          }
+        ],
+        "2": [
+          {
+            "title": "Päivän Meksikolounas: Bocadillo porsaankyljellä",
+            "diets": [
+              "G"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "15,00 €"
+          }
+        ],
+        "3": [
+          {
+            "title": "Päivän Meksikolounas: Halloumi Burrito",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "15,00 €"
+          }
+        ],
+        "4": [
+          {
+            "title": "Päivän Meksikolounas: Loaded Fries Chili con Carne",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "diets": [
+              "L",
+              "G"
+            ],
+            "price": "15,00 €"
+          }
+        ]
       }
     }
   ]
