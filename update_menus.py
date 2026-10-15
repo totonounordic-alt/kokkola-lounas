@@ -262,26 +262,31 @@ def parse_kulma(today: date) -> dict:
 
         items = []
         for pkg in sorted(day.get("menuPackages", []), key=lambda p: p.get("sortOrder", 0)):
-            meal_names = []
-            meal_diets = []
+            parts = []
             for meal in pkg.get("meals", []):
-                name, inline_diets, _ = parse_dish_line(meal.get("name", ""))
-                if not name:
-                    continue
-                meal_names.append(name)
-                meal_diets.append(set(normalize_diets((meal.get("diets") or []) + inline_diets)))
-            if not meal_names:
+                raw = meal.get("name", "")
+                diets = list(meal.get("diets") or [])
+                # "(pyyd. Glut)" = saatavilla gluteenittomana pyydettäessä
+                if re.search(r"\(\s*pyyd\.?\s*glut\.?\s*\)", raw, re.IGNORECASE):
+                    raw = re.sub(r"\(\s*pyyd\.?\s*glut\.?\s*\)", "", raw, flags=re.IGNORECASE)
+                    diets.append("PG")
+                name, inline_diets, _ = parse_dish_line(raw)
+                if name:
+                    parts.append({"title": name, "diets": normalize_diets(diets + inline_diets)})
+            if not parts:
                 continue
 
             pkg_name = (pkg.get("name") or "").strip()
             pkg_name = pkg_name[:1].upper() + pkg_name[1:].lower()
-            # Annoskokonaisuuden merkinnät: ne, jotka sopivat jokaiseen sen osaan
-            common = set.intersection(*meal_diets) if meal_diets else set()
             price_m = PRICE_RE.search(pkg.get("price") or "")
+            # Kokonaisuuden jokainen osa näytetään omine merkintöineen (parts).
+            # Kokonaisuuden "diets" = merkinnät, jotka sopivat kaikkiin osiin.
+            common = set.intersection(*(set(p["diets"]) for p in parts))
             items.append({
-                "title": f"{pkg_name}: {', '.join(meal_names)}" if pkg_name else ", ".join(meal_names),
+                "title": pkg_name or "Lounas",
                 "diets": [d for d in DIET_ORDER if d in common],
                 "price": format_price(price_m) if price_m else None,
+                "parts": parts,
             })
         menus[str(day_idx)] = items
     return menus
@@ -401,7 +406,7 @@ def main():
                 "name": "Harjun Rinkeli",
                 "address": "Rantakatu 5",
                 "hours": "10:30–14:00",
-                "price": "13,40–14,00 € (Keitto alk. 10,00 €)",
+                "price": "10,00–14,00 €",
                 "lat": 63.8388,
                 "lon": 23.1304,
                 "url": "https://harjunleipomo.fi/lounas",

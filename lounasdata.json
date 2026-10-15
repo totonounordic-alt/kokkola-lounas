@@ -1,5 +1,5 @@
 {
-  "updated": "16.10.2026 klo 00.14",
+  "updated": "16.10.2026 klo 00.25",
   "week": "2026-W42",
   "city": "Kokkola",
   "restaurants": [
@@ -8,7 +8,7 @@
       "name": "Harjun Rinkeli",
       "address": "Rantakatu 5",
       "hours": "10:30–14:00",
-      "price": "13,40–14,00 € (Keitto alk. 10,00 €)",
+      "price": "10,00–14,00 €",
       "lat": 63.8388,
       "lon": 23.1304,
       "url": "https://harjunleipomo.fi/lounas",
@@ -344,158 +344,644 @@
       "menus": {
         "0": [
           {
-            "title": "Vegaaninen kasvislounas buffasta: Vuustokasvispyöryköitä - Mö chavre, Ruohosipuli-tilli-soijagurttikastiketta, Myskikurpitsaohrattoa",
+            "title": "Vegaaninen kasvislounas buffasta",
             "diets": [
               "L",
               "M",
               "Veg"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Vuustokasvispyöryköitä - Mö chavre",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Ruohosipuli-tilli-soijagurttikastiketta",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Myskikurpitsaohrattoa",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Buffasta: Purjo-perunasosekeittoa, Rapeaa kanaa - Crispy chicken, Murskattua perunaa, juustoa ja yrttejä, Kurkkuraitaa, Paahdettua porkkanaa ja seesaminsiemeniä",
+            "title": "Buffasta",
             "diets": [
               "G",
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Purjo-perunasosekeittoa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Rapeaa kanaa - Crispy chicken",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Murskattua perunaa, juustoa ja yrttejä",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kurkkuraitaa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Paahdettua porkkanaa ja seesaminsiemeniä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "title": "Päivän salaatti & keitto",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Rosmariini paahdettua broilerinfileetä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Päivän juusto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Mustikka-vadelmashotti",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Pikku makia & kahvi: Omena-kanelirahkaa",
+            "title": "Pikku makia & kahvi",
             "diets": [
               "G",
               "L"
             ],
-            "price": null
+            "price": null,
+            "parts": [
+              {
+                "title": "Omena-kanelirahkaa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "1": [
           {
-            "title": "Kasvislounas buffasta: Butter Mifua, Basmatiriisiä",
+            "title": "Kasvislounas buffasta",
             "diets": [
               "G",
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Butter Mifua",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Basmatiriisiä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Buffasta: Tomaattikeittoa ja fetajuustoa, Lihapullia BBQ ja cheddarkastikkeessa, Satokauden kasviksia, Savupaprikalla paahdettuja perunoita, Puolukkaa",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Tomaattikeittoa ja fetajuustoa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Lihapullia BBQ ja cheddarkastikkeessa",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Satokauden kasviksia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Savupaprikalla paahdettuja perunoita",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Puolukkaa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "title": "Päivän salaatti & keitto",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Rosmariini paahdettua broilerinfileetä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Päivän juusto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Mustikka-vadelmashotti",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Pikku makia & kahvi: Mansikkarahkaa",
+            "title": "Pikku makia & kahvi",
             "diets": [
               "G",
               "L"
             ],
-            "price": null
+            "price": null,
+            "parts": [
+              {
+                "title": "Mansikkarahkaa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "2": [
           {
-            "title": "Kasvislounas buffasta: Punajuuri-sinihomejuustokiusausta",
+            "title": "Kasvislounas buffasta",
             "diets": [
               "G",
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Punajuuri-sinihomejuustokiusausta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           },
           {
-            "title": "Buffasta: Pinaattikeittoa, Makean tulista broileria - Korean Chicken, Sitruunajogurttikastiketta, Riisiä ja kotimaista kauraa, Paahdettua kukkakaalia, aiolia ja pikkelöityä punakaalia",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Pinaattikeittoa",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Makean tulista broileria - Korean Chicken",
+                "diets": [
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Sitruunajogurttikastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Riisiä ja kotimaista kauraa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Paahdettua kukkakaalia, aiolia ja pikkelöityä punakaalia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "title": "Päivän salaatti & keitto",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Rosmariini paahdettua broilerinfileetä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Päivän juusto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Mustikka-vadelmashotti",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Pikku makia & kahvi: Omenakiisseliä ja vaniljakastiketta",
+            "title": "Pikku makia & kahvi",
             "diets": [
               "G",
               "L"
             ],
-            "price": null
+            "price": null,
+            "parts": [
+              {
+                "title": "Omenakiisseliä ja vaniljakastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "3": [
           {
-            "title": "Kasvislounas buffasta: Meidän keittiön pinaattiohukaisia, Puolukkaa",
+            "title": "Kasvislounas buffasta",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Meidän keittiön pinaattiohukaisia",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Puolukkaa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Buffasta: Kermaista kirjolohikeittoa, Meidän keittiön savujuusto-pekonilihamureketta (pyyd. Glut), Ranch-kastiketta, Paahdettua perunaa, Satokauden kasviksia",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Kermaista kirjolohikeittoa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Meidän keittiön savujuusto-pekonilihamureketta",
+                "diets": [
+                  "PG",
+                  "L"
+                ]
+              },
+              {
+                "title": "Ranch-kastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Paahdettua perunaa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Satokauden kasviksia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Päivän salaatti & keitto: Broileria, Päivän juusto, Mustikka-vadelmashotti",
+            "title": "Päivän salaatti & keitto",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Broileria",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Päivän juusto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Mustikka-vadelmashotti",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Pikku makia & kahvi: Meidän keittiön pannukakkua, Hillottua marjaa, Vaniljakermavaahtoa",
+            "title": "Pikku makia & kahvi",
             "diets": [
               "L"
             ],
-            "price": null
+            "price": null,
+            "parts": [
+              {
+                "title": "Meidän keittiön pannukakkua",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Hillottua marjaa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Vaniljakermavaahtoa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "4": [
           {
-            "title": "Kasvislounas buffasta: Vuohenjuustopannupizzaa ja punajuurihummusta, Valkosipulia",
+            "title": "Kasvislounas buffasta",
             "diets": [],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Vuohenjuustopannupizzaa ja punajuurihummusta",
+                "diets": [
+                  "VL"
+                ]
+              },
+              {
+                "title": "Valkosipulia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Buffasta: Bataatti-kookossosekeittoa, Possunleike keittiön tapaan (pyyd. Glut), Täyteläistä mustapippurikastiketta, Ranskalaisia perunoita, Satokauden kasviksia",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Bataatti-kookossosekeittoa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Possunleike keittiön tapaan",
+                "diets": [
+                  "PG",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Täyteläistä mustapippurikastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Ranskalaisia perunoita",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Satokauden kasviksia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Päivän salaatti & keitto: Broileria, Päivän juusto, Mustikka-vadelmashotti",
+            "title": "Päivän salaatti & keitto",
             "diets": [
               "L"
             ],
-            "price": "13,60 €"
+            "price": "13,60 €",
+            "parts": [
+              {
+                "title": "Broileria",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Päivän juusto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Mustikka-vadelmashotti",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           },
           {
-            "title": "Pikku makia & kahvi: Puolukkapiirakkaa, Vaniljakastiketta",
+            "title": "Pikku makia & kahvi",
             "diets": [
               "L"
             ],
-            "price": null
+            "price": null,
+            "parts": [
+              {
+                "title": "Puolukkapiirakkaa",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Vaniljakastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ]
       }

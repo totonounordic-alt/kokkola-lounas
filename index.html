@@ -7,8 +7,14 @@
   <title>Rantakadun lounas – Kokkola</title>
   <meta name="description" content="Rantakadun ja Kokkolan keskustan päivän lounaslistat: Harjun Rinkeli, Ravintola Hilda, Ravintola Kulma ja Pancho Villa." />
 
-  <!-- Sininen pyöristetty SVG-favicon (haarukka & veitsi) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232563eb'/%3E%3Cstop offset='100%25' stop-color='%23163b6d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M23 15v14a5 5 0 0 0 3.5 4.77V49a1.5 1.5 0 0 0 3 0V33.77A5 5 0 0 0 33 29V15a1.2 1.2 0 0 0-2.4 0v10h-1.4V15a1.2 1.2 0 0 0-2.4 0v10h-1.4V15A1.2 1.2 0 0 0 23 15zm19 0c-3.8 0-6.5 4.2-6.5 9.5V34a2 2 0 0 0 2 2h2.5v13a1.5 1.5 0 0 0 3 0V16.5A1.5 1.5 0 0 0 42 15z' fill='%23ffffff'/%3E%3C/svg%3E" />
+  <!-- Favicon: Kokkolan vesitorni -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta property="og:title" content="Rantakadun lounas – Kokkola" />
+  <meta property="og:description" content="Rantakadun päivän lounaslistat yhdellä silmäyksellä." />
+  <meta property="og:image" content="https://rantakadunlounas.aihio.fyi/assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
 
   <style>
     /* ==========================================================================
@@ -35,6 +41,9 @@
       --radius-card: 20px;
       --radius-control: 14px;
       --radius-pill: 999px;
+      --brick: #b9472e;
+      --brick-dark: #7c2d1a;
+      --brick-soft: #fbeae5;
     }
 
     * {
@@ -94,8 +103,7 @@
       width: 40px;
       height: 40px;
       border-radius: 13px;
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(6px);
+      overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.22);
       display: flex;
       align-items: center;
@@ -104,10 +112,10 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .brand-badge svg {
-      width: 21px;
-      height: 21px;
-      fill: #ffffff;
+    .brand-badge img {
+      width: 40px;
+      height: 40px;
+      display: block;
     }
 
     .brand-text {
@@ -164,6 +172,114 @@
       margin: 0 auto;
       padding: 1.25rem 1rem 2rem;
       flex: 1;
+    }
+
+    /* Hero: Kokkolan vesitorni */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-card);
+      margin-bottom: 1.1rem;
+      min-height: 230px;
+      display: flex;
+      align-items: flex-end;
+      color: #ffffff;
+      background-color: #163b6d;
+      /* Tiilitornin timanttikuvio taustalla */
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28' viewBox='0 0 44 28'%3E%3Cpath d='M0 14 11 2l11 12 11-12 11 12M0 14l11 12 11-12 11 12 11-12' fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, #12325e 0%, #1e4b8a 60%, #3a6fb8 100%);
+      box-shadow: 0 18px 40px -18px rgba(16, 42, 76, 0.45);
+    }
+
+    .hero-photo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      background: url("assets/vesitorni.jpg") center 18% / cover no-repeat;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+    }
+
+    .hero-text {
+      position: relative;
+      padding: 1.6rem 1.5rem 1.45rem;
+      max-width: 62%;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fcd5c8;
+      margin-bottom: 0.55rem;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 18px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--brick);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.55rem, 4.6vw, 2.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 span {
+      color: #93c5fd;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: #dbe7f7;
+      max-width: 30ch;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .hero-chip {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .hero-chip:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    @media (max-width: 559px) {
+      .hero { min-height: 250px; }
+      .hero h1 { font-size: 1.6rem; text-shadow: 0 2px 12px rgba(10, 30, 60, 0.45); }
+      .hero-photo {
+        width: 55%;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.55) 45%, #000 80%);
+        mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.55) 45%, #000 80%);
+      }
+      .hero-text { max-width: 78%; padding: 1.3rem 1.15rem 1.2rem; }
+      .hero-sub { font-size: 0.84rem; }
     }
 
     .controls-panel {
@@ -398,6 +514,7 @@
     }
 
     .restaurant-card {
+      min-width: 0;
       background: var(--surface);
       border-radius: var(--radius-card);
       border: 1px solid var(--border-soft);
@@ -407,6 +524,7 @@
       flex-direction: column;
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
       position: relative;
+      scroll-margin-top: 90px;
     }
 
     .restaurant-card:hover {
@@ -443,6 +561,7 @@
     }
 
     .restaurant-title-group {
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
@@ -600,7 +719,73 @@
     .diet-L { background: #e0f2fe; color: #0369a1; }
     .diet-M { background: #ede9fe; color: #5b21b6; }
     .diet-Veg { background: #dcfce7; color: #15803d; }
+    .diet-PG { background: #fff7e6; color: #92400e; border: 1px dashed #f5c26b; }
+    .diet-VL { background: #f0f9ff; color: #0369a1; border: 1px dashed #7dd3fc; }
     .diet-other { background: #f1f5f9; color: #475569; }
+
+    /* Annoskokonaisuuden osat (esim. Kulman buffet) */
+    .menu-item.has-parts {
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .package-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .package-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brick);
+    }
+
+    .part-list {
+      list-style: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      border-left: 2px solid var(--brick-soft);
+      padding-left: 0.7rem;
+    }
+
+    .part-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      transition: opacity 0.15s ease;
+    }
+
+    .part-item .dish-badges .diet-badge {
+      font-size: 0.64rem;
+      padding: 0.1rem 0.4rem;
+    }
+
+    /* Suodatin päällä: sopimattomat osat himmennetään, eikä niitä piiloteta */
+    .part-item.dimmed {
+      opacity: 0.38;
+    }
+
+    .part-item.match .part-title {
+      font-weight: 600;
+    }
+
+    .filter-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #e2e8f0;
+    }
 
     .dish-price-tag {
       font-size: 0.76rem;
@@ -763,9 +948,7 @@
     <div class="header-inner">
       <a href="./" class="brand-link">
         <div class="brand-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 0 0 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/>
-          </svg>
+          <img src="assets/favicon.svg" alt="" width="40" height="40" />
         </div>
         <div class="brand-text">
           <span class="word-main">Rantakadun</span>
@@ -782,6 +965,16 @@
 
   <!-- PÄÄSISÄLTÖ -->
   <main class="main-wrap">
+    <section class="hero" aria-label="Rantakadun lounas">
+      <div class="hero-photo" role="img" aria-label="Kokkolan vesitorni syksyisenä päivänä"></div>
+      <div class="hero-text">
+        <p class="hero-kicker">Kokkola · Rantakatu</p>
+        <h1>Päivän lounas<br /><span>vesitornin kulmilla</span></h1>
+        <p class="hero-sub" id="heroSub">Neljän ravintolan lounaslistat yhdellä silmäyksellä.</p>
+        <div class="hero-chips" id="heroChips"></div>
+      </div>
+    </section>
+
     <section class="controls-panel" aria-label="Päivän valinta ja suodatus">
       <!-- Viikonpäivävalitsin (Ma - Pe) -->
       <div class="day-segmented" id="dayTabs" role="tablist">
@@ -1164,9 +1357,93 @@
       return [];
     }
 
+    // Ruokavaliosuodatin. "PG" (gluteeniton pyydettäessä) kelpaa G-suodattimeen.
+    function dietMatches(diets, title, groupTitle) {
+      if (activeDiet === "ALL" || activeDiet === "FAV") return true;
+      const ds = (diets || []).map((d) => d.toUpperCase());
+      const text = ((title || "") + " " + (groupTitle || "")).toLowerCase();
+      if (activeDiet === "G") return ds.includes("G") || ds.includes("PG");
+      if (activeDiet === "L") return ds.includes("L") || ds.includes("M") || ds.includes("VEG");
+      if (activeDiet === "M") return ds.includes("M") || ds.includes("VEG");
+      if (activeDiet === "Veg") return ds.includes("VEG") || text.includes("kasvis");
+      return true;
+    }
+
+    const DIET_TITLES = {
+      G: "Gluteeniton",
+      PG: "Gluteeniton pyydettäessä",
+      L: "Laktoositon",
+      VL: "Vähälaktoosinen",
+      M: "Maidoton",
+      Veg: "Vegaaninen",
+    };
+
+    function renderBadges(diets) {
+      return (diets || [])
+        .map((d) => {
+          const known = ["G", "PG", "L", "VL", "M", "Veg"].includes(d) ? `diet-${d}` : "diet-other";
+          return `<span class="diet-badge ${known}" title="${DIET_TITLES[d] || d}">${d}</span>`;
+        })
+        .join("");
+    }
+
+    function renderMenuItem(item) {
+      const priceHtml = item.price ? `<span class="dish-price-tag">${item.price}</span>` : "";
+
+      if (Array.isArray(item.parts)) {
+        const partsHtml = item.parts
+          .map(
+            (part) => `
+              <li class="part-item ${activeDiet !== "ALL" && activeDiet !== "FAV" ? (part.match ? "match" : "dimmed") : ""}">
+                <span class="part-title">${part.title}</span>
+                <span class="dish-badges">${renderBadges(part.diets)}</span>
+              </li>`
+          )
+          .join("");
+        return `
+          <li class="menu-item has-parts">
+            <div class="package-head">
+              <span class="package-title">${item.title}</span>
+              <div class="dish-badges">${priceHtml}</div>
+            </div>
+            <ul class="part-list">${partsHtml}</ul>
+          </li>
+        `;
+      }
+
+      return `
+        <li class="menu-item">
+          <span class="dish-title">${item.title}</span>
+          <div class="dish-badges">
+            ${renderBadges(item.diets)}
+            ${priceHtml}
+          </div>
+        </li>
+      `;
+    }
+
+    function renderHero() {
+      const sub = document.getElementById("heroSub");
+      const chips = document.getElementById("heroChips");
+      const dayNames = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
+      const now = new Date();
+      const monday = new Date(now);
+      monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+      const shown = new Date(monday);
+      shown.setDate(monday.getDate() + selectedDay);
+      const isWeekend = now.getDay() === 0 || now.getDay() === 6;
+      sub.textContent = isWeekend
+        ? "Lounaat tarjolla arkisin. Tässä kuluneen viikon listat."
+        : `${dayNames[selectedDay]} ${shown.getDate()}.${shown.getMonth() + 1}. – ${appData.restaurants.length} ravintolaa muutaman minuutin kävelymatkan päässä.`;
+      chips.innerHTML = appData.restaurants
+        .map((r) => `<a class="hero-chip" href="#card-${r.id}">${r.name}</a>`)
+        .join("");
+    }
+
     function renderAll() {
       updateHeaderStatus();
       renderDayButtons();
+      renderHero();
 
       const container = document.getElementById("restaurantsContainer");
       container.innerHTML = "";
@@ -1191,22 +1468,30 @@
         if (activeDiet === "FAV" && !rest.isFav) return;
 
         const dayItems = getItemsForDay(rest);
-        const filteredItems = dayItems.filter((item) => {
-          const diets = (item.diets || []).map((d) => d.toUpperCase());
-          let matchesDiet = true;
-          if (activeDiet === "G") matchesDiet = diets.includes("G") || diets.includes("PG");
-          else if (activeDiet === "L") matchesDiet = diets.includes("L") || diets.includes("M") || diets.includes("VEG");
-          else if (activeDiet === "M") matchesDiet = diets.includes("M") || diets.includes("VEG");
-          else if (activeDiet === "Veg") matchesDiet = diets.includes("VEG") || item.title.toLowerCase().includes("kasvis");
+        const q = searchQuery.trim().toLowerCase();
+        const restMatchesSearch = !q || rest.name.toLowerCase().includes(q);
 
-          const q = searchQuery.trim().toLowerCase();
-          const matchesSearch =
-            !q ||
-            item.title.toLowerCase().includes(q) ||
-            rest.name.toLowerCase().includes(q);
-
-          return matchesDiet && matchesSearch;
-        });
+        const filteredItems = dayItems
+          .map((item) => {
+            const parts = Array.isArray(item.parts) ? item.parts : null;
+            if (!parts) {
+              const matchesDiet = dietMatches(item.diets, item.title);
+              const matchesSearch = restMatchesSearch || item.title.toLowerCase().includes(q);
+              return matchesDiet && matchesSearch ? item : null;
+            }
+            // Annoskokonaisuus: näytetään, jos jokin osa sopii. Sopimattomat osat himmennetään.
+            const markedParts = parts.map((part) => ({
+              ...part,
+              match: activeDiet === "ALL" || activeDiet === "FAV" || dietMatches(part.diets, part.title, item.title),
+            }));
+            const anyDiet = markedParts.some((p) => p.match);
+            const matchesSearch =
+              restMatchesSearch ||
+              item.title.toLowerCase().includes(q) ||
+              parts.some((p) => p.title.toLowerCase().includes(q));
+            return anyDiet && matchesSearch ? { ...item, parts: markedParts } : null;
+          })
+          .filter(Boolean);
 
         if (filteredItems.length === 0) return;
         visibleCards++;
@@ -1225,30 +1510,11 @@
             ? `<span class="distance-pill">${rest.distance} m</span>`
             : "";
 
-        const itemsHtml = filteredItems
-          .map((item) => {
-            const tagsHtml = (item.diets || [])
-              .map((d) => {
-                const known = ["G", "L", "M", "Veg"].includes(d) ? `diet-${d}` : "diet-other";
-                return `<span class="diet-badge ${known}">${d}</span>`;
-              })
-              .join("");
-
-            const itemPriceHtml = item.price
-              ? `<span class="dish-price-tag">${item.price}</span>`
-              : "";
-
-            return `
-              <li class="menu-item">
-                <span class="dish-title">${item.title}</span>
-                <div class="dish-badges">
-                  ${tagsHtml}
-                  ${itemPriceHtml}
-                </div>
-              </li>
-            `;
-          })
-          .join("");
+        const itemsHtml = filteredItems.map(renderMenuItem).join("");
+        const hasDimmed = filteredItems.some((it) => Array.isArray(it.parts) && it.parts.some((p) => !p.match));
+        const filterNoteHtml = hasDimmed
+          ? `<p class="filter-note">Himmennetyt osat eivät sovi valittuun ruokavalioon.</p>`
+          : "";
 
         const staticBoxHtml =
           rest.staticNote && rest.staticNote.length
@@ -1306,6 +1572,7 @@
           <ul class="menu-list">
             ${itemsHtml}
           </ul>
+          ${filterNoteHtml}
           ${staticBoxHtml}
         `;
 
