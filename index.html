@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#163b6d" />
+  <meta name="theme-color" content="#163b6d" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b1a30" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
   <title>Rantakadun lounas – Kokkola</title>
   <meta name="description" content="Rantakadun ja Kokkolan keskustan päivän lounaslistat: Harjun Rinkeli, Ravintola Hilda, Ravintola Kulma ja Pancho Villa." />
 
@@ -44,6 +46,22 @@
       --brick: #b9472e;
       --brick-dark: #7c2d1a;
       --brick-soft: #fbeae5;
+      --text-strong: #0f172a;
+      --chip-bg: #eff6ff;
+      --chip-border: #bfdbfe;
+      --control-bg: #f8fafc;
+      --control-border: #e2e8f0;
+      --control-border-hover: #cbd5e1;
+      --tag-bg: #f1f5f9;
+      --fav-bg: #fff1f2;
+      --fav-border: #fecdd3;
+      --package-title: var(--brick);
+      --open: #16a34a;
+      --open-bg: #dcfce7;
+      --soon: #b45309;
+      --soon-bg: #fef3c7;
+      --closed: #64748b;
+      --closed-bg: #f1f5f9;
     }
 
     * {
@@ -174,7 +192,7 @@
       flex: 1;
     }
 
-    /* Hero: Kokkolan vesitorni */
+    /* Hero: koristekuvana Kokkolan vesitorni */
     .hero {
       position: relative;
       overflow: hidden;
@@ -387,7 +405,7 @@
     .clear-search-btn {
       position: absolute;
       right: 0.6rem;
-      background: #e2e8f0;
+      background: var(--control-border);
       border: none;
       width: 22px;
       height: 22px;
@@ -470,8 +488,8 @@
 
     .diet-pill {
       appearance: none;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      background: var(--control-bg);
+      border: 1px solid var(--control-border);
       color: var(--text-secondary);
       font-size: 0.8rem;
       font-weight: 600;
@@ -487,7 +505,7 @@
 
     .diet-pill:hover {
       background: var(--surface-Tint);
-      border-color: #cbd5e1;
+      border-color: var(--control-border-hover);
       color: var(--text-main);
     }
 
@@ -541,9 +559,9 @@
       align-items: center;
       gap: 0.35rem;
       align-self: flex-start;
-      background: #eff6ff;
+      background: var(--chip-bg);
       color: var(--primary-dark);
-      border: 1px solid #bfdbfe;
+      border: 1px solid var(--chip-border);
       font-size: 0.74rem;
       font-weight: 700;
       padding: 0.22rem 0.65rem;
@@ -577,7 +595,7 @@
     .restaurant-name {
       font-size: 1.14rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--text-strong);
       text-decoration: none;
       letter-spacing: -0.015em;
       display: inline-flex;
@@ -602,7 +620,7 @@
     }
 
     .distance-pill {
-      background: #eff6ff;
+      background: var(--chip-bg);
       color: var(--primary-dark);
       font-size: 0.73rem;
       font-weight: 600;
@@ -627,7 +645,7 @@
     }
 
     .price-badge {
-      background: #eff6ff;
+      background: var(--chip-bg);
       color: var(--primary-dark);
       font-size: 0.8rem;
       font-weight: 700;
@@ -640,8 +658,8 @@
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      border: 1px solid #e2e8f0;
-      background: #f8fafc;
+      border: 1px solid var(--control-border);
+      background: var(--control-bg);
       color: #94a3b8;
       display: inline-flex;
       align-items: center;
@@ -656,14 +674,14 @@
     }
 
     .fav-btn:hover {
-      background: #fff1f2;
-      border-color: #fecdd3;
+      background: var(--fav-bg);
+      border-color: var(--fav-border);
       color: #e11d48;
     }
 
     .fav-btn.active {
-      background: #fff1f2;
-      border-color: #fecdd3;
+      background: var(--fav-bg);
+      border-color: var(--fav-border);
       color: #e11d48;
     }
 
@@ -742,7 +760,7 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--brick);
+      color: var(--package-title);
     }
 
     .part-list {
@@ -784,14 +802,14 @@
       color: var(--text-muted);
       margin-top: 0.6rem;
       padding-top: 0.6rem;
-      border-top: 1px dashed #e2e8f0;
+      border-top: 1px dashed var(--control-border);
     }
 
     .dish-price-tag {
       font-size: 0.76rem;
       font-weight: 600;
       color: var(--text-secondary);
-      background: #f1f5f9;
+      background: var(--tag-bg);
       padding: 0.14rem 0.5rem;
       border-radius: 7px;
     }
@@ -858,8 +876,95 @@
       margin-bottom: 0.75rem;
     }
 
+    /* Ravintolan aukiolotila */
+    .open-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.12rem 0.5rem;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    .open-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .open-pill.open { color: var(--open); background: var(--open-bg); }
+    .open-pill.soon { color: var(--soon); background: var(--soon-bg); }
+    .open-pill.closed { color: var(--closed); background: var(--closed-bg); }
+
+    /* Ilmoituslaatikko (viikonloppu, vanhentunut lista, latausvirhe) */
+    .notice-box {
+      grid-column: 1 / -1;
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .notice-box img {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      margin-bottom: 0.25rem;
+    }
+
+    .notice-box h2 {
+      font-size: 1.15rem;
+      color: var(--text-strong);
+      letter-spacing: -0.01em;
+    }
+
+    .notice-box p {
+      max-width: 42ch;
+      font-size: 0.92rem;
+    }
+
+    .notice-box .soft-btn {
+      margin-top: 0.4rem;
+    }
+
+    .past-week-banner {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      background: var(--soon-bg);
+      color: var(--soon);
+      border-radius: var(--radius-control);
+      padding: 0.6rem 0.9rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .past-week-banner button {
+      background: none;
+      border: none;
+      color: inherit;
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.84rem;
+    }
+
     /* ==========================================================================
-       6. ALAPALKKI & GITHUB ACTIONS -PÄIVITYSSTATUS
+       6. ALAPALKKI
        ========================================================================== */
     .site-footer {
       max-width: 900px;
@@ -868,49 +973,60 @@
       padding: 0.5rem 1rem 2.5rem;
     }
 
-    .automation-status-card {
+    .footer-card {
       background: var(--surface);
       border: 1px solid var(--border-soft);
       border-radius: 16px;
       box-shadow: var(--shadow-soft);
-      padding: 0.9rem 1.15rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.75rem;
+      padding: 1rem 1.15rem;
       font-size: 0.82rem;
       color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
     }
 
-    .automation-left {
+    .footer-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.65rem;
     }
 
     .sync-dot {
       width: 9px;
       height: 9px;
+      margin-top: 0.4rem;
       border-radius: 50%;
       background: #10b981;
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
       flex-shrink: 0;
     }
 
-    .automation-title {
-      font-weight: 600;
-      color: var(--text-main);
+    .sync-dot.error {
+      background: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.16);
     }
 
-    .automation-timestamp {
-      background: var(--surface-soft);
-      border: 1px solid rgba(37, 99, 235, 0.11);
-      color: var(--text-secondary);
-      padding: 0.3rem 0.75rem;
-      border-radius: var(--radius-pill);
-      font-weight: 500;
-      font-size: 0.79rem;
+    .footer-title {
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+    }
+
+    .footer-sources {
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-hairline);
+      line-height: 1.6;
+    }
+
+    .footer-sources a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-sources a:hover {
+      text-decoration: underline;
     }
 
     /* ==========================================================================
@@ -939,6 +1055,65 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+
+    /* ==========================================================================
+       8. TUMMA TILA (seuraa laitteen asetusta)
+       ========================================================================== */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #0b1220;
+        --bg-header-start: #0b1a30;
+        --bg-header-end: #12305a;
+        --surface: #131c2e;
+        --surface-soft: #18233a;
+        --surface-Tint: #1b2740;
+        --primary: #60a5fa;
+        --primary-dark: #93c5fd;
+        --primary-soft: #1e3a5f;
+        --text-main: #e2e8f0;
+        --text-secondary: #b6c2d4;
+        --text-muted: #8a99b0;
+        --text-strong: #f8fafc;
+        --border-soft: rgba(148, 163, 184, 0.14);
+        --border-hairline: rgba(148, 163, 184, 0.12);
+        --shadow-soft: 0 10px 30px -8px rgba(0, 0, 0, 0.45);
+        --shadow-hover: 0 14px 34px -8px rgba(0, 0, 0, 0.55);
+        --chip-bg: rgba(96, 165, 250, 0.14);
+        --chip-border: rgba(96, 165, 250, 0.3);
+        --control-bg: #18233a;
+        --control-border: #2a3852;
+        --control-border-hover: #3b4d6d;
+        --tag-bg: #1f2a40;
+        --fav-bg: rgba(244, 63, 94, 0.14);
+        --fav-border: rgba(244, 63, 94, 0.35);
+        --brick-soft: rgba(207, 93, 62, 0.35);
+        --package-title: #f2937a;
+        --open: #4ade80;
+        --open-bg: rgba(74, 222, 128, 0.12);
+        --soon: #fbbf24;
+        --soon-bg: rgba(251, 191, 36, 0.12);
+        --closed: #94a3b8;
+        --closed-bg: rgba(148, 163, 184, 0.12);
+      }
+
+      .search-input { border-color: var(--control-border); }
+      .search-input::placeholder { color: #6b7a92; }
+      .soft-btn { border-color: var(--control-border); }
+      .soft-btn.active, .diet-pill.active { color: #0b1220; }
+      .day-btn.active { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+      .static-menu-box { border-color: var(--control-border); }
+
+      .diet-G { background: rgba(251, 191, 36, 0.16); color: #fcd34d; }
+      .diet-L { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }
+      .diet-M { background: rgba(167, 139, 250, 0.18); color: #c4b5fd; }
+      .diet-Veg { background: rgba(74, 222, 128, 0.15); color: #86efac; }
+      .diet-PG { background: rgba(251, 191, 36, 0.08); color: #fcd34d; border-color: rgba(251, 191, 36, 0.45); }
+      .diet-VL { background: rgba(56, 189, 248, 0.08); color: #7dd3fc; border-color: rgba(56, 189, 248, 0.45); }
+      .diet-other { background: var(--tag-bg); color: var(--text-secondary); }
+
+      .hero { box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.7); }
+      .hero-photo { filter: brightness(0.85) saturate(0.95); }
+    }
   </style>
 </head>
 <body>
@@ -966,11 +1141,11 @@
   <!-- PÄÄSISÄLTÖ -->
   <main class="main-wrap">
     <section class="hero" aria-label="Rantakadun lounas">
-      <div class="hero-photo" role="img" aria-label="Kokkolan vesitorni syksyisenä päivänä"></div>
+      <div class="hero-photo" role="img" aria-label="Koristekuva: Kokkolan vesitorni"></div>
       <div class="hero-text">
         <p class="hero-kicker">Kokkola · Rantakatu</p>
-        <h1>Päivän lounas<br /><span>vesitornin kulmilla</span></h1>
-        <p class="hero-sub" id="heroSub">Neljän ravintolan lounaslistat yhdellä silmäyksellä.</p>
+        <h1>Päivän lounas<br /><span>Rantakadulla</span></h1>
+        <p class="hero-sub" id="heroSub">Rantakadun lounaslistat yhdellä silmäyksellä.</p>
         <div class="hero-chips" id="heroChips"></div>
       </div>
     </section>
@@ -1035,17 +1210,22 @@
 
   <!-- ALAPALKKI: GITHUB ACTIONS -PÄIVITYSSTATUS -->
   <footer class="site-footer">
-    <div class="automation-status-card">
-      <div class="automation-left">
+    <div class="footer-card">
+      <div class="footer-row">
         <span class="sync-dot" id="syncDot" aria-hidden="true"></span>
         <div>
-          <span class="automation-title">Automaattinen päivitys (GitHub Actions)</span>
-          <span> • Rantakadun lounaslistat</span>
+          <span class="footer-title">Listat päivittyvät arkiaamuisin klo 7.30 ja 10.00</span>
+          <span id="lastUpdatedStatus">Ladataan lounaslistoja…</span>
         </div>
       </div>
-      <div class="automation-timestamp" id="lastUpdatedStatus">
-        Tiedot päivitetty viimeksi: tarkistetaan...
-      </div>
+      <p class="footer-sources">
+        Listat haetaan ravintoloiden omilta sivuilta:
+        <a href="https://harjunleipomo.fi/lounas" target="_blank" rel="noopener noreferrer">Harjun Rinkeli</a> ·
+        <a href="https://www.lounaat.info/lounas/hilda/kokkola" target="_blank" rel="noopener noreferrer">Hilda (lounaat.info)</a> ·
+        <a href="https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/" target="_blank" rel="noopener noreferrer">Kulma (Compass Group)</a> ·
+        <a href="https://panchovilla.fi/ravintolat/kokkola/" target="_blank" rel="noopener noreferrer">Pancho Villa</a>.
+        Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.
+      </p>
     </div>
   </footer>
 
@@ -1054,174 +1234,12 @@
 
   <script>
     // ==========================================================================
-    // 1. OLETUSDATA (Käytetään, kunnes GitHub Actions luo lounasdata.json-tiedoston)
-    // ==========================================================================
-    function getMorningTimestamp() {
-      const d = new Date();
-      const day = String(d.getDate()).padStart(2, "0");
-      const month = String(d.getMonth() + 1).padStart(2, "0");
-      const year = d.getFullYear();
-      return `${day}.${month}.${year} klo 07:30`;
-    }
-
-    const FALLBACK_DATA = {
-      updated: getMorningTimestamp(),
-      source: "GitHub Actions",
-      restaurants: [
-        {
-          id: "harjun-rinkeli",
-          name: "Harjun Rinkeli",
-          address: "Rantakatu 5",
-          hours: "10.30–14.00",
-          price: "11,00–13,40 €",
-          lat: 63.8388,
-          lon: 23.1304,
-          url: "https://harjunleipomo.fi/lounas",
-          menus: {
-            0: [
-              { title: "Kermainen lohikeitto ja talon saaristolaisleipä", diets: ["L", "G"], price: "12,00 €" },
-              { title: "Paneroitu porsaanleike, pippurikastike ja lohkoperunat", diets: ["L"], price: "13,40 €" },
-              { title: "Pestolla kuorrutettu uunikana ja yrttiriisi", diets: ["L", "G"], price: "13,40 €" }
-            ],
-            1: [
-              { title: "Perinteinen kaalijauhelihakeitto", diets: ["M", "G"], price: "11,00 €" },
-              { title: "Lindströminpihvit pippurikermakastikkeessa ja muusi", diets: ["L", "G"], price: "13,40 €" },
-              { title: "Pasta Carbonara", diets: ["L"], price: "13,40 €" }
-            ],
-            2: [
-              { title: "Paahdettu tomaatti-vuohenjuustokeitto", diets: ["L", "G"], price: "11,00 €" },
-              { title: "Rapeat kalaleikkeet, remouladekastike ja perunamuusi", diets: ["L"], price: "13,40 €" },
-              { title: "Haudutettu härkäruukku ja paahdetut juurekset", diets: ["M", "G"], price: "13,40 €" }
-            ],
-            3: [
-              { title: "Perinteinen hernekeitto ja talon pannukakku hillolla", diets: ["M", "G"], price: "11,00 €" },
-              { title: "Kievin kana, valkosipulivoikastike ja lohkoperunat", diets: ["L"], price: "14,00 €" },
-              { title: "Kermainen uunilohi ja tilliperunat", diets: ["L", "G"], price: "14,00 €" }
-            ],
-            4: [
-              { title: "Mausteinen chorizo-papukeitto", diets: ["M", "G"], price: "11,00 €" },
-              { title: "Rinkelin lehtipihvi, maustevoi ja maalaisranskalaiset", diets: ["L", "G"], price: "14,00 €" },
-              { title: "BBQ-nyhtöpossua, coleslaw ja paahdettu peruna", diets: ["M", "G"], price: "13,40 €" }
-            ]
-          }
-        },
-        {
-          id: "hilda",
-          name: "Ravintola Hilda",
-          address: "Rantakatu 7",
-          hours: "10.30–14.00",
-          price: "13,40 €",
-          lat: 63.8386,
-          lon: 23.1308,
-          url: "https://www.ravintolahilda.fi",
-          menus: {
-            0: [
-              { title: "Perinteinen lihamureke, ruskeakastike ja perunamuusi", diets: ["L", "G"], price: null },
-              { title: "Sitruunainen uunikala ja yrttiperunat", diets: ["L", "G"], price: null },
-              { title: "Jälkiruoka: Marjarahka", diets: ["L", "G"], price: null }
-            ],
-            1: [
-              { title: "Se parempi broilerikastike, riisi ja keitetyt perunat", diets: ["L", "G"], price: null },
-              { title: "Kermainen juuressosekeitto", diets: ["L", "G", "Veg"], price: null },
-              { title: "Jälkiruoka: Paistetut letut ja mansikkahillo", diets: ["L"], price: null }
-            ],
-            2: [
-              { title: "Ylikypsää possunniskaa, timjamikastike ja kermaperunat", diets: ["L", "G"], price: null },
-              { title: "Mehukas kasvislasagne", diets: ["L"], price: null },
-              { title: "Jälkiruoka: Omenapaistos ja vaniljakastike", diets: ["L"], price: null }
-            ],
-            3: [
-              { title: "Hildan karjalanpaisti, perunamuusi ja puolukkasurvos", diets: ["M", "G"], price: null },
-              { title: "Hernekeitto ja uunituore pannukakku", diets: ["L"], price: null }
-            ],
-            4: [
-              { title: "Rapea porsaanleike, kaprisvoi ja paistetut perunat", diets: ["L"], price: null },
-              { title: "Kermainen savulohikastike ja täysjyväpasta", diets: ["L"], price: null },
-              { title: "Jälkiruoka: Suklaamousse", diets: ["L", "G"], price: null }
-            ]
-          }
-        },
-        {
-          id: "kulma",
-          name: "Ravintola Kulma",
-          address: "Rantakatu 10",
-          hours: "10.45–14.00",
-          price: "13,60 €",
-          lat: 63.8383,
-          lon: 23.1312,
-          url: "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
-          menus: {
-            0: [
-              { title: "Buffet: Tandoorimaustettua kanaa, jogurttikastiketta ja basmatiriisiä", diets: ["L", "G"], price: "13,60 €" },
-              { title: "Kasvis: Paahdettua kukkakaalia ja kikhernecurrya", diets: ["Veg", "M", "G"], price: "13,60 €" },
-              { title: "Keitto: Bataatti-inkiväärisosekeittoa", diets: ["Veg", "M", "G"], price: "11,70 €" }
-            ],
-            1: [
-              { title: "Buffet: Rapeaa kanaa (Crispy chicken) ja murskattua perunaa", diets: ["L", "G", "M"], price: "13,60 €" },
-              { title: "Kasvis: Vuustokasvispyöryköitä ja myskikurpitsaohrattoa", diets: ["Veg", "M"], price: "13,60 €" },
-              { title: "Keitto: Purjo-perunasosekeittoa", diets: ["L", "G"], price: "11,70 €" }
-            ],
-            2: [
-              { title: "Buffet: Naudanlihapullia kermaisessa pippurikastikkeessa ja muusia", diets: ["L", "G"], price: "13,60 €" },
-              { title: "Kasvis: Välimeren tofupaistos ja yrttiriisiä", diets: ["Veg", "M", "G"], price: "13,60 €" },
-              { title: "Keitto: Kermaista metsäsienikeittoa", diets: ["L", "G"], price: "11,70 €" }
-            ],
-            3: [
-              { title: "Buffet: Paistettua kirjolohta, tillikermaviiliä ja varhaisperunoita", diets: ["L", "G"], price: "13,60 €" },
-              { title: "Kasvis: Linssi-juurespata ja paahdettuja siemeniä", diets: ["Veg", "M", "G"], price: "13,60 €" },
-              { title: "Keitto: Perinteinen hernekeitto ja ohukaiset", diets: ["M", "G"], price: "11,70 €" }
-            ],
-            4: [
-              { title: "Buffet: Street Food Perjantai – Pulled Pork -pitaleivät ja lohkoperunat", diets: ["L", "M"], price: "13,60 €" },
-              { title: "Kasvis: Rapeat falafelit, hummusta ja lohkoperunoita", diets: ["Veg", "M", "G"], price: "13,60 €" },
-              { title: "Keitto: Meksikolainen maissikeitto", diets: ["L", "G"], price: "11,70 €" }
-            ]
-          }
-        },
-        {
-          id: "pancho-villa",
-          name: "Pancho Villa",
-          address: "Tehtaankatu 3–5",
-          hours: "11.00–14.00",
-          price: "13,00–15,00 €",
-          lat: 63.8378,
-          lon: 23.1322,
-          url: "https://panchovilla.fi/ravintolat/kokkola/",
-          staticNote: [
-            "Lounasburgerit (Pekoni / Juusto / Kana / Kasvis) + ranskalaiset 14,00 € (L, saatavilla G)",
-            "Lounaspihvi (Porsaan ulkofilee tai pariloitu kana) 14,50 € (L, G)",
-            "Lounassalaatti (Kana / Vuohenjuusto / Lohi) 14,50 € (L, G)"
-          ],
-          menus: {
-            0: [
-              { title: "Päivän Meksikolounas: Pollo Burrito kanalla ja juustokastikkeella", diets: ["L"], price: "13,00 €" },
-              { title: "Viikon Special Burger: Pineapple Crispy Chicken Burger", diets: ["L", "G"], price: "15,00 €" }
-            ],
-            1: [
-              { title: "Päivän Meksikolounas: Crispy Chicken Calzone", diets: ["L"], price: "13,00 €" },
-              { title: "Viikon Special Burger: Pineapple Crispy Chicken Burger", diets: ["L", "G"], price: "15,00 €" }
-            ],
-            2: [
-              { title: "Päivän Meksikolounas: Fajitas-pannu kanalla ja naudalla", diets: ["L", "G"], price: "13,00 €" },
-              { title: "Viikon Special Burger: Pineapple Crispy Chicken Burger", diets: ["L", "G"], price: "15,00 €" }
-            ],
-            3: [
-              { title: "Päivän Meksikolounas: Beef Quesadilla ja lankkuperunat", diets: ["L"], price: "13,00 €" },
-              { title: "Viikon Special Burger: Pineapple Crispy Chicken Burger", diets: ["L", "G"], price: "15,00 €" }
-            ],
-            4: [
-              { title: "Päivän Meksikolounas: Combo Plate (ribsit, siivet, sipulirenkaat ja dipit)", diets: ["L"], price: "13,00 €" },
-              { title: "Viikon Special Burger: Pineapple Crispy Chicken Burger", diets: ["L", "G"], price: "15,00 €" }
-            ]
-          }
-        }
-      ]
-    };
-
-    // ==========================================================================
     // 2. SOVELLUKSEN TILA
     // ==========================================================================
-    let appData = FALLBACK_DATA;
+    // Data ladataan lounasdata.json-tiedostosta. Keksittyä varadataa ei näytetä.
+    let appData = { restaurants: [] };
+    let loadState = "loading"; // loading | ok | error
+    let showPastWeek = false;
     const todayIndex = getTodayWeekdayIndex();
     let selectedDay = todayIndex;
     let activeDiet = "ALL";
@@ -1259,7 +1277,7 @@
     // 3. DATAN HAKU (GitHub Actionsin luoma lounasdata.json)
     // ==========================================================================
     function formatUpdateTime(rawUpdated) {
-      if (!rawUpdated) return getMorningTimestamp();
+      if (!rawUpdated) return "";
       // Jos ISO-aikaleima (esim. 2026-10-14T07:30:00), muotoillaan luettavaksi
       if (rawUpdated.includes("T") && !rawUpdated.includes("klo")) {
         const parsed = new Date(rawUpdated);
@@ -1277,43 +1295,75 @@
 
     async function loadLunchData() {
       const statusEl = document.getElementById("lastUpdatedStatus");
+      const syncDot = document.getElementById("syncDot");
       try {
         const res = await fetch("./lounasdata.json?t=" + Date.now(), { cache: "no-store" });
-        if (res.ok) {
-          const json = await res.json();
-          if (json && Array.isArray(json.restaurants)) {
-            appData = json;
-            statusEl.textContent = "Tiedot päivitetty viimeksi: " + formatUpdateTime(json.updated);
-            renderAll();
-            return;
-          }
-        }
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const json = await res.json();
+        if (!json || !Array.isArray(json.restaurants)) throw new Error("Virheellinen data");
+        appData = json;
+        loadState = "ok";
+        syncDot.classList.remove("error");
+        statusEl.textContent = "Viimeisin päivitys: " + formatUpdateTime(json.updated);
       } catch (err) {
-        // Käytetään varadataa, jos lounasdata.json ei ole vielä palvelimella
+        loadState = "error";
+        syncDot.classList.add("error");
+        statusEl.textContent = "Lounaslistoja ei saatu ladattua.";
       }
-      statusEl.textContent = "Tiedot päivitetty viimeksi: " + formatUpdateTime(appData.updated);
       renderAll();
     }
 
     // ==========================================================================
     // 4. NÄKYMÄN PIIRTÄMINEN
     // ==========================================================================
-    function updateHeaderStatus() {
-      const now = new Date();
-      const day = now.getDay();
-      const hours = now.getHours() + now.getMinutes() / 60;
-      const isOpen = day >= 1 && day <= 5 && hours >= 10.5 && hours <= 14.0;
+    // "10:30–14:00" tai "10.30–14.00" -> [630, 840] (minuutteina)
+    function parseHours(hours) {
+      const m = String(hours || "").match(/(\d{1,2})[:.](\d{2})\s*[–-]\s*(\d{1,2})[:.](\d{2})/);
+      if (!m) return null;
+      return [Number(m[1]) * 60 + Number(m[2]), Number(m[3]) * 60 + Number(m[4])];
+    }
 
+    function formatMinutes(min) {
+      return `${Math.floor(min / 60)}.${String(min % 60).padStart(2, "0")}`;
+    }
+
+    function isWeekday(date = new Date()) {
+      const d = date.getDay();
+      return d >= 1 && d <= 5;
+    }
+
+    // Ravintolan lounastila juuri nyt: open | soon | closed (vain tänään arkipäivänä)
+    function getOpenState(rest) {
+      const range = parseHours(rest.hours);
+      if (!range || !isWeekday()) return null;
+      const now = new Date();
+      const mins = now.getHours() * 60 + now.getMinutes();
+      if (mins < range[0]) return { cls: "soon", text: `Lounas alkaa klo ${formatMinutes(range[0])}` };
+      if (mins < range[1]) return { cls: "open", text: `Lounas nyt · päättyy ${formatMinutes(range[1])}` };
+      return { cls: "closed", text: "Lounas päättynyt tältä päivältä" };
+    }
+
+    function updateHeaderStatus() {
       const dot = document.getElementById("liveStatusDot");
       const text = document.getElementById("liveStatusText");
       const dayNames = ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"];
+      const day = dayNames[new Date().getDay()];
 
-      if (isOpen) {
-        dot.classList.add("open");
-        text.textContent = dayNames[day] + " • Lounas käynnissä";
+      const states = appData.restaurants.map(getOpenState).filter(Boolean);
+      const openCount = states.filter((st) => st.cls === "open").length;
+      dot.classList.toggle("open", openCount > 0);
+
+      if (!isWeekday()) {
+        text.textContent = `${day} • Lounaat arkisin`;
+      } else if (!states.length) {
+        text.textContent = day;
+      } else if (openCount > 0) {
+        text.textContent = `${day} • ${openCount}/${states.length} lounaspaikkaa auki`;
+      } else if (states.every((st) => st.cls === "soon")) {
+        const first = Math.min(...appData.restaurants.map((r) => (parseHours(r.hours) || [Infinity])[0]));
+        text.textContent = `${day} • Lounas alkaa klo ${formatMinutes(first)}`;
       } else {
-        dot.classList.remove("open");
-        text.textContent = dayNames[day] + " • Lounas arkisin 10.30–14.00";
+        text.textContent = `${day} • Lounasaika on päättynyt`;
       }
     }
 
@@ -1422,19 +1472,94 @@
       `;
     }
 
+    // ISO-viikko muodossa "2026-W42" (sama kuin lounasdata.jsonin "week")
+    function isoWeekKey(date = new Date()) {
+      const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+      const dayNum = d.getUTCDay() || 7;
+      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+      const week = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+      return `${d.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+    }
+
+    // Miksi tämän viikon listoja ei ole: "weekend" | "stale" | null
+    function getListNotice() {
+      if (!isWeekday()) return "weekend";
+      if (appData.week && appData.week !== isoWeekKey()) return "stale";
+      return null;
+    }
+
+    function renderNotice(kind) {
+      const container = document.getElementById("restaurantsContainer");
+      const content = {
+        weekend: {
+          title: "Viikonloppu – lounaat taas maanantaina",
+          text: "Rantakadun lounaspaikat tarjoavat lounasta arkisin. Seuraavan viikon listat julkaistaan maanantaiaamuna.",
+        },
+        stale: {
+          title: "Tämän viikon listat ovat tulossa",
+          text: "Ravintolat eivät ole vielä julkaisseet tämän viikon listoja. Sivu päivittyy arkiaamuisin klo 7.30 ja 10.00.",
+        },
+        error: {
+          title: "Lounaslistoja ei saatu ladattua",
+          text: "Yritä hetken päästä uudelleen tai katso lista suoraan ravintolan sivuilta (linkit sivun alareunassa).",
+        },
+      }[kind];
+      const button =
+        kind === "error"
+          ? `<button type="button" class="soft-btn" id="retryBtn">Yritä uudelleen</button>`
+          : appData.restaurants.length
+          ? `<button type="button" class="soft-btn" id="showPastBtn">Näytä kuluneen viikon listat</button>`
+          : "";
+      container.innerHTML = `
+        <div class="notice-box">
+          <img src="assets/favicon.svg" alt="" width="56" height="56" />
+          <h2>${content.title}</h2>
+          <p>${content.text}</p>
+          ${button}
+        </div>
+      `;
+      const retry = document.getElementById("retryBtn");
+      if (retry) retry.addEventListener("click", () => {
+        loadState = "loading";
+        document.getElementById("lastUpdatedStatus").textContent = "Ladataan lounaslistoja…";
+        loadLunchData();
+      });
+      const past = document.getElementById("showPastBtn");
+      if (past) past.addEventListener("click", () => {
+        showPastWeek = true;
+        renderAll();
+      });
+    }
+
     function renderHero() {
       const sub = document.getElementById("heroSub");
       const chips = document.getElementById("heroChips");
       const dayNames = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai"];
-      const now = new Date();
-      const monday = new Date(now);
-      monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
-      const shown = new Date(monday);
-      shown.setDate(monday.getDate() + selectedDay);
-      const isWeekend = now.getDay() === 0 || now.getDay() === 6;
-      sub.textContent = isWeekend
-        ? "Lounaat tarjolla arkisin. Tässä kuluneen viikon listat."
-        : `${dayNames[selectedDay]} ${shown.getDate()}.${shown.getMonth() + 1}. – ${appData.restaurants.length} ravintolaa muutaman minuutin kävelymatkan päässä.`;
+      const notice = getListNotice();
+      const count = appData.restaurants.length;
+
+      if (loadState !== "ok" || !count) {
+        sub.textContent = "Rantakadun lounaslistat yhdellä silmäyksellä.";
+        chips.innerHTML = "";
+        return;
+      }
+
+      if (notice && !showPastWeek) {
+        sub.textContent =
+          notice === "weekend"
+            ? "Lounaat tarjolla arkisin. Uudet listat julkaistaan maanantaina."
+            : "Tämän viikon listat päivittyvät aamun aikana.";
+      } else if (notice) {
+        sub.textContent = `${dayNames[selectedDay]} – kuluneen viikon lista.`;
+      } else {
+        const now = new Date();
+        const monday = new Date(now);
+        monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+        const shown = new Date(monday);
+        shown.setDate(monday.getDate() + selectedDay);
+        sub.textContent = `${dayNames[selectedDay]} ${shown.getDate()}.${shown.getMonth() + 1}. – ${count} lounaspaikan listat yhdellä silmäyksellä.`;
+      }
       chips.innerHTML = appData.restaurants
         .map((r) => `<a class="hero-chip" href="#card-${r.id}">${r.name}</a>`)
         .join("");
@@ -1447,6 +1572,28 @@
 
       const container = document.getElementById("restaurantsContainer");
       container.innerHTML = "";
+
+      if (loadState === "loading") return;
+      if (loadState === "error") {
+        renderNotice("error");
+        return;
+      }
+      const notice = getListNotice();
+      if (notice && !showPastWeek) {
+        renderNotice(notice);
+        return;
+      }
+      const viewingPastWeek = Boolean(notice);
+      if (viewingPastWeek) {
+        const banner = document.createElement("div");
+        banner.className = "past-week-banner";
+        banner.innerHTML = `<span>Näytetään kuluneen viikon listat.</span><button type="button">Piilota</button>`;
+        banner.querySelector("button").addEventListener("click", () => {
+          showPastWeek = false;
+          renderAll();
+        });
+        container.appendChild(banner);
+      }
 
       let list = appData.restaurants.map((r) => {
         const dist =
@@ -1505,6 +1652,11 @@
           ? `<div class="coin-winner-badge">Kolikon valinta tänään!</div>`
           : "";
 
+        const openState = selectedDay === todayIndex && !viewingPastWeek ? getOpenState(rest) : null;
+        const openPillHtml = openState
+          ? `<span class="open-pill ${openState.cls}">${openState.text}</span>`
+          : "";
+
         const distanceHtml =
           rest.distance !== null
             ? `<span class="distance-pill">${rest.distance} m</span>`
@@ -1550,6 +1702,7 @@
                 <span>${rest.address}</span>
                 <span>•</span>
                 <span>Lounas ${rest.hours}</span>
+                ${openPillHtml}
               </div>
             </div>
 
@@ -1742,6 +1895,8 @@
 
     // Käynnistys
     loadLunchData();
+    // Aukiolotila päivittyy minuutin välein ilman sivun latausta
+    setInterval(updateHeaderStatus, 60000);
   </script>
 </body>
 </html>
