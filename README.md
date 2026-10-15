@@ -23,6 +23,15 @@ käynnillä kaupunki päätellään osoitteesta, ja `?kaupunki=tampere` pakottaa
    tarjoilee sen osoitteen ratinanlounas.aihio.fyi etusivuna. Näin somepalvelujen
    linkkiesikatselu näyttää oikean kaupungin. Älä muokkaa tiedostoa käsin.
 
+## Palaute
+
+Sivun alapalkin "Anna palautetta" -nappi ja ravintolakorttien "Ilmoita virheestä listassa"
+-linkit lähettävät palautteen yhteiseen aihio.fyi-palautepalveluun
+([aihio-palaute](https://github.com/totonounordic-alt/aihio-palaute), `POST https://palaute.aihio.fyi/api/palaute`).
+Projektit ovat `lounas-kokkola` ja `lounas-tampere`. Korttilinkistä lähetetyn viestin alussa
+on ravintola ja päivä, esim. `[Ravintola Kulma · to 15.10.]`, ja kentässä `version` datan
+päivitysaika. Palautteet luetaan palautepalvelun ylläpitosivulta https://palaute.aihio.fyi/admin.
+
 ## Ravintolan lisääminen
 
 Lisää ravintola `update_menus.py`:n funktioon `kokkola_restaurants()` tai

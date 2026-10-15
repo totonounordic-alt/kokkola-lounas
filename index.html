@@ -1213,6 +1213,179 @@
     }
 
     /* ==========================================================================
+       7a. PALAUTE (palaute.aihio.fyi)
+       ========================================================================== */
+    .footer-feedback {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .report-btn {
+      align-self: flex-start;
+      margin-top: 0.7rem;
+      background: none;
+      border: none;
+      padding: 0.15rem 0;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .report-btn:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .report-btn svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .feedback-dialog {
+      margin: auto; /* yleinen *-nollaus poistaa dialogin oletuskeskityksen */
+      max-height: calc(100dvh - 2rem);
+      overflow: auto;
+      border: none;
+      border-radius: var(--radius-card);
+      padding: 0;
+      width: min(480px, calc(100vw - 2rem));
+      background: var(--surface);
+      color: var(--text-main);
+      box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.45);
+    }
+
+    @media (max-width: 559px) {
+      /* Mobiilissa alareunasta nouseva paneeli */
+      .feedback-dialog {
+        margin: auto 0 0;
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: var(--radius-card) var(--radius-card) 0 0;
+      }
+    }
+
+    .feedback-dialog::backdrop {
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(2px);
+    }
+
+    .feedback-form {
+      padding: 1.25rem 1.25rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .feedback-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .feedback-head h2 {
+      font-size: 1.1rem;
+      color: var(--text-strong);
+      letter-spacing: -0.01em;
+    }
+
+    .feedback-close {
+      background: var(--control-bg);
+      border: 1px solid var(--control-border);
+      color: var(--text-secondary);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .feedback-context {
+      align-self: flex-start;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .feedback-form label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .feedback-form textarea,
+    .feedback-form input[type="text"] {
+      width: 100%;
+      font: inherit;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      background: var(--surface-soft);
+      border: 1px solid var(--control-border);
+      border-radius: var(--radius-control);
+      padding: 0.65rem 0.8rem;
+    }
+
+    .feedback-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .feedback-form textarea:focus,
+    .feedback-form input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-soft);
+    }
+
+    .feedback-hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .feedback-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.2rem;
+    }
+
+    .feedback-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .feedback-status {
+      min-height: 1.2em;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .feedback-status.ok { color: var(--open); }
+    .feedback-status.bad { color: #dc2626; }
+
+    .feedback-privacy {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
        7b. TAMPEREEN TEEMA – Toimistotalo Ratina (grafiitti lasi, tiili, mintunvihreät ikkunat)
        ========================================================================== */
     :root[data-city="tampere"] {
@@ -1443,8 +1616,41 @@
         Listat haetaan ravintoloiden omilta sivuilta ja lounaat.info-palvelusta.
         Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.
       </p>
+      <div class="footer-feedback">
+        <span>Huomasitko virheen tai onko sinulla toive? Kerro siitä!</span>
+        <button type="button" class="soft-btn" id="feedbackBtn">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h6m-9 8 3.5-3.5H18a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6.5a3 3 0 0 0 1 2.24V20z"></path>
+          </svg>
+          <span>Anna palautetta</span>
+        </button>
+      </div>
     </div>
   </footer>
+
+  <!-- Palautelomake: lähettää palautteen palaute.aihio.fyi-palveluun -->
+  <dialog class="feedback-dialog" id="feedbackDialog" aria-labelledby="feedbackTitle">
+    <form class="feedback-form" id="feedbackForm" novalidate>
+      <div class="feedback-head">
+        <h2 id="feedbackTitle">Anna palautetta</h2>
+        <button type="button" class="feedback-close" id="feedbackClose" aria-label="Sulje">✕</button>
+      </div>
+      <span class="feedback-context" id="feedbackContext" hidden></span>
+      <label for="feedbackMessage">Viesti</label>
+      <textarea id="feedbackMessage" maxlength="500" required placeholder="Mitä haluat kertoa?"></textarea>
+      <label for="feedbackContact">Yhteystieto (vapaaehtoinen, jos haluat vastauksen)</label>
+      <input type="text" id="feedbackContact" maxlength="100" autocomplete="email" />
+      <div class="feedback-hp" aria-hidden="true">
+        <label>Älä täytä tätä kenttää <input type="text" id="feedbackWebsite" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <div class="feedback-status" id="feedbackStatus" role="status" aria-live="polite"></div>
+      <div class="feedback-actions">
+        <span class="feedback-count" id="feedbackCount">0 / 500</span>
+        <button type="submit" class="soft-btn active" id="feedbackSend">Lähetä</button>
+      </div>
+      <p class="feedback-privacy">Palaute tallentuu aihio.fyi-palautepalveluun. Yhteystietoa käytetään vain vastaamiseen.</p>
+    </form>
+  </dialog>
 
   <!-- Pehmeä ilmoituskupla -->
   <div id="toast" class="toast-wrap" role="status" aria-live="polite"></div>
@@ -2059,6 +2265,12 @@
           </ul>
           ${filterNoteHtml}
           ${staticBoxHtml}
+          <button type="button" class="report-btn" data-report="${esc(rest.id)}">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 21V4m0 0h11l-1.5 4L15 12H4"></path>
+            </svg>
+            Ilmoita virheestä listassa
+          </button>
         `;
 
         container.appendChild(card);
@@ -2129,6 +2341,11 @@
     });
 
     document.getElementById("restaurantsContainer").addEventListener("click", (e) => {
+      const reportBtn = e.target.closest(".report-btn");
+      if (reportBtn) {
+        openFeedback(appData.restaurants.find((r) => r.id === reportBtn.dataset.report));
+        return;
+      }
       const favBtn = e.target.closest(".fav-btn");
       if (!favBtn) return;
       const id = favBtn.dataset.fav;
@@ -2252,6 +2469,115 @@
       document.getElementById("lastUpdatedStatus").textContent = "Ladataan lounaslistoja…";
       renderAll();
       loadLunchData();
+    });
+
+    // ==========================================================================
+    // PALAUTE (palaute.aihio.fyi, projekti kaupungin mukaan)
+    // ==========================================================================
+    const FEEDBACK_API = "https://palaute.aihio.fyi/api/palaute";
+    const FEEDBACK_MAX = 500;
+    let feedbackPrefix = "";
+
+    function weekdayLabel(idx) {
+      const names = ["ma", "ti", "ke", "to", "pe"];
+      const now = new Date();
+      const day = new Date(now);
+      day.setDate(now.getDate() - ((now.getDay() + 6) % 7) + idx);
+      return `${names[idx]} ${day.getDate()}.${day.getMonth() + 1}.`;
+    }
+
+    // rest: ravintola, jonka listasta ilmoitetaan (tyhjä = yleinen palaute)
+    function openFeedback(rest) {
+      const dialog = document.getElementById("feedbackDialog");
+      const context = document.getElementById("feedbackContext");
+      const message = document.getElementById("feedbackMessage");
+      if (rest) {
+        const label = `${rest.name} · ${weekdayLabel(selectedDay)}`;
+        feedbackPrefix = `[${label}] `;
+        context.textContent = `Koskee: ${label}`;
+        context.hidden = false;
+        document.getElementById("feedbackTitle").textContent = "Ilmoita virheestä";
+        message.placeholder = "Mikä listassa on vialla? Esim. puuttuva annos, väärä hinta tai merkintä.";
+      } else {
+        feedbackPrefix = "";
+        context.hidden = true;
+        document.getElementById("feedbackTitle").textContent = "Anna palautetta";
+        message.placeholder = "Mitä haluat kertoa? Toiveet ja ideat ovat myös tervetulleita.";
+      }
+      message.maxLength = FEEDBACK_MAX - feedbackPrefix.length;
+      document.getElementById("feedbackStatus").textContent = "";
+      updateFeedbackCount();
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else dialog.setAttribute("open", "");
+      message.focus();
+    }
+
+    function closeFeedback() {
+      const dialog = document.getElementById("feedbackDialog");
+      if (typeof dialog.close === "function") dialog.close();
+      else dialog.removeAttribute("open");
+    }
+
+    function updateFeedbackCount() {
+      const message = document.getElementById("feedbackMessage");
+      document.getElementById("feedbackCount").textContent = `${message.value.length} / ${message.maxLength}`;
+    }
+
+    document.getElementById("feedbackBtn").addEventListener("click", () => openFeedback(null));
+    document.getElementById("feedbackClose").addEventListener("click", closeFeedback);
+    document.getElementById("feedbackMessage").addEventListener("input", updateFeedbackCount);
+    // Klikkaus taustalle sulkee
+    document.getElementById("feedbackDialog").addEventListener("click", (e) => {
+      if (e.target.id === "feedbackDialog") closeFeedback();
+    });
+
+    document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const message = document.getElementById("feedbackMessage");
+      const status = document.getElementById("feedbackStatus");
+      const send = document.getElementById("feedbackSend");
+      const say = (text, ok) => {
+        status.textContent = text;
+        status.className = "feedback-status " + (ok ? "ok" : "bad");
+      };
+      if (message.value.trim().length < 2) {
+        say("Kirjoita viesti ensin.", false);
+        message.focus();
+        return;
+      }
+      send.disabled = true;
+      say("Lähetetään…", true);
+      try {
+        const res = await fetch(FEEDBACK_API, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            project: currentCity === "tampere" ? "lounas-tampere" : "lounas-kokkola",
+            message: (feedbackPrefix + message.value.trim()).slice(0, FEEDBACK_MAX),
+            contact: document.getElementById("feedbackContact").value.trim(),
+            website: document.getElementById("feedbackWebsite").value,
+            version: appData.updated ? `data ${appData.updated}` : "",
+            device: matchMedia("(pointer: coarse)").matches ? "mobile" : "desktop",
+          }),
+        });
+        if (res.ok) {
+          say("Kiitos! Palaute on lähetetty.", true);
+          message.value = "";
+          document.getElementById("feedbackContact").value = "";
+          updateFeedbackCount();
+          setTimeout(() => {
+            closeFeedback();
+            showToast("Kiitos palautteesta!");
+          }, 1200);
+        } else if (res.status === 429) {
+          say("Liian monta viestiä lyhyessä ajassa. Yritä hetken päästä uudelleen.", false);
+        } else {
+          say("Lähetys epäonnistui. Yritä uudelleen.", false);
+        }
+      } catch (err) {
+        say("Ei yhteyttä palautepalveluun. Tarkista verkkoyhteys.", false);
+      }
+      send.disabled = false;
     });
 
     // Käynnistys
