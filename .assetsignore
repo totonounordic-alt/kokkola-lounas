@@ -1,0 +1,10 @@
+# Tiedostot, joita ei julkaista verkkoon (Cloudflare Worker static assets)
+.git
+.github
+.assetsignore
+__pycache__
+*.py
+worker.js
+wrangler.jsonc
+README.md
+CNAME

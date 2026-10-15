@@ -1,0 +1,13 @@
+{
+  // Cloudflare Worker, joka palvelee molempia lounassivuja:
+  // rantakadunlounas.aihio.fyi (Kokkola) ja ratinanlounas.aihio.fyi (Tampere)
+  "name": "kokkola-lounas",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // Worker ajetaan vain etusivulla; muut tiedostot tarjoillaan suoraan
+    "run_worker_first": ["/", "/index.html"]
+  }
+}
