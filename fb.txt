@@ -1,0 +1,10 @@
+== health
+{"ok":true,"palvelu":"aihio-palaute","tietokanta":true,"salasana":true,"taulu":true}
+== OPTIONS from https://rantakadunlounas.aihio.fyi
+HTTP/2 204 
+access-control-allow-origin: https://rantakadunlounas.aihio.fyi
+== OPTIONS from https://ratinanlounas.aihio.fyi
+HTTP/2 204 
+access-control-allow-origin: https://ratinanlounas.aihio.fyi
+== form page
+200
