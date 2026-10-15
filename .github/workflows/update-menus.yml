@@ -1,11 +1,13 @@
 name: Päivitä lounaslistat (Kokkola ja Tampere)
 
 on:
-  # Ajetaan automaattisesti arkisin (ma-pe) klo 07:30 ja 10:00 Suomen kesäaikaa (04:30 ja 07:00 UTC).
-  # Toinen ajo poimii listat, jotka ravintolat julkaisevat vasta aamulla.
+  # Ajetaan arkisin (ma-pe) 04:30, 07:00 ja 08:00 UTC eli
+  # kesäaikaan klo 7.30, 10.00 ja 11.00 ja talviaikaan klo 6.30, 9.00 ja 10.00.
+  # Myöhemmät ajot poimivat listat, jotka ravintolat julkaisevat vasta aamulla.
   schedule:
     - cron: "30 4 * * 1-5"
     - cron: "0 7 * * 1-5"
+    - cron: "0 8 * * 1-5"
 
   # Mahdollistaa päivityksen käynnistämisen myös käsin GitHubin Actions-välilehdeltä
   workflow_dispatch:

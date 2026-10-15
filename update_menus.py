@@ -687,9 +687,19 @@ def parse_via_tribunali(today: date):
         if re.search(r"\bG\b", optional):
             diets = normalize_diets(diets + ["PG"])
         skip = {id(e) for e in [price_el, sub_el, *diet_els] if e}
-        desc = " ".join(
-            p.get_text(" ", strip=True) for p in box.find_all("p") if id(p) not in skip and p.get_text(strip=True)
-        )
+        lines = [
+            re.sub(r"\s+", " ", line).strip()
+            for p in box.find_all("p")
+            if id(p) not in skip
+            for line in p.get_text("\n").splitlines()
+            if line.strip()
+        ]
+        # Rivit yhteen; isolla alkavan uuden lauseen eteen piste, jos edellinen ei pääty välimerkkiin
+        desc = ""
+        for line in lines:
+            if desc and line[:1].isupper() and not re.search(r"[.!?:]$", desc):
+                desc += "."
+            desc = f"{desc} {line}".strip()
         title = f"{name} ({sub_el.get_text(strip=True).lower()})" if sub_el else name
         items.append({"title": title, "diets": diets, "price": price, **({"desc": desc} if desc else {})})
     info = []

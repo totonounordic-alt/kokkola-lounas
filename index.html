@@ -231,6 +231,29 @@
       transform: translateX(100%);
     }
 
+    /* Näppäimistöllä valittu kohde näkyy selvästi */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    @keyframes softPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.94); }
+    }
+
+    .loading-icon {
+      animation: softPulse 1.4s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loading-icon { animation: none; }
+      .city-switch .thumb { transition: none; }
+    }
+
     .city-switch button:focus-visible {
       outline: 2px solid #ffffff;
       outline-offset: 2px;
@@ -1358,7 +1381,8 @@
             type="search"
             id="searchInput"
             class="search-input"
-            placeholder="Etsi ruokaa tai ravintolaa (esim. lohi, keitto, kana)..."
+            placeholder="Etsi ruokaa tai ravintolaa…"
+            aria-label="Etsi ruokaa tai ravintolaa"
           />
           <button type="button" id="clearSearchBtn" class="clear-search-btn" aria-label="Tyhjennä haku">✕</button>
         </div>
@@ -1411,7 +1435,7 @@
       <div class="footer-row">
         <span class="sync-dot" id="syncDot" aria-hidden="true"></span>
         <div>
-          <span class="footer-title">Listat päivittyvät arkiaamuisin klo 7.30 ja 10.00</span>
+          <span class="footer-title">Listat päivittyvät automaattisesti arkiaamuisin</span>
           <span id="lastUpdatedStatus">Ladataan lounaslistoja…</span>
         </div>
       </div>
@@ -1524,8 +1548,8 @@
         .filter((r) => r.source && r.source.url)
         .map(
           (r) =>
-            `<a href="${r.source.url}" target="_blank" rel="noopener noreferrer">${r.name}</a>` +
-            (r.source.label && !r.name.includes(r.source.label.split(".")[0]) ? ` (${r.source.label})` : "")
+            `<a href="${safeUrl(r.source.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)}</a>` +
+            (r.source.label && !r.name.includes(r.source.label.split(".")[0]) ? ` (${esc(r.source.label)})` : "")
         );
       if (!links.length) return;
       el.innerHTML = `Listat haetaan näistä lähteistä: ${links.join(" · ")}. Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.`;
@@ -1680,6 +1704,21 @@
       return [];
     }
 
+    // Haettu data tulee ravintoloiden sivuilta, joten se suojataan aina ennen HTML:ään kirjoittamista
+    function esc(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    }
+
+    // Vain http(s)-linkit kelpaavat
+    function safeUrl(value) {
+      try {
+        const u = new URL(value, location.href);
+        return u.protocol === "https:" || u.protocol === "http:" ? esc(u.href) : "#";
+      } catch (e) {
+        return "#";
+      }
+    }
+
     // Ruokavaliosuodatin. "PG" (gluteeniton pyydettäessä) kelpaa G-suodattimeen.
     function dietMatches(diets, title, groupTitle) {
       if (activeDiet === "ALL" || activeDiet === "FAV") return true;
@@ -1708,21 +1747,22 @@
       return (diets || [])
         .map((d) => {
           const known = ["G", "PG", "L", "VL", "M", "Veg"].includes(d) ? `diet-${d}` : "diet-other";
-          const label = DIET_LABELS[d] || d;
-          return `<span class="diet-badge ${known}" title="${DIET_TITLES[d] || d}" aria-label="${DIET_TITLES[d] || d}">${label}</span>`;
+          const label = esc(DIET_LABELS[d] || d);
+          const title = esc(DIET_TITLES[d] || d);
+          return `<span class="diet-badge ${known}" title="${title}" aria-label="${title}">${label}</span>`;
         })
         .join("");
     }
 
     function renderMenuItem(item) {
-      const priceHtml = item.price ? `<span class="dish-price-tag">${item.price}</span>` : "";
+      const priceHtml = item.price ? `<span class="dish-price-tag">${esc(item.price)}</span>` : "";
 
       if (Array.isArray(item.parts)) {
         const partsHtml = item.parts
           .map(
             (part) => `
               <li class="part-item ${activeDiet !== "ALL" && activeDiet !== "FAV" ? (part.match ? "match" : "dimmed") : ""}">
-                <span class="part-title">${part.title}</span>
+                <span class="part-title">${esc(part.title)}</span>
                 <span class="dish-badges">${renderBadges(part.diets)}</span>
               </li>`
           )
@@ -1730,7 +1770,7 @@
         return `
           <li class="menu-item has-parts">
             <div class="package-head">
-              <span class="package-title">${item.title}</span>
+              <span class="package-title">${esc(item.title)}</span>
               <div class="dish-badges">${priceHtml}</div>
             </div>
             <ul class="part-list">${partsHtml}</ul>
@@ -1741,8 +1781,8 @@
       return `
         <li class="menu-item">
           <div class="dish-text">
-            <span class="dish-title">${item.title}</span>
-            ${item.desc ? `<span class="dish-desc">${item.desc}</span>` : ""}
+            <span class="dish-title">${esc(item.title)}</span>
+            ${item.desc ? `<span class="dish-desc">${esc(item.desc)}</span>` : ""}
           </div>
           <div class="dish-badges">
             ${renderBadges(item.diets)}
@@ -1778,7 +1818,7 @@
         },
         stale: {
           title: "Tämän viikon listat ovat tulossa",
-          text: "Ravintolat eivät ole vielä julkaisseet tämän viikon listoja. Sivu päivittyy arkiaamuisin klo 7.30 ja 10.00.",
+          text: "Ravintolat eivät ole vielä julkaisseet tämän viikon listoja. Sivu päivittyy automaattisesti arkiaamuisin.",
         },
         error: {
           title: "Lounaslistoja ei saatu ladattua",
@@ -1841,7 +1881,7 @@
         sub.textContent = `${dayNames[selectedDay]} ${shown.getDate()}.${shown.getMonth() + 1}. – ${count} lounaspaikan listat yhdellä silmäyksellä.`;
       }
       chips.innerHTML = appData.restaurants
-        .map((r) => `<a class="hero-chip" href="#card-${r.id}">${r.name}</a>`)
+        .map((r) => `<a class="hero-chip" href="#card-${esc(r.id)}">${esc(r.name)}</a>`)
         .join("");
     }
 
@@ -1853,7 +1893,15 @@
       const container = document.getElementById("restaurantsContainer");
       container.innerHTML = "";
 
-      if (loadState === "loading") return;
+      if (loadState === "loading") {
+        container.innerHTML = `
+          <div class="notice-box" aria-busy="true">
+            <img src="${esc(CITIES[currentCity].icons.svg)}" alt="" width="56" height="56" class="loading-icon" />
+            <p>Ladataan lounaslistoja…</p>
+          </div>
+        `;
+        return;
+      }
       if (loadState === "error") {
         renderNotice("error");
         return;
@@ -1962,7 +2010,7 @@
                   </svg>
                 </summary>
                 <ul class="static-menu-list">
-                  ${rest.staticNote.map((line) => `<li>• ${line}</li>`).join("")}
+                  ${rest.staticNote.map((line) => `<li>• ${esc(line)}</li>`).join("")}
                 </ul>
               </details>
             `
@@ -1973,8 +2021,8 @@
           <div class="card-top">
             <div class="restaurant-title-group">
               <div class="restaurant-name-row">
-                <a href="${rest.url}" target="_blank" rel="noopener noreferrer" class="restaurant-name">
-                  <span>${rest.name}</span>
+                <a href="${safeUrl(rest.url)}" target="_blank" rel="noopener noreferrer" class="restaurant-name">
+                  <span>${esc(rest.name)}</span>
                   <svg class="ext-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14 4h6m0 0v6m0-6L10 14M6 6H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-1"></path>
                   </svg>
@@ -1982,20 +2030,20 @@
                 ${distanceHtml}
               </div>
               <div class="restaurant-meta">
-                <span>${rest.address}</span>
+                <span>${esc(rest.address)}</span>
                 <span>•</span>
-                <span>Lounas ${rest.hours}</span>
+                <span>Lounas ${esc(rest.hours)}</span>
                 ${openPillHtml}
               </div>
-              ${(rest.info || []).map((line) => `<p class="restaurant-info">${line}</p>`).join("")}
+              ${(rest.info || []).map((line) => `<p class="restaurant-info">${esc(line)}</p>`).join("")}
             </div>
 
             <div class="card-top-right">
-              ${rest.price ? `<span class="price-badge">${rest.price}</span>` : ""}
+              ${rest.price ? `<span class="price-badge">${esc(rest.price)}</span>` : ""}
               <button
                 type="button"
                 class="fav-btn ${rest.isFav ? "active" : ""}"
-                data-fav="${rest.id}"
+                data-fav="${esc(rest.id)}"
                 aria-label="Tallenna suosikiksi"
                 title="Kiinnitä suosikiksi"
               >
@@ -2180,7 +2228,15 @@
       updateHeaderStatus();
     });
 
-    // Kaupunkikytkin
+    // Kaupunkikytkin: nuolinäppäimet vaihtavat kaupunkia (radiogroup-käytäntö)
+    document.getElementById("citySwitch").addEventListener("keydown", (e) => {
+      if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) return;
+      e.preventDefault();
+      const target = document.querySelector(`#citySwitch button[data-city="${currentCity === "kokkola" ? "tampere" : "kokkola"}"]`);
+      target.click();
+      target.focus();
+    });
+
     document.getElementById("citySwitch").addEventListener("click", (e) => {
       const btn = e.target.closest("button[data-city]");
       if (!btn || btn.dataset.city === currentCity) return;
@@ -2200,6 +2256,7 @@
 
     // Käynnistys
     applyCity(currentCity);
+    renderAll(); // latausnäkymä heti, data piirretään kun se saapuu
     loadLunchData();
     // Aukiolotila päivittyy minuutin välein ilman sivun latausta
     setInterval(updateHeaderStatus, 60000);
