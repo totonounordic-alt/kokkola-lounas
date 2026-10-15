@@ -1,0 +1,23 @@
+name: Debug sources (temporary)
+on:
+  push:
+    branches: [claude/debug-sources]
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check feedback service
+        run: |
+          echo "== health" >> fb.txt; curl -sS https://palaute.aihio.fyi/api/health >> fb.txt 2>&1; echo >> fb.txt
+          for o in https://rantakadunlounas.aihio.fyi https://ratinanlounas.aihio.fyi; do
+            echo "== OPTIONS from $o" >> fb.txt
+            curl -sS -o /dev/null -D - -X OPTIONS -H "Origin: $o" -H "Access-Control-Request-Method: POST" -H "Access-Control-Request-Headers: content-type" https://palaute.aihio.fyi/api/palaute | grep -iE "^HTTP|access-control-allow-origin" >> fb.txt
+          done
+          echo "== form page" >> fb.txt; curl -sS -o /dev/null -w "%{http_code}\n" "https://palaute.aihio.fyi/?p=lounas-kokkola" >> fb.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f fb.txt && git commit -qm "fb-check" && git push
