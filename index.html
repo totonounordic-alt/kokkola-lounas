@@ -10,9 +10,24 @@
   <meta name="description" content="Kokkolan keskustan päivän lounaslistat: Harjun Rinkeli, Ravintola Hilda, Smokey Road Diner, Ravintola Kulma, Pancho Villa, Madez Lounge ja Food & Co Coccolita." />
 
   <!-- Favicon: Kokkolan vesitorni -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" id="faviconSvg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" id="faviconPng" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" id="touchIcon" />
+  <script>
+    // Kaupunki: ?kaupunki=… > muistettu valinta > osoite (ratinanlounas.* = Tampere)
+    (function () {
+      var city = null;
+      try {
+        var q = new URLSearchParams(location.search).get("kaupunki");
+        if (q === "kokkola" || q === "tampere") city = q;
+        if (!city) city = localStorage.getItem("lounas_city");
+      } catch (e) {}
+      if (city !== "kokkola" && city !== "tampere") {
+        city = /^ratinanlounas\./.test(location.hostname) ? "tampere" : "kokkola";
+      }
+      document.documentElement.dataset.city = city;
+    })();
+  </script>
   <meta property="og:title" content="Rantakadun lounas – Kokkola" />
   <meta property="og:description" content="Rantakadun päivän lounaslistat yhdellä silmäyksellä." />
   <meta property="og:image" content="https://rantakadunlounas.aihio.fyi/assets/og-image.jpg" />
@@ -46,6 +61,11 @@
       --brick: #b9472e;
       --brick-dark: #7c2d1a;
       --brick-soft: #fbeae5;
+      --hero-image: url("assets/vesitorni.jpg");
+      --hero-position: center 18%;
+      --hero-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28' viewBox='0 0 44 28'%3E%3Cpath d='M0 14 11 2l11 12 11-12 11 12M0 14l11 12 11-12 11 12 11-12' fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'/%3E%3C/svg%3E");
+      --hero-gradient: linear-gradient(135deg, #12325e 0%, #1e4b8a 60%, #3a6fb8 100%);
+      --hero-accent: #93c5fd;
       --text-strong: #0f172a;
       --chip-bg: #eff6ff;
       --chip-border: #bfdbfe;
@@ -152,7 +172,67 @@
 
     .brand-text .word-sub {
       font-weight: 400;
-      color: #93c5fd;
+      color: var(--hero-accent);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    /* Kaupunkikytkin (liukukytkin) */
+    .city-switch {
+      position: relative;
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      isolation: isolate;
+    }
+
+    .city-switch button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #e2e8f0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.32rem 0.85rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: color 0.2s ease;
+      min-width: 76px;
+    }
+
+    .city-switch button[aria-checked="true"] {
+      color: var(--bg-header-start);
+    }
+
+    .city-switch .thumb {
+      position: absolute;
+      z-index: -1;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      width: calc(50% - 3px);
+      border-radius: var(--radius-pill);
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    :root[data-city="tampere"] .city-switch .thumb {
+      transform: translateX(100%);
+    }
+
+    .city-switch button:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
     }
 
     .header-status-pill {
@@ -204,9 +284,7 @@
       color: #ffffff;
       background-color: #163b6d;
       /* Tiilitornin timanttikuvio taustalla */
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='28' viewBox='0 0 44 28'%3E%3Cpath d='M0 14 11 2l11 12 11-12 11 12M0 14l11 12 11-12 11 12 11-12' fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='2'/%3E%3C/svg%3E"),
-        linear-gradient(135deg, #12325e 0%, #1e4b8a 60%, #3a6fb8 100%);
+      background-image: var(--hero-pattern), var(--hero-gradient);
       box-shadow: 0 18px 40px -18px rgba(16, 42, 76, 0.45);
     }
 
@@ -216,7 +294,7 @@
       right: 0;
       bottom: 0;
       width: 46%;
-      background: url("assets/vesitorni.jpg") center 18% / cover no-repeat;
+      background: var(--hero-image) var(--hero-position) / cover no-repeat;
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
       mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
     }
@@ -256,7 +334,7 @@
     }
 
     .hero h1 span {
-      color: #93c5fd;
+      color: var(--hero-accent);
     }
 
     .hero-sub {
@@ -298,6 +376,20 @@
       }
       .hero-text { max-width: 78%; padding: 1.3rem 1.15rem 1.2rem; }
       .hero-sub { font-size: 0.84rem; }
+      /* Pikalinkit yhdeksi vieritettäväksi riviksi */
+      .hero-chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+        width: calc(100vw - 4.3rem);
+        padding-bottom: 0.1rem;
+      }
+      .hero-chips::-webkit-scrollbar { display: none; }
+      .hero-chip { white-space: nowrap; flex-shrink: 0; background: rgba(15, 23, 42, 0.35); }
+      /* Kevyempi yläpalkki: ei kiinnitetä pienellä näytöllä */
+      .site-header { position: static; padding: 0.8rem 1rem; }
+      .header-right { width: 100%; justify-content: flex-start; }
+      .city-switch button { min-width: 68px; padding: 0.28rem 0.7rem; }
     }
 
     .controls-panel {
@@ -736,6 +828,18 @@
       padding-bottom: 0.25rem;
     }
 
+    .dish-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .dish-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
     .dish-title {
       font-size: 0.93rem;
       font-weight: 500;
@@ -1085,6 +1189,35 @@
     }
 
     /* ==========================================================================
+       7b. TAMPEREEN TEEMA – Toimistotalo Ratina (grafiitti lasi, tiili, mintunvihreät ikkunat)
+       ========================================================================== */
+    :root[data-city="tampere"] {
+      --bg-page: #f2f5f4;
+      --bg-header-start: #1b2228;
+      --bg-header-end: #2d3842;
+      --surface-soft: #f6faf8;
+      --surface-Tint: #e6f0ec;
+      --primary: #0f7f6c;
+      --primary-dark: #0b6555;
+      --primary-soft: #d3efe6;
+      --border-soft: rgba(15, 127, 108, 0.1);
+      --chip-bg: #e7f5f0;
+      --chip-border: #a9dccb;
+      --brick: #b9532f;
+      --hero-image: url("assets/ratina.svg");
+      --hero-position: 72% 70%;
+      /* Lasijulkisivun pystylamellit */
+      --hero-pattern: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 2px, transparent 2px 14px);
+      --hero-gradient: linear-gradient(135deg, #161c21 0%, #26313a 55%, #3b4955 100%);
+      --hero-accent: #9fe0c8;
+    }
+
+    :root[data-city="tampere"] .soft-btn.active,
+    :root[data-city="tampere"] .diet-pill.active {
+      box-shadow: 0 4px 12px rgba(15, 127, 108, 0.25);
+    }
+
+    /* ==========================================================================
        8. TUMMA TILA (seuraa laitteen asetusta)
        ========================================================================== */
     @media (prefers-color-scheme: dark) {
@@ -1141,6 +1274,24 @@
 
       .hero { box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.7); }
       .hero-photo { filter: brightness(0.85) saturate(0.95); }
+
+      :root[data-city="tampere"] {
+        --bg-page: #0b1013;
+        --bg-header-start: #0d1215;
+        --bg-header-end: #1b242b;
+        --surface: #131b20;
+        --surface-soft: #18232a;
+        --surface-Tint: #1b2830;
+        --primary: #5fd0b5;
+        --primary-dark: #8fe3cf;
+        --primary-soft: #133a33;
+        --border-soft: rgba(148, 196, 184, 0.14);
+        --chip-bg: rgba(95, 208, 181, 0.13);
+        --chip-border: rgba(95, 208, 181, 0.3);
+        --control-bg: #17222a;
+        --control-border: #26363f;
+        --tag-bg: #1c2930;
+      }
     }
   </style>
 </head>
@@ -1151,17 +1302,24 @@
     <div class="header-inner">
       <a href="./" class="brand-link">
         <div class="brand-badge" aria-hidden="true">
-          <img src="assets/favicon.svg" alt="" width="40" height="40" />
+          <img src="assets/favicon.svg" alt="" width="40" height="40" id="brandIcon" />
         </div>
         <div class="brand-text">
-          <span class="word-main">Rantakadun</span>
+          <span class="word-main" id="brandMain">Rantakadun</span>
           <span class="word-sub">lounas</span>
         </div>
       </a>
 
-      <div class="header-status-pill" id="liveStatusPill">
-        <span class="status-dot" id="liveStatusDot"></span>
-        <span id="liveStatusText">Kokkola</span>
+      <div class="header-right">
+        <div class="city-switch" id="citySwitch" role="radiogroup" aria-label="Valitse kaupunki">
+          <span class="thumb" aria-hidden="true"></span>
+          <button type="button" role="radio" data-city="kokkola" aria-checked="true">Kokkola</button>
+          <button type="button" role="radio" data-city="tampere" aria-checked="false">Tampere</button>
+        </div>
+        <div class="header-status-pill" id="liveStatusPill">
+          <span class="status-dot" id="liveStatusDot"></span>
+          <span id="liveStatusText"></span>
+        </div>
       </div>
     </div>
   </header>
@@ -1169,10 +1327,10 @@
   <!-- PÄÄSISÄLTÖ -->
   <main class="main-wrap">
     <section class="hero" aria-label="Rantakadun lounas">
-      <div class="hero-photo" role="img" aria-label="Koristekuva: Kokkolan vesitorni"></div>
+      <div class="hero-photo" role="img" aria-label="Koristekuva: Kokkolan vesitorni" id="heroPhoto"></div>
       <div class="hero-text">
-        <p class="hero-kicker">Kokkola · Rantakatu</p>
-        <h1>Päivän lounas<br /><span>Rantakadulla</span></h1>
+        <p class="hero-kicker" id="heroKicker">Kokkola · Rantakatu</p>
+        <h1>Päivän lounas<br /><span id="heroPlace">Rantakadulla</span></h1>
         <p class="hero-sub" id="heroSub">Rantakadun lounaslistat yhdellä silmäyksellä.</p>
         <div class="hero-chips" id="heroChips"></div>
       </div>
@@ -1270,7 +1428,39 @@
     // ==========================================================================
     // 2. SOVELLUKSEN TILA
     // ==========================================================================
-    // Data ladataan lounasdata.json-tiedostosta. Keksittyä varadataa ei näytetä.
+    // Kaupunkikohtaiset asetukset. Data ladataan kaupungin JSON-tiedostosta (GitHub Actions).
+    const CITIES = {
+      kokkola: {
+        data: "./lounasdata.json",
+        brandMain: "Rantakadun",
+        title: "Rantakadun lounas – Kokkola",
+        kicker: "Kokkola · Rantakatu",
+        place: "Rantakadulla",
+        placeGenitive: "Rantakadun",
+        centerName: "Rantakadulta",
+        heroLabel: "Koristekuva: Kokkolan vesitorni",
+        icons: { svg: "assets/favicon.svg", png: "assets/favicon-32.png", touch: "assets/apple-touch-icon.png" },
+        themeColor: "#163b6d",
+        center: { lat: 63.8369, lon: 23.1325 },
+      },
+      tampere: {
+        data: "./lounasdata-tampere.json",
+        brandMain: "Ratinan",
+        title: "Ratinan lounas – Tampere",
+        kicker: "Tampere · Ratina",
+        place: "Ratinassa",
+        placeGenitive: "Ratinan",
+        centerName: "Ratinasta",
+        heroLabel: "Piirros: Toimistotalo Ratina",
+        icons: { svg: "assets/favicon-ratina.svg", png: "assets/ratina-favicon-32.png", touch: "assets/ratina-apple-touch-icon.png" },
+        themeColor: "#1b2228",
+        center: { lat: 61.4933, lon: 23.7673 },
+      },
+    };
+    let currentCity = CITIES[document.documentElement.dataset.city] ? document.documentElement.dataset.city : "kokkola";
+    let loadToken = 0;
+
+    // Keksittyä varadataa ei näytetä.
     let appData = { restaurants: [] };
     let loadState = "loading"; // loading | ok | error
     let showPastWeek = false;
@@ -1340,20 +1530,50 @@
       el.innerHTML = `Listat haetaan näistä lähteistä: ${links.join(" · ")}. Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.`;
     }
 
+    // Vaihtaa kaupungin ilman sivun uudelleenlatausta ja muistaa valinnan
+    function applyCity(city, { save = false } = {}) {
+      if (!CITIES[city]) return;
+      const cfg = CITIES[city];
+      currentCity = city;
+      document.documentElement.dataset.city = city;
+      if (save) {
+        try {
+          localStorage.setItem("lounas_city", city);
+        } catch (e) {}
+      }
+      document.title = cfg.title;
+      document.getElementById("brandMain").textContent = cfg.brandMain;
+      document.getElementById("brandIcon").src = cfg.icons.svg;
+      document.getElementById("faviconSvg").href = cfg.icons.svg;
+      document.getElementById("faviconPng").href = cfg.icons.png;
+      document.getElementById("touchIcon").href = cfg.icons.touch;
+      document.querySelectorAll('meta[name="theme-color"]')[0].content = cfg.themeColor;
+      document.getElementById("heroKicker").textContent = cfg.kicker;
+      document.getElementById("heroPlace").textContent = cfg.place;
+      document.getElementById("heroPhoto").setAttribute("aria-label", cfg.heroLabel);
+      document.querySelector(".hero").setAttribute("aria-label", cfg.title);
+      document.querySelectorAll("#citySwitch button").forEach((b) => {
+        b.setAttribute("aria-checked", String(b.dataset.city === city));
+      });
+    }
+
     async function loadLunchData() {
       const statusEl = document.getElementById("lastUpdatedStatus");
       const syncDot = document.getElementById("syncDot");
+      const token = ++loadToken;
       try {
-        const res = await fetch("./lounasdata.json?t=" + Date.now(), { cache: "no-store" });
+        const res = await fetch(CITIES[currentCity].data + "?t=" + Date.now(), { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
         const json = await res.json();
         if (!json || !Array.isArray(json.restaurants)) throw new Error("Virheellinen data");
+        if (token !== loadToken) return; // käyttäjä vaihtoi kaupunkia latauksen aikana
         appData = json;
         loadState = "ok";
         renderFooterSources();
         syncDot.classList.remove("error");
         statusEl.textContent = "Viimeisin päivitys: " + formatUpdateTime(json.updated);
       } catch (err) {
+        if (token !== loadToken) return;
         loadState = "error";
         syncDot.classList.add("error");
         statusEl.textContent = "Lounaslistoja ei saatu ladattua.";
@@ -1406,7 +1626,11 @@
       } else if (!states.length) {
         text.textContent = day;
       } else if (openCount > 0) {
-        text.textContent = `${day} • ${openCount}/${states.length} lounaspaikkaa auki`;
+        // Kapealla näytöllä lyhyt muoto, jotta kaupunkikytkin mahtuu samalle riville
+        text.textContent =
+          window.innerWidth < 560
+            ? `${openCount}/${states.length} auki`
+            : `${day} • ${openCount}/${states.length} lounaspaikkaa auki`;
       } else if (states.every((st) => st.cls === "soon")) {
         const first = Math.min(...appData.restaurants.map((r) => (parseHours(r.hours) || [Infinity])[0]));
         text.textContent = `${day} • Lounas alkaa klo ${formatMinutes(first)}`;
@@ -1515,7 +1739,10 @@
 
       return `
         <li class="menu-item">
-          <span class="dish-title">${item.title}</span>
+          <div class="dish-text">
+            <span class="dish-title">${item.title}</span>
+            ${item.desc ? `<span class="dish-desc">${item.desc}</span>` : ""}
+          </div>
           <div class="dish-badges">
             ${renderBadges(item.diets)}
             ${priceHtml}
@@ -1546,7 +1773,7 @@
       const content = {
         weekend: {
           title: "Viikonloppu – lounaat taas maanantaina",
-          text: "Rantakadun lounaspaikat tarjoavat lounasta arkisin. Seuraavan viikon listat julkaistaan maanantaiaamuna.",
+          text: `${CITIES[currentCity].placeGenitive} lounaspaikat tarjoavat lounasta arkisin. Seuraavan viikon listat julkaistaan maanantaiaamuna.`,
         },
         stale: {
           title: "Tämän viikon listat ovat tulossa",
@@ -1592,7 +1819,7 @@
       const count = appData.restaurants.length;
 
       if (loadState !== "ok" || !count) {
-        sub.textContent = "Rantakadun lounaslistat yhdellä silmäyksellä.";
+        sub.textContent = `${CITIES[currentCity].placeGenitive} lounaslistat yhdellä silmäyksellä.`;
         chips.innerHTML = "";
         return;
       }
@@ -1675,7 +1902,10 @@
             const parts = Array.isArray(item.parts) ? item.parts : null;
             if (!parts) {
               const matchesDiet = dietMatches(item.diets, item.title);
-              const matchesSearch = restMatchesSearch || item.title.toLowerCase().includes(q);
+              const matchesSearch =
+                restMatchesSearch ||
+                item.title.toLowerCase().includes(q) ||
+                (item.desc || "").toLowerCase().includes(q);
               return matchesDiet && matchesSearch ? item : null;
             }
             // Annoskokonaisuus: näytetään, jos jokin osa sopii. Sopimattomat osat himmennetään.
@@ -1881,13 +2111,13 @@
       }
 
       label.textContent = "Paikannetaan...";
-      const fallbackCenter = { lat: 63.8369, lon: 23.1325 }; // Rantakadun keskipiste
+      const fallbackCenter = CITIES[currentCity].center; // Rantakatu / Ratina
 
       if (!navigator.geolocation) {
         userLocation = fallbackCenter;
         btn.classList.add("active");
         label.textContent = "Lähimmät ensin";
-        showToast("Etäisyydet laskettu Rantakadulta");
+        showToast(`Etäisyydet laskettu ${CITIES[currentCity].centerName}`);
         renderAll();
         return;
       }
@@ -1902,7 +2132,7 @@
           );
           if (distFromKokkola > 15000) {
             userLocation = fallbackCenter;
-            showToast("Näytetään kävelyetäisyydet Rantakadulta");
+            showToast(`Näytetään kävelyetäisyydet ${CITIES[currentCity].centerName}`);
           } else {
             userLocation = { lat: pos.coords.latitude, lon: pos.coords.longitude };
             showToast("Ravintolat järjestetty sijaintisi mukaan");
@@ -1915,7 +2145,7 @@
           userLocation = fallbackCenter;
           btn.classList.add("active");
           label.textContent = "Lähimmät ensin";
-          showToast("Näytetään kävelyetäisyydet Rantakadulta");
+          showToast(`Näytetään kävelyetäisyydet ${CITIES[currentCity].centerName}`);
           renderAll();
         },
         { timeout: 4000 }
@@ -1944,9 +2174,31 @@
       }
     });
 
-    window.addEventListener("resize", renderDayButtons);
+    window.addEventListener("resize", () => {
+      renderDayButtons();
+      updateHeaderStatus();
+    });
+
+    // Kaupunkikytkin
+    document.getElementById("citySwitch").addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-city]");
+      if (!btn || btn.dataset.city === currentCity) return;
+      applyCity(btn.dataset.city, { save: true });
+      // Uuden kaupungin data: tyhjennetään näkymä ja haetaan lista
+      appData = { restaurants: [] };
+      loadState = "loading";
+      showPastWeek = false;
+      coinPickId = null;
+      userLocation = null;
+      document.getElementById("geoBtn").classList.remove("active");
+      document.getElementById("geoBtnLabel").textContent = "Lähimmät";
+      document.getElementById("lastUpdatedStatus").textContent = "Ladataan lounaslistoja…";
+      renderAll();
+      loadLunchData();
+    });
 
     // Käynnistys
+    applyCity(currentCity);
     loadLunchData();
     // Aukiolotila päivittyy minuutin välein ilman sivun latausta
     setInterval(updateHeaderStatus, 60000);

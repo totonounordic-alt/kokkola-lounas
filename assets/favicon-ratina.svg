@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4b9be0"/>
+      <stop offset="1" stop-color="#1f5d99"/>
+    </linearGradient>
+    <linearGradient id="brick" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cf6038"/>
+      <stop offset="1" stop-color="#ad4725"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#36414b"/>
+      <stop offset="1" stop-color="#15191d"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <!-- Toimistotalo Ratina: lasiosa vasemmalla, tiiliosa oikealla -->
+  <polygon points="8,21 26,16 26,55 8,55" fill="url(#glass)"/>
+  <path d="M11 20.2V52M14 19.4V52M17 18.6V52M20 17.8V52M23 17V52" stroke="#07090b" stroke-width="1.2"/>
+  <polygon points="26,16 56,20 56,55 26,55" fill="url(#brick)"/>
+  <g fill="#bde8d3" stroke="#24322c" stroke-width=".6">
+    <polygon points="38,23.4 54,25.5 54,28.3 38,26.2"/>
+    <polygon points="38,29.8 54,31.6 54,34.4 38,32.6"/>
+    <polygon points="38,36.2 54,37.7 54,40.5 38,39"/>
+    <polygon points="38,42.6 54,43.8 54,46.6 38,45.4"/>
+  </g>
+  <g fill="#2a3036">
+    <rect x="29" y="22.5" width="3" height="3"/>
+    <rect x="29" y="29" width="3" height="3"/>
+    <rect x="29" y="35.5" width="3" height="3"/>
+    <rect x="29" y="42" width="3" height="3"/>
+  </g>
+  <polygon points="7,20.2 26,15 57,19.2 57,21 26,16.8 7,22" fill="#1b1f23"/>
+  <rect x="14.5" y="14.2" width="4.4" height="4.4" fill="#15191c"/>
+  <rect x="36" y="13" width="4" height="4.4" fill="#15191c"/>
+  <rect x="45" y="14.2" width="3.4" height="4" fill="#15191c"/>
+  <rect x="6" y="51.5" width="52" height="3.5" fill="#3c4a54"/>
+  <rect x="5" y="55" width="54" height="2.4" rx="1.2" fill="#e5e7eb" opacity=".85"/>
+</svg>
