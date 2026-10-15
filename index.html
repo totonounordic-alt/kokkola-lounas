@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#0b1a30" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
   <title>Rantakadun lounas – Kokkola</title>
-  <meta name="description" content="Rantakadun ja Kokkolan keskustan päivän lounaslistat: Harjun Rinkeli, Ravintola Hilda, Ravintola Kulma ja Pancho Villa." />
+  <meta name="description" content="Kokkolan keskustan päivän lounaslistat: Harjun Rinkeli, Ravintola Hilda, Smokey Road Diner, Ravintola Kulma, Pancho Villa, Madez Lounge ja Food & Co Coccolita." />
 
   <!-- Favicon: Kokkolan vesitorni -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -507,6 +507,34 @@
       background: var(--surface-Tint);
       border-color: var(--control-border-hover);
       color: var(--text-main);
+    }
+
+    .diet-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.9rem;
+      margin-top: 0.8rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .diet-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+    }
+
+    .diet-legend .diet-badge {
+      font-size: 0.66rem;
+    }
+
+    .restaurant-info {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
     }
 
     .diet-pill.active {
@@ -1202,6 +1230,16 @@
         <button type="button" class="diet-pill" data-diet="M">M · Maidoton</button>
         <button type="button" class="diet-pill" data-diet="Veg">Veg · Kasvis</button>
       </div>
+
+      <!-- Merkintöjen selite -->
+      <p class="diet-legend" aria-label="Ruokavaliomerkinnät">
+        <span><b class="diet-badge diet-G">G</b> gluteeniton</span>
+        <span><b class="diet-badge diet-PG">(G)</b> gluteeniton pyydettäessä</span>
+        <span><b class="diet-badge diet-L">L</b> laktoositon</span>
+        <span><b class="diet-badge diet-VL">VL</b> vähälaktoosinen</span>
+        <span><b class="diet-badge diet-M">M</b> maidoton</span>
+        <span><b class="diet-badge diet-Veg">Veg</b> vegaaninen</span>
+      </p>
     </section>
 
     <!-- Ravintolakortit -->
@@ -1218,12 +1256,8 @@
           <span id="lastUpdatedStatus">Ladataan lounaslistoja…</span>
         </div>
       </div>
-      <p class="footer-sources">
-        Listat haetaan ravintoloiden omilta sivuilta:
-        <a href="https://harjunleipomo.fi/lounas" target="_blank" rel="noopener noreferrer">Harjun Rinkeli</a> ·
-        <a href="https://www.lounaat.info/lounas/hilda/kokkola" target="_blank" rel="noopener noreferrer">Hilda (lounaat.info)</a> ·
-        <a href="https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/" target="_blank" rel="noopener noreferrer">Kulma (Compass Group)</a> ·
-        <a href="https://panchovilla.fi/ravintolat/kokkola/" target="_blank" rel="noopener noreferrer">Pancho Villa</a>.
+      <p class="footer-sources" id="footerSources">
+        Listat haetaan ravintoloiden omilta sivuilta ja lounaat.info-palvelusta.
         Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.
       </p>
     </div>
@@ -1293,6 +1327,19 @@
       return rawUpdated;
     }
 
+    function renderFooterSources() {
+      const el = document.getElementById("footerSources");
+      const links = appData.restaurants
+        .filter((r) => r.source && r.source.url)
+        .map(
+          (r) =>
+            `<a href="${r.source.url}" target="_blank" rel="noopener noreferrer">${r.name}</a>` +
+            (r.source.label && !r.name.includes(r.source.label.split(".")[0]) ? ` (${r.source.label})` : "")
+        );
+      if (!links.length) return;
+      el.innerHTML = `Listat haetaan näistä lähteistä: ${links.join(" · ")}. Tarkista erityisruokavaliot ja allergeenit aina ravintolasta.`;
+    }
+
     async function loadLunchData() {
       const statusEl = document.getElementById("lastUpdatedStatus");
       const syncDot = document.getElementById("syncDot");
@@ -1303,6 +1350,7 @@
         if (!json || !Array.isArray(json.restaurants)) throw new Error("Virheellinen data");
         appData = json;
         loadState = "ok";
+        renderFooterSources();
         syncDot.classList.remove("error");
         statusEl.textContent = "Viimeisin päivitys: " + formatUpdateTime(json.updated);
       } catch (err) {
@@ -1428,11 +1476,15 @@
       Veg: "Vegaaninen",
     };
 
+    // Merkinnän näkyvä teksti: "pyydettäessä gluteeniton" näytetään sulkeissa, kuten (G)
+    const DIET_LABELS = { PG: "(G)" };
+
     function renderBadges(diets) {
       return (diets || [])
         .map((d) => {
           const known = ["G", "PG", "L", "VL", "M", "Veg"].includes(d) ? `diet-${d}` : "diet-other";
-          return `<span class="diet-badge ${known}" title="${DIET_TITLES[d] || d}">${d}</span>`;
+          const label = DIET_LABELS[d] || d;
+          return `<span class="diet-badge ${known}" title="${DIET_TITLES[d] || d}" aria-label="${DIET_TITLES[d] || d}">${label}</span>`;
         })
         .join("");
     }
@@ -1704,10 +1756,11 @@
                 <span>Lounas ${rest.hours}</span>
                 ${openPillHtml}
               </div>
+              ${(rest.info || []).map((line) => `<p class="restaurant-info">${line}</p>`).join("")}
             </div>
 
             <div class="card-top-right">
-              <span class="price-badge">${rest.price}</span>
+              ${rest.price ? `<span class="price-badge">${rest.price}</span>` : ""}
               <button
                 type="button"
                 class="fav-btn ${rest.isFav ? "active" : ""}"
@@ -1828,7 +1881,7 @@
       }
 
       label.textContent = "Paikannetaan...";
-      const fallbackCenter = { lat: 63.8385, lon: 23.1309 }; // Rantakadun keskipiste
+      const fallbackCenter = { lat: 63.8369, lon: 23.1325 }; // Rantakadun keskipiste
 
       if (!navigator.geolocation) {
         userLocation = fallbackCenter;

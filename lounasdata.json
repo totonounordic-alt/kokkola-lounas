@@ -1,5 +1,5 @@
 {
-  "updated": "16.10.2026 klo 00.25",
+  "updated": "16.10.2026 klo 00.43",
   "week": "2026-W42",
   "city": "Kokkola",
   "restaurants": [
@@ -9,9 +9,13 @@
       "address": "Rantakatu 5",
       "hours": "10:30–14:00",
       "price": "10,00–14,00 €",
-      "lat": 63.8388,
-      "lon": 23.1304,
+      "lat": 63.83664,
+      "lon": 23.13242,
       "url": "https://harjunleipomo.fi/lounas",
+      "source": {
+        "label": "Harjun Leipomo",
+        "url": "https://harjunleipomo.fi/lounas"
+      },
       "menus": {
         "0": [
           {
@@ -173,9 +177,13 @@
       "address": "Rantakatu 7",
       "hours": "10:30–14:00",
       "price": "13,40 €",
-      "lat": 63.8386,
-      "lon": 23.1308,
+      "lat": 63.83692,
+      "lon": 23.13222,
       "url": "https://www.ravintolahilda.fi",
+      "source": {
+        "label": "lounaat.info",
+        "url": "https://www.lounaat.info/lounas/hilda/kokkola"
+      },
       "menus": {
         "0": [
           {
@@ -333,14 +341,237 @@
       }
     },
     {
+      "id": "smokey-road",
+      "name": "Smokey Road Diner & Bar",
+      "address": "Rantakatu 9",
+      "hours": "10:30–14:00",
+      "price": "13,90–15,90 €",
+      "lat": 63.8371,
+      "lon": 23.13218,
+      "url": "https://smokeyroaddiner.fi/",
+      "source": {
+        "label": "lounaat.info",
+        "url": "https://www.lounaat.info/lounas/smokey-road-diner-bar-oy/kokkola"
+      },
+      "info": [
+        "Sisältää: Vaihtuva salaattipöytä, leipä, levite, kahvi, tee ja vesi"
+      ],
+      "menus": {
+        "0": [
+          {
+            "title": "Smokey Road Lasagne",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Savukana Kerma-BBQ kastikkeella & Ranskalaiset/bataatit",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Double Smash Burger & ranskalaiset",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Smokehouse Loaded Fries Pulled Pork tai Savukana",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
+          }
+        ],
+        "1": [
+          {
+            "title": "Smokey Road Lasagne",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Savukana Kerma-BBQ kastikkeella & Ranskalaiset/bataatit",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Double Smash Burger & ranskalaiset",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Smokehouse Loaded Fries Pulled Pork tai Savukana",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
+          }
+        ],
+        "2": [
+          {
+            "title": "Smokey Road Lasagne",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Savukana Kerma-BBQ kastikkeella & Ranskalaiset/bataatit",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Double Smash Burger & ranskalaiset",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Smokehouse Loaded Fries Pulled Pork tai Savukana",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
+          }
+        ],
+        "3": [
+          {
+            "title": "Smokey Road Lasagne",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Savukana Kerma-BBQ kastikkeella & Ranskalaiset/bataatit",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Double Smash Burger & ranskalaiset",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Smokehouse Loaded Fries Pulled Pork tai Savukana",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
+          }
+        ],
+        "4": [
+          {
+            "title": "Smokey Road Lasagne",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Savukana Kerma-BBQ kastikkeella & Ranskalaiset/bataatit",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Double Smash Burger & ranskalaiset",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Smokehouse Loaded Fries Pulled Pork tai Savukana",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
+          }
+        ]
+      }
+    },
+    {
       "id": "kulma",
       "name": "Ravintola Kulma",
       "address": "Rantakatu 10",
       "hours": "10:45–14:00",
       "price": "13,60 €",
-      "lat": 63.8383,
-      "lon": 23.1312,
+      "lat": 63.83697,
+      "lon": 23.13299,
       "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
+      "source": {
+        "label": "Compass Group",
+        "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/"
+      },
       "menus": {
         "0": [
           {
@@ -992,11 +1223,15 @@
       "address": "Tehtaankatu 3–5",
       "hours": "11:00–14:00",
       "price": "13,00–15,00 €",
-      "lat": 63.8378,
-      "lon": 23.1322,
+      "lat": 63.83617,
+      "lon": 23.13454,
       "url": "https://panchovilla.fi/ravintolat/kokkola/",
+      "source": {
+        "label": "panchovilla.fi",
+        "url": "https://panchovilla.fi/ravintolat/kokkola/"
+      },
       "staticNote": [
-        "Panchon burgerit (PG) Norm. 14€ / Tupla 17,50€",
+        "Panchon burgerit (gluteeniton pyydettäessä) Norm. 14€ / Tupla 17,50€",
         "Lounassalaatti – kana / halloumi / lohi (+2,50€) 14,50 €",
         "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €"
       ],
@@ -1080,6 +1315,607 @@
               "L"
             ],
             "price": "15,00 €"
+          }
+        ]
+      }
+    },
+    {
+      "id": "madez",
+      "name": "Madez Lounge",
+      "address": "Isokatu 15",
+      "hours": "11:00–14:00",
+      "price": "13,00 €",
+      "lat": 63.83824,
+      "lon": 23.13037,
+      "url": "https://www.madez.fi/",
+      "source": {
+        "label": "lounaat.info",
+        "url": "https://www.lounaat.info/lounas/madez-lounge/kokkola"
+      },
+      "menus": {
+        "0": [
+          {
+            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "diets": [],
+            "price": null
+          }
+        ],
+        "1": [
+          {
+            "title": "Lounasbuffet",
+            "diets": [],
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Naudanliha kuutiot napolitan kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "Kana Schnitzel&Kana nugget",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty Riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "Madezin kastiket",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              }
+            ]
+          }
+        ],
+        "2": [
+          {
+            "title": "Lounasbuffet",
+            "diets": [],
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Talon lasangne",
+                "diets": []
+              },
+              {
+                "title": "Kanan sisäfileet bernais kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Porkkana kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
+          }
+        ],
+        "3": [
+          {
+            "title": "Lounasbuffet",
+            "diets": [],
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Iskender kebab buffet",
+                "diets": []
+              },
+              {
+                "title": "Kebabliha",
+                "diets": []
+              },
+              {
+                "title": "Rulla kebab",
+                "diets": []
+              },
+              {
+                "title": "Kebab burritos",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Lohkoperunat",
+                "diets": []
+              },
+              {
+                "title": "Kebab kastike punainen",
+                "diets": []
+              },
+              {
+                "title": "Majoneesit",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Jälkiruoka",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/tee",
+                "diets": []
+              }
+            ]
+          }
+        ],
+        "4": [
+          {
+            "title": "Lounasbuffet",
+            "diets": [],
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Marionuitu uuni lohi",
+                "diets": []
+              },
+              {
+                "title": "Bernais kastike",
+                "diets": []
+              },
+              {
+                "title": "Lihapullat pippuri kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "Uuni toure kasvis mix",
+                "diets": []
+              },
+              {
+                "title": "Juusto kerma peruna",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty Riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33 Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/tee",
+                "diets": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "coccolita",
+      "name": "Food & Co Coccolita",
+      "address": "Kauppatori 5",
+      "hours": "10:30–13:30",
+      "price": null,
+      "lat": 63.84027,
+      "lon": 23.13416,
+      "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/coccolita/",
+      "source": {
+        "label": "Compass Group",
+        "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/coccolita/"
+      },
+      "menus": {
+        "0": [
+          {
+            "title": "Lounas",
+            "diets": [
+              "L"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Sienikeittoa",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Kotijuustoa pinaattikastikkeessa - Palak Paneer",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Riisiä ja kotimaista kauraa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Kylmäsavulohta, rigatonipastaa ja tilliä",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Broileria tomaattikastikkeessa - Murg Makhani",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Pitaleipä",
+                "diets": [
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Mangorahkaa kerroksittain",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
+          }
+        ],
+        "1": [
+          {
+            "title": "Lounas",
+            "diets": [],
+            "price": null,
+            "parts": [
+              {
+                "title": "Punajuurisosekeittoa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Talon kukkakaali-manchegopihvejä",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Salsa verde",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Paahdettuja yrttiperunoita",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Juustokuorrutettua uunimakkaraa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Sinappirelishiä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Perunamuusia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Paneroitua kampelafileetä feta-pinaattitäytteellä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Ruskeavoi-hollandaisekastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Vadelmapiirakkaa",
+                "diets": [
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Vaniljakastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
+          }
+        ],
+        "2": [
+          {
+            "title": "Lounas",
+            "diets": [
+              "L"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Linssi-kookoskeittoa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Tattilasagnea",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Grillattua sitruunabroileria",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Basmatiriisiä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Persiljamajoneesia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Talon Lindströminpihvejä",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Sipulikastiketta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Keitettyjä perunoita",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Lakritsirahkaa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
+          }
+        ],
+        "3": [
+          {
+            "title": "Lounas",
+            "diets": [
+              "L"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Mustajuurisosekeittoa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Aurajuustolla täytetty punajuuripihvi",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Sienispelttiä",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Perinteistä hernekeittoa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Puna-ahventa ja piparjuurihollandaisea",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Perunamuusia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Pannukakkua",
+                "diets": [
+                  "L"
+                ]
+              }
+            ]
+          }
+        ],
+        "4": [
+          {
+            "title": "Lounas",
+            "diets": [],
+            "price": null,
+            "parts": [
+              {
+                "title": "Bataattisosekeittoa",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Halloumi-kukkakaalikormaa ja pikkelöityä chiliä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Beef Burger",
+                "diets": [
+                  "L",
+                  "M"
+                ]
+              },
+              {
+                "title": "Maalaisranskalaisia",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Kirsikkamoussea",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Lounas",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Sitruuna-yrttimaustettua broileria",
+                "diets": [
+                  "G",
+                  "L",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
           }
         ]
       }

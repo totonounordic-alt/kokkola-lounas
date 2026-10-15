@@ -27,7 +27,7 @@ PLACEHOLDER_ITEM = {
 }
 
 PANCHO_STATIC_FALLBACK = [
-    "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (PG)",
+    "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (gluteeniton pyydettäessä)",
     "Lounassalaatti (kana / halloumi / lohi) 14,50 €",
     "Lounaspihvi (paneroitu kana / paneroitu porsaan pihvi) 14,50 €",
 ]
@@ -41,16 +41,20 @@ DIET_MAP = {
     "VEG": "Veg",
     "PG": "PG",
     "GV!": "PG",  # Harjun Rinkeli: "toteutettavissa gluteenittomana tilauksesta"
+    "V": "Veg",
+    "V*": "Veg",  # Smokey Road Diner
 }
 DIET_ORDER = ["G", "PG", "L", "VL", "M", "Veg"]
 
-DIET_TOKEN = r"(?:g|l|m|vl|veg|pg|gv!)"
+DIET_TOKEN = r"(?:g|l|m|vl|veg|pg|gv!|v\*?)"
 # Rivin lopussa olevat merkinnät, esim. "g,l", "l gv!", "(L, PG)"
 TRAILING_DIETS_RE = re.compile(
     rf"[\s,]*\(?\s*({DIET_TOKEN}(?:[\s,]+{DIET_TOKEN})*)\s*\)?\s*$", re.IGNORECASE
 )
 PAREN_DIETS_RE = re.compile(rf"\(\s*({DIET_TOKEN}(?:[\s,]+{DIET_TOKEN})*)\s*\)", re.IGNORECASE)
 PRICE_RE = re.compile(r"(\d{1,2})(?:[.,](\d{1,2}))?\s*€")
+# lounaat.infon hintakenttä ja vapaamuotoiset hinnat: "13,90e", "13 euro"
+LOOSE_PRICE_RE = re.compile(r"(\d{1,2})(?:[.,](\d{1,2}))?\s*(?:€|e\b|eur\b|euroa?\b)", re.IGNORECASE)
 
 
 def week_dates(today: date):
@@ -183,11 +187,26 @@ def parse_harjun_rinkeli(today: date) -> dict:
 # --------------------------------------------------------------------------
 # lounaat.info (Ravintola Hilda)
 # --------------------------------------------------------------------------
-def parse_lounaat_info(url: str, today: date) -> dict:
+# Rivit, jotka eivät ole annoksia (maksutavat, puuttuva lista ym.)
+LOUNAAT_INFO_SKIP = re.compile(
+    r"^(meillä käy|maksutavat|lounaslista puuttuu|päivän lounaslista puuttuu|lounas kello)", re.IGNORECASE
+)
+
+
+def parse_lounaat_info(url: str, today: date, package_title: str = None):
+    """lounaat.info-sivun viikkolista.
+
+    package_title: jos annettu, päivän rivit kootaan yhdeksi kokonaisuudeksi (esim. buffet),
+    jonka hinta poimitaan riviltä kuten "Koko setti 13 euro".
+
+    Palauttaa (menus, info), jossa info on lista lisätietoriveistä
+    (esim. "Sisältää: salaattipöytä, leipä, kahvi").
+    """
     menus = empty_week()
+    info = []
     html = fetch_html(url)
     if not html:
-        return menus
+        return menus, info
     soup = BeautifulSoup(html, "html.parser")
     dates = week_dates(today)
 
@@ -207,13 +226,40 @@ def parse_lounaat_info(url: str, today: date) -> dict:
                 continue
 
         day_items = []
+        package_price = None
         for li in item.select("li.menu-item"):
+            price_el = li.select_one(".price")
+            field_price = None
+            if price_el:
+                pm = LOOSE_PRICE_RE.search(price_el.get_text(" ", strip=True))
+                field_price = format_price(pm) if pm else None
+                price_el.decompose()
             dish = li.select_one(".dish") or li
             diets = normalize_diets(a.get_text(strip=True) for a in dish.select("a.diet"))
             for a in dish.select("a.diet"):
                 a.decompose()
-            title, extra_diets, price = parse_dish_line(dish.get_text(" "))
+            text = re.sub(r"\s+", " ", dish.get_text(" ")).strip()
+            if not text or LOUNAAT_INFO_SKIP.search(text):
+                continue
+            if re.match(r"^sisältää\b", text, re.IGNORECASE):
+                if text not in info:
+                    info.append(text)
+                continue
+
+            if package_title:
+                # "Kaikki 13 euro" / "Koko setti 13 euro!" -> kokonaisuuden hinta
+                pm = LOOSE_PRICE_RE.search(text)
+                if pm and re.search(r"(kaikki|koko|setti|hinta|lounas)", text, re.IGNORECASE):
+                    package_price = format_price(pm)
+                    continue
+                title, extra_diets, _ = parse_dish_line(text)
+                if title:
+                    day_items.append({"title": title, "diets": normalize_diets(diets + extra_diets)})
+                continue
+
+            title, extra_diets, price = parse_dish_line(text)
             diets = normalize_diets(diets + extra_diets)
+            price = field_price or price
             if not title:
                 continue
 
@@ -230,27 +276,36 @@ def parse_lounaat_info(url: str, today: date) -> dict:
                 continue
 
             day_items.append({"title": title, "diets": diets, "price": price})
+
+        if package_title and day_items:
+            common = set.intersection(*(set(p["diets"]) for p in day_items))
+            day_items = [{
+                "title": package_title,
+                "diets": [d for d in DIET_ORDER if d in common],
+                "price": package_price,
+                "parts": day_items,
+            }]
         menus[str(day_idx)] = day_items
-    return menus
+    return menus, info
 
 
 # --------------------------------------------------------------------------
-# Ravintola Kulma (Compass Group / Food & Co)
+# Compass Group / Food & Co (Kulma, Coccolita)
 # --------------------------------------------------------------------------
-def parse_kulma(today: date) -> dict:
+def parse_compass(url: str, today: date) -> dict:
     menus = empty_week()
-    html = fetch_html("https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/")
+    html = fetch_html(url)
     if not html:
         return menus
 
     m = re.search(r"window\.__INITIAL_MENU__\s*=\s*", html)
     if not m:
-        print("  Kulman __INITIAL_MENU__-dataa ei löytynyt")
+        print(f"  __INITIAL_MENU__-dataa ei löytynyt: {url}")
         return menus
     try:
         data, _ = json.JSONDecoder().raw_decode(html, m.end())
     except ValueError as e:
-        print(f"  Kulman menu-JSONin jäsennys epäonnistui: {e}")
+        print(f"  Menu-JSONin jäsennys epäonnistui ({url}): {e}")
         return menus
 
     dates = [d.isoformat() for d in week_dates(today)]
@@ -338,7 +393,8 @@ def parse_pancho():
         elif upper.startswith(("PANCHON BURGERIT", "LOUNASSALAATTI", "LOUNASPIHVI")):
             if not any(s.split()[0].upper() == line.split()[0].upper() for s in static):
                 first, _, rest = re.sub(r"\s+", " ", line).partition(" ")
-                static.append(f"{first.capitalize()} {rest}".strip())
+                line_text = f"{first.capitalize()} {rest}".strip()
+                static.append(re.sub(r"\(PG\)", "(gluteeniton pyydettäessä)", line_text))
 
     if special and has_any_items(menus):
         for idx in range(5):
@@ -388,14 +444,32 @@ def main():
     rinkeli_menus = parse_harjun_rinkeli(today)
 
     print("Haetaan Ravintola Hilda...")
-    hilda_menus = parse_lounaat_info("https://www.lounaat.info/lounas/hilda/kokkola", today)
+    hilda_menus, _ = parse_lounaat_info("https://www.lounaat.info/lounas/hilda/kokkola", today)
+
+    print("Haetaan Smokey Road Diner & Bar...")
+    smokey_menus, smokey_info = parse_lounaat_info(
+        "https://www.lounaat.info/lounas/smokey-road-diner-bar-oy/kokkola", today
+    )
 
     print("Haetaan Ravintola Kulma...")
-    kulma_menus = parse_kulma(today)
+    kulma_menus = parse_compass(
+        "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/", today
+    )
 
     print("Haetaan Pancho Villa...")
     pancho_menus, pancho_static = parse_pancho()
 
+    print("Haetaan Madez Lounge...")
+    madez_menus, _ = parse_lounaat_info(
+        "https://www.lounaat.info/lounas/madez-lounge/kokkola", today, package_title="Lounasbuffet"
+    )
+
+    print("Haetaan Food & Co Coccolita...")
+    coccolita_menus = parse_compass(
+        "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/coccolita/", today
+    )
+
+    # Koordinaatit: OpenStreetMap / Nominatim
     data = {
         "updated": updated_str,
         "week": week_key,
@@ -407,9 +481,10 @@ def main():
                 "address": "Rantakatu 5",
                 "hours": "10:30–14:00",
                 "price": "10,00–14,00 €",
-                "lat": 63.8388,
-                "lon": 23.1304,
+                "lat": 63.83664,
+                "lon": 23.13242,
                 "url": "https://harjunleipomo.fi/lounas",
+                "source": {"label": "Harjun Leipomo", "url": "https://harjunleipomo.fi/lounas"},
                 "menus": ensure_menus(rinkeli_menus, "harjun-rinkeli"),
             },
             {
@@ -418,10 +493,27 @@ def main():
                 "address": "Rantakatu 7",
                 "hours": "10:30–14:00",
                 "price": "13,40 €",
-                "lat": 63.8386,
-                "lon": 23.1308,
+                "lat": 63.83692,
+                "lon": 23.13222,
                 "url": "https://www.ravintolahilda.fi",
+                "source": {"label": "lounaat.info", "url": "https://www.lounaat.info/lounas/hilda/kokkola"},
                 "menus": ensure_menus(hilda_menus, "hilda"),
+            },
+            {
+                "id": "smokey-road",
+                "name": "Smokey Road Diner & Bar",
+                "address": "Rantakatu 9",
+                "hours": "10:30–14:00",
+                "price": "13,90–15,90 €",
+                "lat": 63.83710,
+                "lon": 23.13218,
+                "url": "https://smokeyroaddiner.fi/",
+                "source": {
+                    "label": "lounaat.info",
+                    "url": "https://www.lounaat.info/lounas/smokey-road-diner-bar-oy/kokkola",
+                },
+                "info": smokey_info,
+                "menus": ensure_menus(smokey_menus, "smokey-road"),
             },
             {
                 "id": "kulma",
@@ -429,9 +521,13 @@ def main():
                 "address": "Rantakatu 10",
                 "hours": "10:45–14:00",
                 "price": "13,60 €",
-                "lat": 63.8383,
-                "lon": 23.1312,
+                "lat": 63.83697,
+                "lon": 23.13299,
                 "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
+                "source": {
+                    "label": "Compass Group",
+                    "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
+                },
                 "menus": ensure_menus(kulma_menus, "kulma"),
             },
             {
@@ -440,11 +536,39 @@ def main():
                 "address": "Tehtaankatu 3–5",
                 "hours": "11:00–14:00",
                 "price": "13,00–15,00 €",
-                "lat": 63.8378,
-                "lon": 23.1322,
+                "lat": 63.83617,
+                "lon": 23.13454,
                 "url": "https://panchovilla.fi/ravintolat/kokkola/",
+                "source": {"label": "panchovilla.fi", "url": "https://panchovilla.fi/ravintolat/kokkola/"},
                 "staticNote": pancho_static or PANCHO_STATIC_FALLBACK,
                 "menus": ensure_menus(pancho_menus, "pancho-villa"),
+            },
+            {
+                "id": "madez",
+                "name": "Madez Lounge",
+                "address": "Isokatu 15",
+                "hours": "11:00–14:00",
+                "price": "13,00 €",
+                "lat": 63.83824,
+                "lon": 23.13037,
+                "url": "https://www.madez.fi/",
+                "source": {"label": "lounaat.info", "url": "https://www.lounaat.info/lounas/madez-lounge/kokkola"},
+                "menus": ensure_menus(madez_menus, "madez"),
+            },
+            {
+                "id": "coccolita",
+                "name": "Food & Co Coccolita",
+                "address": "Kauppatori 5",
+                "hours": "10:30–13:30",
+                "price": None,
+                "lat": 63.84027,
+                "lon": 23.13416,
+                "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/coccolita/",
+                "source": {
+                    "label": "Compass Group",
+                    "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/coccolita/",
+                },
+                "menus": ensure_menus(coccolita_menus, "coccolita"),
             },
         ],
     }
