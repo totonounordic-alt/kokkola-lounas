@@ -1,9 +1,11 @@
 name: Päivitä Rantakadun lounaslistat
 
 on:
-  # Ajetaan automaattisesti arkisin (ma-pe) klo 07:30 Suomen kesäaikaa (04:30 UTC)
+  # Ajetaan automaattisesti arkisin (ma-pe) klo 07:30 ja 10:00 Suomen kesäaikaa (04:30 ja 07:00 UTC).
+  # Toinen ajo poimii listat, jotka ravintolat julkaisevat vasta aamulla.
   schedule:
     - cron: "30 4 * * 1-5"
+    - cron: "0 7 * * 1-5"
 
   # Mahdollistaa päivityksen käynnistämisen myös käsin GitHubin Actions-välilehdeltä
   workflow_dispatch:

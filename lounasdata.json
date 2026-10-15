@@ -1,5 +1,6 @@
 {
-  "updated": "16.10.2026 klo 00.02",
+  "updated": "16.10.2026 klo 00.14",
+  "week": "2026-W42",
   "city": "Kokkola",
   "restaurants": [
     {
@@ -7,97 +8,159 @@
       "name": "Harjun Rinkeli",
       "address": "Rantakatu 5",
       "hours": "10:30–14:00",
-      "price": "11,00–14,00 €",
+      "price": "13,40–14,00 € (Keitto alk. 10,00 €)",
       "lat": 63.8388,
       "lon": 23.1304,
       "url": "https://harjunleipomo.fi/lounas",
       "menus": {
         "0": [
           {
-            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "title": "Rapea kana ja mangomajoneesi",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
             ],
             "price": "13,40 €"
           },
           {
-            "title": "Päivän keittolounas & leipäpöytä",
+            "title": "Nakkikastike",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Herkkusienikeitto",
+            "diets": [
+              "G",
+              "L"
             ],
             "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "title": "Jauhelihakiusaus",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
             ],
             "price": "13,40 €"
           },
           {
-            "title": "Päivän keittolounas & leipäpöytä",
+            "title": "Smetana-yrttibroileri",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
             ],
-            "price": "11,00 €"
+            "price": null
+          },
+          {
+            "title": "Kermainen lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "title": "Lihamureke juusto-pekonikastikkeessa",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
             ],
             "price": "13,40 €"
           },
           {
-            "title": "Päivän keittolounas & leipäpöytä",
+            "title": "Perinteinen maksakastike",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Tomaatti-vuohenjuustokeitto",
+            "diets": [
+              "G",
+              "L"
             ],
             "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "title": "Nachojauhelihavuoka",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "L"
             ],
             "price": "13,40 €"
           },
           {
-            "title": "Päivän keittolounas & leipäpöytä",
+            "title": "Aurabroilerikastike",
             "diets": [
-              "L",
-              "G"
+              "G",
+              "VL"
+            ],
+            "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
             ],
             "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän kotiruokalounas noutopöydästä (2 lämmintä pääruokaa)",
+            "title": "Hampurilaisbuffet",
             "diets": [
-              "L",
-              "G"
+              "PG"
             ],
-            "price": "13,40 €"
+            "price": "14,00 €"
           },
           {
-            "title": "Päivän keittolounas & leipäpöytä",
+            "title": "Paljon erilaisia täytteitä",
             "diets": [
-              "L",
-              "G"
+              "PG"
+            ],
+            "price": null
+          },
+          {
+            "title": "Ranskalaiset ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Chicken wings, kanansiipiä",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Kukkakaalikosekeitto koskenlaskijalla",
+            "diets": [
+              "G",
+              "L"
             ],
             "price": "11,00 €"
           }
@@ -117,110 +180,153 @@
         "0": [
           {
             "title": "Hildan jauhelihakastike",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Muusi, pasta",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Mustikkarahka",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "1": [
           {
             "title": "Pyttipannu",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Paistettu kananmuna",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Paistetut muikut",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Muusi",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Jälkkäri",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "2": [
           {
             "title": "Se parempi broilerikastike",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Riisi, perunat",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Lettuja",
-            "diets": [],
+            "diets": [
+              "L"
+            ],
             "price": null
           }
         ],
         "3": [
           {
             "title": "Porsaanleike",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Pyydettäessä",
-            "diets": [],
+            "diets": [
+              "PG",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Kermainen sweet chili -kastike",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Perunat",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Kiisseli",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "4": [
           {
-            "title": "Jauhelihamureke",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Bolognesekastikkeessa",
-            "diets": [],
+            "title": "Jauhelihamureke bolognesekastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Perunat",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           },
           {
             "title": "Jälkkäri",
-            "diets": [],
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ]
@@ -231,68 +337,164 @@
       "name": "Ravintola Kulma",
       "address": "Rantakatu 10",
       "hours": "10:45–14:00",
-      "price": "13,60 € (Keitto 11,70 €)",
+      "price": "13,60 €",
       "lat": 63.8383,
       "lon": 23.1312,
       "url": "https://www.compass-group.fi/ravintolat-ja-ruokalistat/foodco/kaupungit/kokkola/kulma/",
       "menus": {
         "0": [
           {
-            "title": "Katso päivän lounaslista ravintolan sivuilta!",
-            "diets": [],
+            "title": "Vegaaninen kasvislounas buffasta: Vuustokasvispyöryköitä - Mö chavre, Ruohosipuli-tilli-soijagurttikastiketta, Myskikurpitsaohrattoa",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Buffasta: Purjo-perunasosekeittoa, Rapeaa kanaa - Crispy chicken, Murskattua perunaa, juustoa ja yrttejä, Kurkkuraitaa, Paahdettua porkkanaa ja seesaminsiemeniä",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Pikku makia & kahvi: Omena-kanelirahkaa",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "1": [
           {
-            "title": "Katso päivän lounaslista ravintolan sivuilta!",
-            "diets": [],
+            "title": "Kasvislounas buffasta: Butter Mifua, Basmatiriisiä",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Buffasta: Tomaattikeittoa ja fetajuustoa, Lihapullia BBQ ja cheddarkastikkeessa, Satokauden kasviksia, Savupaprikalla paahdettuja perunoita, Puolukkaa",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Pikku makia & kahvi: Mansikkarahkaa",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "2": [
           {
-            "title": "Katso päivän lounaslista ravintolan sivuilta!",
-            "diets": [],
+            "title": "Kasvislounas buffasta: Punajuuri-sinihomejuustokiusausta",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Buffasta: Pinaattikeittoa, Makean tulista broileria - Korean Chicken, Sitruunajogurttikastiketta, Riisiä ja kotimaista kauraa, Paahdettua kukkakaalia, aiolia ja pikkelöityä punakaalia",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Päivän salaatti & keitto: Rosmariini paahdettua broilerinfileetä, Päivän juusto, Mustikka-vadelmashotti",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Pikku makia & kahvi: Omenakiisseliä ja vaniljakastiketta",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
           }
         ],
         "3": [
           {
-            "title": "Katso päivän lounaslista ravintolan sivuilta!",
-            "diets": [],
+            "title": "Kasvislounas buffasta: Meidän keittiön pinaattiohukaisia, Puolukkaa",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Buffasta: Kermaista kirjolohikeittoa, Meidän keittiön savujuusto-pekonilihamureketta (pyyd. Glut), Ranch-kastiketta, Paahdettua perunaa, Satokauden kasviksia",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Päivän salaatti & keitto: Broileria, Päivän juusto, Mustikka-vadelmashotti",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
+          },
+          {
+            "title": "Pikku makia & kahvi: Meidän keittiön pannukakkua, Hillottua marjaa, Vaniljakermavaahtoa",
+            "diets": [
+              "L"
+            ],
             "price": null
           }
         ],
         "4": [
           {
-            "title": "Katso päivän lounaslista ravintolan sivuilta!",
+            "title": "Kasvislounas buffasta: Vuohenjuustopannupizzaa ja punajuurihummusta, Valkosipulia",
             "diets": [],
-            "price": null
+            "price": "13,60 €"
           },
           {
-            "title": "Lounasravintoloita lähistöllä",
-            "diets": [],
-            "price": null
+            "title": "Buffasta: Bataatti-kookossosekeittoa, Possunleike keittiön tapaan (pyyd. Glut), Täyteläistä mustapippurikastiketta, Ranskalaisia perunoita, Satokauden kasviksia",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
           },
           {
-            "title": "/5.0",
-            "diets": [],
-            "price": null
+            "title": "Päivän salaatti & keitto: Broileria, Päivän juusto, Mustikka-vadelmashotti",
+            "diets": [
+              "L"
+            ],
+            "price": "13,60 €"
           },
           {
-            "title": "HILDA",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "/5.0",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Harjun Rinkeli",
-            "diets": [],
+            "title": "Pikku makia & kahvi: Puolukkapiirakkaa, Vaniljakastiketta",
+            "diets": [
+              "L"
+            ],
             "price": null
           }
         ]
@@ -308,95 +510,88 @@
       "lon": 23.1322,
       "url": "https://panchovilla.fi/ravintolat/kokkola/",
       "staticNote": [
-        "Lounasburgerit (Pekoni / Juusto / Kana / Kasvis) + ranut 14,00 € (L, saatavilla G)",
-        "Lounaspihvi (Porsaan ulkofilee tai pariloitu kana) 14,50 € (L, G)",
-        "Lounassalaatti (Kana / Halloumi / Lohi) 14,50 € (L, G)"
+        "Panchon burgerit (PG) Norm. 14€ / Tupla 17,50€",
+        "Lounassalaatti – kana / halloumi / lohi (+2,50€) 14,50 €",
+        "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €"
       ],
       "menus": {
         "0": [
           {
-            "title": "Päivän Meksikolounas: Crispy chicken Calzone",
+            "title": "Meksikolounas: Crispy chicken Calzone",
             "diets": [
-              "L",
-              "G"
+              "PG",
+              "L"
             ],
             "price": "13,00 €"
           },
           {
-            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
             "diets": [
-              "L",
-              "G"
+              "L"
             ],
             "price": "15,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän Meksikolounas: Chili con Carne Pocket",
-            "diets": [
-              "L"
-            ],
+            "title": "Meksikolounas: Chili con Carne Pocket",
+            "diets": [],
             "price": "13,00 €"
           },
           {
-            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
             "diets": [
-              "L",
-              "G"
+              "L"
             ],
             "price": "15,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän Meksikolounas: Bocadillo porsaankyljellä",
+            "title": "Meksikolounas: Bocadillo porsaankyljellä",
             "diets": [
-              "G"
+              "PG"
             ],
             "price": "13,00 €"
           },
           {
-            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
             "diets": [
-              "L",
-              "G"
+              "L"
             ],
             "price": "15,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän Meksikolounas: Halloumi Burrito",
+            "title": "Meksikolounas: Halloumi Burrito",
             "diets": [
-              "L",
-              "G"
+              "PG",
+              "L"
             ],
             "price": "13,00 €"
           },
           {
-            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
             "diets": [
-              "L",
-              "G"
+              "L"
             ],
             "price": "15,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän Meksikolounas: Loaded Fries Chili con Carne",
+            "title": "Meksikolounas: Loaded Fries Chili con Carne",
             "diets": [
-              "L",
-              "G"
+              "PG",
+              "L"
             ],
             "price": "13,00 €"
           },
           {
-            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla 15 €",
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
             "diets": [
-              "L",
-              "G"
+              "L"
             ],
             "price": "15,00 €"
           }
