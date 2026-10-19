@@ -1,5 +1,5 @@
 {
-  "updated": "19.10.2026 klo 08.02",
+  "updated": "19.10.2026 klo 10.46",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -635,37 +635,235 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "11,90 €",
+            "parts": [
+              {
+                "title": "Pannupihvi sipuli-kermakastikkeessa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "BBQ-broileria",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Paahdettua perunaa & riisiä",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Salaattibuffet",
+                "diets": []
+              }
+            ]
+          },
+          {
+            "title": "Annosruoka (ei sisälly buffettiin)",
+            "diets": [],
+            "price": null,
+            "parts": [
+              {
+                "title": "Broiler burger Tofu poke",
+                "diets": []
+              }
+            ]
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "11,90 €",
+            "parts": [
+              {
+                "title": "Ylikypsää possua omenaisessa kastikkeessa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Yrtti-valkosipulibroileria",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Pariisinperunoita",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Salaattibuffet",
+                "diets": []
+              }
+            ]
+          },
+          {
+            "title": "Annosruoka (ei sisälly buffettiin)",
+            "diets": [
+              "L"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Chicken & fries Halloumi poke",
+                "diets": [
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "11,90 €",
+            "parts": [
+              {
+                "title": "Lihapullia pippurikermakastikkeessa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Savulohivuokaa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Paahdettua perunaa",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Salaattibuffet",
+                "diets": []
+              }
+            ]
+          },
+          {
+            "title": "Annosruoka (ei sisälly buffettiin)",
+            "diets": [],
+            "price": null,
+            "parts": [
+              {
+                "title": "Aioli burger Tofu salaatti",
+                "diets": []
+              }
+            ]
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "11,90 €",
+            "parts": [
+              {
+                "title": "Sitruuna-smetanabroileria",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Caffitellan kebabia",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Lohkoperunoita & riisiä",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Salaattibuffet",
+                "diets": []
+              }
+            ]
+          },
+          {
+            "title": "Annosruoka (ei sisälly buffettiin)",
+            "diets": [],
+            "price": null,
+            "parts": [
+              {
+                "title": "Vuohenjuusto burger Teriyaki poke",
+                "diets": []
+              }
+            ]
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "11,90 €",
+            "parts": [
+              {
+                "title": "Smetanainen liharuukku",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Juustoista uunimakkaraa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Perunamuusia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Salaattibuffet",
+                "diets": []
+              }
+            ]
+          },
+          {
+            "title": "Annosruoka (ei sisälly buffettiin)",
+            "diets": [
+              "L"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Pekoni smash burger",
+                "diets": [
+                  "L"
+                ]
+              }
+            ]
           }
         ]
       }

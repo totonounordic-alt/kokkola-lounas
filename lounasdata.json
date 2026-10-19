@@ -1,5 +1,5 @@
 {
-  "updated": "19.10.2026 klo 08.02",
+  "updated": "19.10.2026 klo 10.46",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -18,37 +18,160 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Uunimakkara juustokuorrutteella",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Paahdetut yrttiperunat",
+            "diets": [
+              "G",
+              "M"
+            ],
             "price": null
+          },
+          {
+            "title": "Salamipasta",
+            "diets": [
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Lihakeitto kylkisiivusta",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Broileria vuohenjuustokastikkeessa",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Pippuripossupata",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Kermainen lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Lihapullat kermapippurikastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Mantelikala ja kermaviilikastike",
+            "diets": [
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Bataattisosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Broileri-parmesaanirisotto",
+            "diets": [
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Makkaraperunat ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
             "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Possun ribsit",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Ranskalaiset ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
             "price": null
+          },
+          {
+            "title": "Pekonikiusaus",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Banaanirahka ja suklaakastike",
+            "diets": [
+              "G"
+            ],
+            "price": null
+          },
+          {
+            "title": "Koskenlaskija juuressosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ]
       }
@@ -1097,44 +1220,90 @@
         "url": "https://panchovilla.fi/ravintolat/kokkola/"
       },
       "staticNote": [
-        "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (gluteeniton pyydettäessä)",
-        "Lounassalaatti (kana / halloumi / lohi) 14,50 €",
-        "Lounaspihvi (paneroitu kana / paneroitu porsaan pihvi) 14,50 €"
+        "Lounaspihvi – – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €"
       ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Tortillatasku ylikypsällä porsaankyljellä",
+            "diets": [
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Soul Healer paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Aurajuusto-pekoni Quesadilla",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Soul Healer paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Bocadillo paneroidulla kanalla",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Soul Healer paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Chili con Carne Burrito",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Soul Healer paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Loaded Fries paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Soul Healer paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ]
       }
