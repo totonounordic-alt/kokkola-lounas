@@ -628,6 +628,8 @@ def parse_momento() -> dict:
         desc_el = h3.find_next_sibling("p")
         desc = desc_el.get_text(" ", strip=True).lstrip("-– ").strip() if desc_el and "kuvaus" in (desc_el.get("class") or []) else None
         title, diets, _ = parse_dish_line(h3.get_text(" ", strip=True))
+        if desc:
+            desc = desc[:1].upper() + desc[1:]
         items.append({"title": title, "diets": diets, "price": price, **({"desc": desc} if desc else {})})
     for d in range(5):
         menus[str(d)] = [dict(i) for i in items]
