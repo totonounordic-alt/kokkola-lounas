@@ -256,6 +256,7 @@ def parse_lounaat_info(url: str, today: date, package_title: str = None):
 
         day_items = []
         package_price = None
+        section = None  # väliotsikko, esim. "Buffet" tai "Tilauksesta"
         for li in item.select("li.menu-item"):
             price_el = li.select_one(".price")
             field_price = None
@@ -286,6 +287,11 @@ def parse_lounaat_info(url: str, today: date, package_title: str = None):
                     day_items.append({"title": title, "diets": normalize_diets(diets + extra_diets)})
                 continue
 
+            # Väliotsikko ("Buffet:", "Tilauksesta:") liitetään seuraavien annosten eteen
+            if re.match(r"^[A-ZÅÄÖa-zåäö][\wåäöÅÄÖ /&-]{1,24}:$", text) and not diets and not field_price:
+                section = text.rstrip(":").strip()
+                continue
+
             title, extra_diets, price = parse_dish_line(text)
             diets = normalize_diets(diets + extra_diets)
             price = field_price or price
@@ -299,10 +305,17 @@ def parse_lounaat_info(url: str, today: date, package_title: str = None):
                 prev = day_items[-1]
                 prev["diets"] = normalize_diets(prev["diets"] + ["PG" if d == "G" else d for d in diets])
                 continue
-            if day_items and " " not in title and re.search(r"(ssa|ssä)$", title.lower()):
+            # Jatkorivi, jonka jokainen sana on inessiivissä: "Täyteläisessä sipulikastikkeessa"
+            words = title.lower().split()
+            if day_items and len(words) <= 3 and all(re.search(r"(ssa|ssä)$", w) for w in words):
                 prev = day_items[-1]
                 prev["title"] = f"{prev['title']} {title.lower()}"
+                if diets:
+                    prev["diets"] = [d for d in prev["diets"] if d in diets]
                 continue
+
+            if section:
+                title = f"{section}: {title}"
 
             day_items.append({"title": title, "diets": diets, "price": price})
 
@@ -419,11 +432,22 @@ def parse_pancho():
             rest = re.sub(r"^SPECIAL\s+BURGER\s*[–\-:]?\s*", "", line, flags=re.IGNORECASE)
             title, diets, price = parse_dish_line(rest)
             special = {"title": f"Viikon Special Burger: {title}", "diets": diets, "price": price}
-        elif upper.startswith(("PANCHON BURGERIT", "LOUNASSALAATTI", "LOUNASPIHVI")):
-            if not any(s.split()[0].upper() == line.split()[0].upper() for s in static):
-                first, _, rest = re.sub(r"\s+", " ", line).partition(" ")
-                line_text = f"{first.capitalize()} {rest}".strip()
-                static.append(re.sub(r"\(PG\)", "(gluteeniton pyydettäessä)", line_text))
+        elif upper.startswith(("PANCHON BURGERIT", "LOUNASBURGERIT", "LOUNASSALAATTI", "LOUNASPIHVI", "PANCHON POKE")):
+            # Lista toistuu sivulla jokaiselle päivälle; jokainen vakiolounas otetaan kerran
+            key = " ".join(upper.split()[:2])
+            if not any(" ".join(s.upper().split()[:2]) == key for s in static):
+                text = re.sub(r"\s+", " ", line)
+                text = re.sub(r"[–-]\s*[–-]", "–", text)  # "LOUNASPIHVI – – ..." -> "LOUNASPIHVI – ..."
+                words = text.split(" ")
+                # Isot kirjaimet otsikossa pieniksi ("PANCHON POKE" -> "Panchon poke")
+                head = []
+                while words and words[0].isalpha() and words[0].isupper() and len(words[0]) > 2:
+                    head.append(words.pop(0).lower())
+                line_text = " ".join(([" ".join(head).capitalize()] if head else []) + words).strip()
+                line_text = re.sub(r"\(PG,\s*PL\)", "(gluteeniton ja laktoositon pyydettäessä)", line_text)
+                line_text = re.sub(r"\(PG\)", "(gluteeniton pyydettäessä)", line_text)
+                line_text = re.sub(r"\(PL\)", "(laktoositon pyydettäessä)", line_text)
+                static.append(line_text)
 
     if special and has_any_items(menus):
         for idx in range(5):
@@ -770,14 +794,18 @@ def parse_caffitella(today: date) -> dict:
             if not line:
                 continue
         line = re.sub(r"\(\s*annosruoka ei sis\.? buffettiin\s*\)", "", line, flags=re.IGNORECASE).strip()
-        title, diets = split_diet_groups(line)
-        if not title:
-            continue
-        if title.lower() == "salaattibuffet":
-            buffet.append({"title": title, "diets": []})
+        if line.lower() == "salaattibuffet":
+            buffet.append({"title": "Salaattibuffet", "diets": []})
             after_salad = True
             continue
-        (alacarte if after_salad else buffet).append({"title": title, "diets": diets})
+        # Annosruokarivillä voi olla useampi annos: "Broiler burger (L) Tofu poke (G,VE)"
+        pieces = (
+            re.split(r"(?<=\))\s+(?:ja\s+|&\s+)?(?=[A-ZÅÄÖ])", line) if after_salad else [line]
+        )
+        for piece in pieces:
+            title, diets = split_diet_groups(piece)
+            if title:
+                (alacarte if after_salad else buffet).append({"title": title, "diets": diets})
     flush()
     return menus
 
