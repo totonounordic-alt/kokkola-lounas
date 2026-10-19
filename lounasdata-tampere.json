@@ -1,5 +1,5 @@
 {
-  "updated": "19.10.2026 klo 10.46",
+  "updated": "19.10.2026 klo 11.37",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -672,8 +672,17 @@
             "price": null,
             "parts": [
               {
-                "title": "Broiler burger Tofu poke",
-                "diets": []
+                "title": "Broiler burger",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Tofu poke",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
               }
             ]
           }
@@ -719,8 +728,15 @@
             "price": null,
             "parts": [
               {
-                "title": "Chicken & fries Halloumi poke",
+                "title": "Chicken & fries",
                 "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Halloumi poke",
+                "diets": [
+                  "G",
                   "L"
                 ]
               }
@@ -766,8 +782,17 @@
             "price": null,
             "parts": [
               {
-                "title": "Aioli burger Tofu salaatti",
-                "diets": []
+                "title": "Aioli burger",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Tofu salaatti",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
               }
             ]
           }
@@ -811,8 +836,17 @@
             "price": null,
             "parts": [
               {
-                "title": "Vuohenjuusto burger Teriyaki poke",
-                "diets": []
+                "title": "Vuohenjuusto burger",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Teriyaki poke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
               }
             ]
           }
@@ -890,31 +924,31 @@
             "title": "Possua talon tapaan",
             "diets": [],
             "price": "14,00 €",
-            "desc": "leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
+            "desc": "Leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
           },
           {
             "title": "Viikon kana",
             "diets": [],
             "price": "15,00 €",
-            "desc": "grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
+            "desc": "Grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
           },
           {
             "title": "Metsästäjän lohta",
             "diets": [],
             "price": "16,00 €",
-            "desc": "pariloitua lohta kermaisella metsäsienikastikkeella"
+            "desc": "Pariloitua lohta kermaisella metsäsienikastikkeella"
           },
           {
             "title": "Viikon pasta",
             "diets": [],
             "price": "13,70 €",
-            "desc": "falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
+            "desc": "Falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
           },
           {
             "title": "Viikon pizza",
             "diets": [],
             "price": "13,70 €",
-            "desc": "savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
+            "desc": "Savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
           }
         ],
         "1": [
@@ -922,31 +956,31 @@
             "title": "Possua talon tapaan",
             "diets": [],
             "price": "14,00 €",
-            "desc": "leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
+            "desc": "Leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
           },
           {
             "title": "Viikon kana",
             "diets": [],
             "price": "15,00 €",
-            "desc": "grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
+            "desc": "Grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
           },
           {
             "title": "Metsästäjän lohta",
             "diets": [],
             "price": "16,00 €",
-            "desc": "pariloitua lohta kermaisella metsäsienikastikkeella"
+            "desc": "Pariloitua lohta kermaisella metsäsienikastikkeella"
           },
           {
             "title": "Viikon pasta",
             "diets": [],
             "price": "13,70 €",
-            "desc": "falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
+            "desc": "Falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
           },
           {
             "title": "Viikon pizza",
             "diets": [],
             "price": "13,70 €",
-            "desc": "savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
+            "desc": "Savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
           }
         ],
         "2": [
@@ -954,31 +988,31 @@
             "title": "Possua talon tapaan",
             "diets": [],
             "price": "14,00 €",
-            "desc": "leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
+            "desc": "Leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
           },
           {
             "title": "Viikon kana",
             "diets": [],
             "price": "15,00 €",
-            "desc": "grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
+            "desc": "Grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
           },
           {
             "title": "Metsästäjän lohta",
             "diets": [],
             "price": "16,00 €",
-            "desc": "pariloitua lohta kermaisella metsäsienikastikkeella"
+            "desc": "Pariloitua lohta kermaisella metsäsienikastikkeella"
           },
           {
             "title": "Viikon pasta",
             "diets": [],
             "price": "13,70 €",
-            "desc": "falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
+            "desc": "Falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
           },
           {
             "title": "Viikon pizza",
             "diets": [],
             "price": "13,70 €",
-            "desc": "savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
+            "desc": "Savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
           }
         ],
         "3": [
@@ -986,31 +1020,31 @@
             "title": "Possua talon tapaan",
             "diets": [],
             "price": "14,00 €",
-            "desc": "leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
+            "desc": "Leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
           },
           {
             "title": "Viikon kana",
             "diets": [],
             "price": "15,00 €",
-            "desc": "grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
+            "desc": "Grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
           },
           {
             "title": "Metsästäjän lohta",
             "diets": [],
             "price": "16,00 €",
-            "desc": "pariloitua lohta kermaisella metsäsienikastikkeella"
+            "desc": "Pariloitua lohta kermaisella metsäsienikastikkeella"
           },
           {
             "title": "Viikon pasta",
             "diets": [],
             "price": "13,70 €",
-            "desc": "falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
+            "desc": "Falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
           },
           {
             "title": "Viikon pizza",
             "diets": [],
             "price": "13,70 €",
-            "desc": "savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
+            "desc": "Savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
           }
         ],
         "4": [
@@ -1018,31 +1052,31 @@
             "title": "Possua talon tapaan",
             "diets": [],
             "price": "14,00 €",
-            "desc": "leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
+            "desc": "Leivitetty porsaanleike bearnaisekastikkeella sekä chiliraidoilla"
           },
           {
             "title": "Viikon kana",
             "diets": [],
             "price": "15,00 €",
-            "desc": "grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
+            "desc": "Grillattu broilerin rintafile pariloidulla vuohenjuustolla sekä paholaisenhillolla"
           },
           {
             "title": "Metsästäjän lohta",
             "diets": [],
             "price": "16,00 €",
-            "desc": "pariloitua lohta kermaisella metsäsienikastikkeella"
+            "desc": "Pariloitua lohta kermaisella metsäsienikastikkeella"
           },
           {
             "title": "Viikon pasta",
             "diets": [],
             "price": "13,70 €",
-            "desc": "falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
+            "desc": "Falafelpyörykät ja linguinepasta curry-tomaattikermakastikkeessa. Rucola, parmesan ja leipä"
           },
           {
             "title": "Viikon pizza",
             "diets": [],
             "price": "13,70 €",
-            "desc": "savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
+            "desc": "Savuporo, koskenlaskijajuusto ja marinoitu punasipuli"
           }
         ]
       }
@@ -2644,7 +2678,7 @@
             "price": null,
             "parts": [
               {
-                "title": "Puolukkapiirakka",
+                "title": "Rahka-marjapiirakka G,L",
                 "diets": []
               }
             ]

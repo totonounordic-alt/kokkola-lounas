@@ -1,5 +1,5 @@
 {
-  "updated": "19.10.2026 klo 10.46",
+  "updated": "19.10.2026 klo 11.37",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -192,15 +192,7 @@
       "menus": {
         "0": [
           {
-            "title": "Pikku possut",
-            "diets": [
-              "G",
-              "L"
-            ],
-            "price": null
-          },
-          {
-            "title": "Täyteläisessä sipulikastikkeessa",
+            "title": "Pikku possut täyteläisessä sipulikastikkeessa",
             "diets": [
               "G",
               "L"
@@ -349,12 +341,7 @@
       "menus": {
         "0": [
           {
-            "title": "Buffet:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Kanan paistileike, riisi, bearnaisekastike, lämpimät kasvikset",
+            "title": "Buffet: Kanan paistileike, riisi, bearnaisekastike, lämpimät kasvikset",
             "diets": [
               "G",
               "L"
@@ -362,19 +349,14 @@
             "price": "13,90 €"
           },
           {
-            "title": "Tilauksesta:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Double Smash Burger & ranskalaiset",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -385,12 +367,7 @@
         ],
         "1": [
           {
-            "title": "Buffet:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Savukassler pippurikastikkeessa, muusi, lämpimät kasvikset",
+            "title": "Buffet: Savukassler pippurikastikkeessa, muusi, lämpimät kasvikset",
             "diets": [
               "G",
               "L"
@@ -398,26 +375,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Tilauksesta:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Crispy Chicken Burger & Ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & Ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -428,38 +400,28 @@
         ],
         "2": [
           {
-            "title": "Buffet:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Pulled pork mac n cheese",
+            "title": "Buffet: Pulled pork mac n cheese",
             "diets": [
               "L"
             ],
             "price": "13,90 €"
           },
           {
-            "title": "Tilauksesta:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Crispy Chicken Burger & Ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & Ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -470,12 +432,7 @@
         ],
         "3": [
           {
-            "title": "Buffet:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Savustettu auralohi, limeriisi, lämpimät kasvikset, tilli kermaviili kastike",
+            "title": "Buffet: Savustettu auralohi, limeriisi, lämpimät kasvikset, tilli kermaviili kastike",
             "diets": [
               "G",
               "L"
@@ -483,26 +440,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Tilauksesta:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Crispy Chicken Burger & Ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & Ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -513,12 +465,7 @@
         ],
         "4": [
           {
-            "title": "Buffet:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Savustettu naudan poski punaviinikastikkeessa, muusi, paahdetut juurekset",
+            "title": "Buffet: Savustettu naudan poski punaviinikastikkeessa, muusi, paahdetut juurekset",
             "diets": [
               "G",
               "L"
@@ -526,26 +473,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Tilauksesta:",
-            "diets": [],
-            "price": null
-          },
-          {
-            "title": "Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Crispy Chicken Burger & Ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & Ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -1220,7 +1162,13 @@
         "url": "https://panchovilla.fi/ravintolat/kokkola/"
       },
       "staticNote": [
-        "Lounaspihvi – – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €"
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
+        "Panchon poke (L,G) 14,50 €",
+        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€"
       ],
       "menus": {
         "0": [
