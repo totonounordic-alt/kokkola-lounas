@@ -650,8 +650,21 @@ def parse_johnscotts(today: date):
     if week_i is None:
         return menus, None
     if int(lines[week_i].split()[-1]) != today.isocalendar()[1]:
-        print(f"  John Scott'sin lista on viikolta {lines[week_i]}, ohitetaan")
-        return menus, None
+        # Ravintola päivittää välillä listan mutta unohtaa otsikon viikkonumeron.
+        # Hyväksytään lista, jos sivua on muokattu aikaisintaan kuluvaa maanantaita
+        # edeltävänä lauantaina (WordPressin article:modified_time).
+        modified = None
+        meta = soup.find("meta", attrs={"property": "article:modified_time"})
+        if meta and meta.get("content"):
+            try:
+                modified = datetime.fromisoformat(meta["content"]).astimezone(ZoneInfo("Europe/Helsinki")).date()
+            except ValueError:
+                modified = None
+        week_start = week_dates(today)[0] - timedelta(days=2)
+        if modified is None or modified < week_start:
+            print(f"  John Scott'sin lista on viikolta {lines[week_i]} (muokattu {modified}), ohitetaan")
+            return menus, None
+        print(f"  John Scott'sin otsikossa {lines[week_i]}, mutta sivua muokattu {modified}: käytetään listaa")
 
     price, current, static = None, None, []
     for line in lines[week_i + 1:]:
@@ -1044,7 +1057,7 @@ def tampere_restaurants(today: date) -> list:
             "price": "13,50 €",
             "info": ["Keittolounas 11,90 €."],
             **ratina,
-            "url": "https://johnscotts.se/ratina/",
+            "url": "https://johnscotts.se/ratina/john-scotts-lunch/",
             "source": {"label": "johnscotts.se", "url": "https://johnscotts.se/ratina/john-scotts-lunch/"},
             "fetch": johnscotts,
         },
