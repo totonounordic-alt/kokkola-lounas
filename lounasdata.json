@@ -1,5 +1,5 @@
 {
-  "updated": "19.10.2026 klo 11.37",
+  "updated": "20.10.2026 klo 07.58",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -1167,7 +1167,6 @@
         "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€"
       ],
       "menus": {
@@ -1333,9 +1332,47 @@
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Naudan lihapullat pippurikastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "BBQ marinoitu kanan siivet",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33 Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
           }
         ],
         "2": [
