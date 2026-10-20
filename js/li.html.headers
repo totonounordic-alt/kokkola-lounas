@@ -1,0 +1,11 @@
+HTTP/2 200 
+date: Tue, 20 Oct 2026 07:09:27 GMT
+content-type: text/html; charset=UTF-8
+server: nginx
+x-powered-by: PHP/5.6.7
+set-cookie: PHPSESSID=63c7831600a30e523c12b0406ceca6be; path=/
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+cache-control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+pragma: no-cache
+set-cookie: location_v2=%7B%22lat%22%3A%2261.4930257%22%2C%22lng%22%3A%2223.7680039%22%7D; expires=Sat, 20-Oct-2046 08:09:27 GMT; Max-Age=631155600; path=/
+

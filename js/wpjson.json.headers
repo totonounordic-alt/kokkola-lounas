@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Tue, 20 Oct 2026 07:09:28 GMT
+Server: Apache
+X-Robots-Tag: noindex
+Link: <https://johnscotts.se/ratina/wp-json/>; rel="https://api.w.org/"
+X-Content-Type-Options: nosniff
+Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link
+Access-Control-Allow-Headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+X-WP-Total: 1
+X-WP-TotalPages: 1
+Allow: GET
+Vary: Origin
+Transfer-Encoding: chunked
+Content-Type: application/json; charset=UTF-8
+

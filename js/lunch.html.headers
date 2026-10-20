@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Date: Tue, 20 Oct 2026 07:09:20 GMT
+Server: Apache
+Link: <https://johnscotts.se/ratina/wp-json/>; rel="https://api.w.org/", <https://johnscotts.se/ratina/wp-json/wp/v2/pages/50>; rel="alternate"; title="JSON"; type="application/json", <https://johnscotts.se/ratina/?p=50>; rel=shortlink
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+
