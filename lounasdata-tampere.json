@@ -1,5 +1,5 @@
 {
-  "updated": "20.10.2026 klo 10.38",
+  "updated": "20.10.2026 klo 11.32",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -1092,45 +1092,240 @@
       ],
       "lat": 61.49327,
       "lon": 23.76734,
-      "url": "https://johnscotts.se/ratina/",
+      "url": "https://johnscotts.se/ratina/john-scotts-lunch/",
       "source": {
         "label": "johnscotts.se",
         "url": "https://johnscotts.se/ratina/john-scotts-lunch/"
       },
+      "staticNote": [
+        "Porsaan leike pippurikastikkeella ja ranskalaisilla perunoilla (L) 14,90 €",
+        "John Scott’s Burger (L) 13,90 € – 120 g naudanlihapihvi, cheddarjuusto, 3 dippiä",
+        "Fish & Chips (L) 14,90 €"
+      ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Päivän lounas",
             "diets": [],
-            "price": null
+            "price": "13,50 €",
+            "parts": [
+              {
+                "title": "Päivän Keitto: Kermainen Lohikeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Lihapullat kermakastikkeella ja puolukkahillolla",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Broileria vuohenjuustokastikkeella",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Perunamuusi",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Riisi",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Kasvisruoka lautaselta: Friteerattua kesäkurpitsaa, couscous kasviksilla ja jogurttikastike (L, saatavana vegaanisena)",
+                "diets": []
+              }
+            ]
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Päivän lounas",
             "diets": [],
-            "price": null
+            "price": "13,50 €",
+            "parts": [
+              {
+                "title": "Päivän keitto: Riistakeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kievin kana chilimajoneesilla",
+                "diets": []
+              },
+              {
+                "title": "Paistettua seitiä sitruunakastikkeella",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Perunamuusi",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kasvisruoka lautaselta: Friteerattua kesäkurpitsaa, couscous kasviksilla ja jogurttikastike (L, saatavana vegaanisena)",
+                "diets": []
+              }
+            ]
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Päivän lounas",
+            "diets": [
+              "G"
+            ],
+            "price": "13,50 €",
+            "parts": [
+              {
+                "title": "Päivän keitto: Kanakeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Uunimakkara",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Hapanimeläpossua",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Perunamuusi",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Riisi ",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Kasvisruoka lautaselta: Tofu red curry riisillä",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
+              }
+            ]
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Päivän lounas",
             "diets": [],
-            "price": null
+            "price": "13,50 €",
+            "parts": [
+              {
+                "title": "Päivän keitto: Hernekeitto & pannukakku",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Cordon Bleu sitruuna-aiolilla",
+                "diets": []
+              },
+              {
+                "title": "Kampelafilee yrttikastikkeella",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kermaperunat",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kasvisruoka lautaselta: Tofu red curry riisillä",
+                "diets": [
+                  "G",
+                  "Veg"
+                ]
+              }
+            ]
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Päivän lounas",
             "diets": [],
-            "price": null
+            "price": "13,50 €",
+            "parts": [
+              {
+                "title": "Päivän keitto: Mustajuurikeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Ristikkoperunat",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Täyslihapihvi ja juusto",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Broileripihvi ananaksella",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Sriracha hotdog",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Kasvis lautaselta: Vegeburger",
+                "diets": [
+                  "Veg"
+                ]
+              }
+            ]
           }
         ]
       }
