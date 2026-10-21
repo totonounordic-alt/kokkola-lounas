@@ -1,5 +1,5 @@
 {
-  "updated": "21.10.2026 klo 07.59",
+  "updated": "21.10.2026 klo 10.41",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -2010,9 +2010,7 @@
           {
             "title": "Sides",
             "diets": [
-              "G",
-              "M",
-              "Veg"
+              "G"
             ],
             "price": null,
             "parts": [
@@ -2022,6 +2020,13 @@
                   "G",
                   "M",
                   "Veg"
+                ]
+              },
+              {
+                "title": "Tuoreyrtti-kermaperunoita",
+                "diets": [
+                  "G",
+                  "L"
                 ]
               },
               {
@@ -2234,7 +2239,7 @@
             "price": null,
             "parts": [
               {
-                "title": "Jauheliha-nachovuokaa",
+                "title": "Jauheliha-nachovuoka",
                 "diets": [
                   "G",
                   "L"
