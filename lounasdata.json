@@ -1,5 +1,5 @@
 {
-  "updated": "20.10.2026 klo 11.32",
+  "updated": "21.10.2026 klo 07.59",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -1166,7 +1166,6 @@
         "Panchon poke (L,G) 14,50 €",
         "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€"
       ],
       "menus": {
@@ -1377,9 +1376,47 @@
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Kanasisäfileet Bernais kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "Juustoinen ja kebablihalla uuni pasta",
+                "diets": []
+              },
+              {
+                "title": "Pannu&Norm pizzat",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33 Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
           }
         ],
         "3": [
