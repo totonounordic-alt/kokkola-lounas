@@ -1,5 +1,5 @@
 {
-  "updated": "22.10.2026 klo 08.01",
+  "updated": "22.10.2026 klo 10.42",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -2116,20 +2116,12 @@
           },
           {
             "title": "Roots vegan",
-            "diets": [
-              "G",
-              "M",
-              "Veg"
-            ],
+            "diets": [],
             "price": null,
             "parts": [
               {
-                "title": "Kikherne-aprikoosipataa",
-                "diets": [
-                  "G",
-                  "M",
-                  "Veg"
-                ]
+                "title": "Kikherne-aprikoosipata G,L",
+                "diets": []
               }
             ]
           },
