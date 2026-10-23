@@ -1,5 +1,5 @@
 {
-  "updated": "22.10.2026 klo 11.35",
+  "updated": "23.10.2026 klo 07.59",
   "week": "2026-W43",
   "restaurants": [
     {
@@ -1164,8 +1164,7 @@
       "staticNote": [
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
         "Panchon poke (L,G) 14,50 €",
-        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€"
+        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €"
       ],
       "menus": {
         "0": [
@@ -1427,9 +1426,55 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Marinoitu uuni Lohi palat",
+                "diets": []
+              },
+              {
+                "title": "Kana Fajita",
+                "diets": []
+              },
+              {
+                "title": "Juusto kerma peruna",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Bernais kastike",
+                "diets": []
+              },
+              {
+                "title": "Hyvin maustettu toure kasvis mix",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi",
+                "diets": []
+              }
+            ]
           }
         ]
       }
