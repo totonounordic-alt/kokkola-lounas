@@ -1,5 +1,5 @@
 {
-  "updated": "26.10.2026 klo 07.04",
+  "updated": "26.10.2026 klo 09.48",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -1315,40 +1315,223 @@
         "label": "viatribunali.fi",
         "url": "https://viatribunali.fi/lounasmenu/"
       },
+      "info": [
+        "Gluteeniton pizzataikina +4 € (keittiö ei ole gluteeniton ympäristö)."
+      ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Guanciale (valkoinen)",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Fior di Latte -mozzarellaa, Guancialea (porsaanposkea), Pecorino romano- ja parmesaanijuustoa, mustapippuria, lehtipersiljaa, sitruunamehua, valko- sipulia, oliiviöljyä"
+          },
+          {
+            "title": "Campana",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Tomaattikastiketta napolaisista tomaateista, paprikaa, oreganoa, Fior di Latte mozzarellaa, basilikaa, oliiviöljyä"
+          },
+          {
+            "title": "Kana Caesar",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, rapeaksi paistettua kanaa, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Kasvis Caesar",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, paistettua kasvisproteinia, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Lasagne della Nonna",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Perinteistä lasagnea Via Tribunalin tyyliin ja pieni salaatti. Käytämme 100 % suomalaista naudan jauhelihaa."
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Guanciale (valkoinen)",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Fior di Latte -mozzarellaa, Guancialea (porsaanposkea), Pecorino romano- ja parmesaanijuustoa, mustapippuria, lehtipersiljaa, sitruunamehua, valko- sipulia, oliiviöljyä"
+          },
+          {
+            "title": "Campana",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Tomaattikastiketta napolaisista tomaateista, paprikaa, oreganoa, Fior di Latte mozzarellaa, basilikaa, oliiviöljyä"
+          },
+          {
+            "title": "Kana Caesar",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, rapeaksi paistettua kanaa, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Kasvis Caesar",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, paistettua kasvisproteinia, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Lasagne della Nonna",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Perinteistä lasagnea Via Tribunalin tyyliin ja pieni salaatti. Käytämme 100 % suomalaista naudan jauhelihaa."
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Guanciale (valkoinen)",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Fior di Latte -mozzarellaa, Guancialea (porsaanposkea), Pecorino romano- ja parmesaanijuustoa, mustapippuria, lehtipersiljaa, sitruunamehua, valko- sipulia, oliiviöljyä"
+          },
+          {
+            "title": "Campana",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Tomaattikastiketta napolaisista tomaateista, paprikaa, oreganoa, Fior di Latte mozzarellaa, basilikaa, oliiviöljyä"
+          },
+          {
+            "title": "Kana Caesar",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, rapeaksi paistettua kanaa, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Kasvis Caesar",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, paistettua kasvisproteinia, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Lasagne della Nonna",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Perinteistä lasagnea Via Tribunalin tyyliin ja pieni salaatti. Käytämme 100 % suomalaista naudan jauhelihaa."
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Guanciale (valkoinen)",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Fior di Latte -mozzarellaa, Guancialea (porsaanposkea), Pecorino romano- ja parmesaanijuustoa, mustapippuria, lehtipersiljaa, sitruunamehua, valko- sipulia, oliiviöljyä"
+          },
+          {
+            "title": "Campana",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Tomaattikastiketta napolaisista tomaateista, paprikaa, oreganoa, Fior di Latte mozzarellaa, basilikaa, oliiviöljyä"
+          },
+          {
+            "title": "Kana Caesar",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, rapeaksi paistettua kanaa, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Kasvis Caesar",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, paistettua kasvisproteinia, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Lasagne della Nonna",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Perinteistä lasagnea Via Tribunalin tyyliin ja pieni salaatti. Käytämme 100 % suomalaista naudan jauhelihaa."
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Guanciale (valkoinen)",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Fior di Latte -mozzarellaa, Guancialea (porsaanposkea), Pecorino romano- ja parmesaanijuustoa, mustapippuria, lehtipersiljaa, sitruunamehua, valko- sipulia, oliiviöljyä"
+          },
+          {
+            "title": "Campana",
+            "diets": [
+              "VL"
+            ],
+            "price": "14,00 €",
+            "desc": "Tomaattikastiketta napolaisista tomaateista, paprikaa, oreganoa, Fior di Latte mozzarellaa, basilikaa, oliiviöljyä"
+          },
+          {
+            "title": "Kana Caesar",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, rapeaksi paistettua kanaa, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Kasvis Caesar",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Romaine-salaattia, Caesar-kastiketta, paistettua kasvisproteinia, parmesaanijuustoa, krutonkeja"
+          },
+          {
+            "title": "Lasagne della Nonna",
+            "diets": [
+              "L"
+            ],
+            "price": "14,00 €",
+            "desc": "Perinteistä lasagnea Via Tribunalin tyyliin ja pieni salaatti. Käytämme 100 % suomalaista naudan jauhelihaa."
           }
         ]
       }
