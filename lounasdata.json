@@ -1,5 +1,5 @@
 {
-  "updated": "26.10.2026 klo 09.48",
+  "updated": "26.10.2026 klo 10.42",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -18,35 +18,156 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Kievin kana ja mangomajoneesi",
+            "diets": [
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Juusto-pekoninakit",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Savuporojuustokeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Fish&chips ja kurkkumajoneesi",
+            "diets": [
+              "M"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Teryakibroileri",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Kermainen lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Pannupihvit tomaattisessa kermakastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Savulohipasta",
+            "diets": [
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Pinaattikeitto ja kananmunia",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Pyttipannu ja paistettuja munia",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Hedelmäinen broilerikastike",
+            "diets": [
+              "G",
+              "VL"
+            ],
             "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Paneroidut possunleikkeet",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Choronkastike",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": null
+          },
+          {
+            "title": "Lohkoperunat ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Aurajuustoinen kasvisgratiini",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Lihakeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
+          },
+          {
+            "title": "Jälkiruoka",
             "diets": [],
             "price": null
           }
