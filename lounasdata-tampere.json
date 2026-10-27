@@ -1,5 +1,5 @@
 {
-  "updated": "26.10.2026 klo 10.42",
+  "updated": "27.10.2026 klo 07.01",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -688,9 +688,10 @@
                 ]
               },
               {
-                "title": "Pariisinperunoita Kasvissosekeitto",
+                "title": "Pariisinperunoita",
                 "diets": [
-                  "G"
+                  "G",
+                  "M"
                 ]
               },
               {
@@ -2357,7 +2358,7 @@
                 ]
               },
               {
-                "title": "Paneroitua kampelaa, tartarkastike ja perunamuusi",
+                "title": "Paneroitua kampelaa, tartarkastiketta ja perunamuusia",
                 "diets": []
               },
               {
@@ -2384,14 +2385,14 @@
             "price": "13,90 €",
             "parts": [
               {
-                "title": "Kermainen lohikeitto",
+                "title": "Kermainen Lohikeitto",
                 "diets": [
                   "G",
                   "L"
                 ]
               },
               {
-                "title": "Intialainen vegecurry",
+                "title": "Intialainen Vegecurry",
                 "diets": [
                   "G",
                   "M",
@@ -2399,7 +2400,7 @@
                 ]
               },
               {
-                "title": "Kananpoikaa punaviini- pekonikastikkeessa ja riisiä",
+                "title": "Kananpoikaa punaviini-pekonikastikkeessa ja riisi",
                 "diets": [
                   "G"
                 ]
