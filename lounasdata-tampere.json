@@ -1,5 +1,5 @@
 {
-  "updated": "28.10.2026 klo 07.10",
+  "updated": "28.10.2026 klo 09.54",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -1932,20 +1932,15 @@
           },
           {
             "title": "Cozy",
-            "diets": [],
+            "diets": [
+              "L"
+            ],
             "price": null,
             "parts": [
               {
                 "title": "Jauhelihalasagne",
                 "diets": [
                   "L"
-                ]
-              },
-              {
-                "title": "Tomaattista kebabkastiketta",
-                "diets": [
-                  "G",
-                  "M"
                 ]
               }
             ]
