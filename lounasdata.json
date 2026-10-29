@@ -1,5 +1,5 @@
 {
-  "updated": "29.10.2026 klo 07.10",
+  "updated": "29.10.2026 klo 09.57",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -1128,15 +1128,6 @@
                   "M",
                   "Veg"
                 ]
-              },
-              {
-                "title": "Ranskalaisia perunoita",
-                "diets": [
-                  "G",
-                  "L",
-                  "M",
-                  "Veg"
-                ]
               }
             ]
           },
@@ -1158,7 +1149,7 @@
                 ]
               },
               {
-                "title": "Porsaan grillipihvi",
+                "title": "Talon porsaanleike",
                 "diets": [
                   "G",
                   "L",
@@ -1174,15 +1165,6 @@
               },
               {
                 "title": "Lohkoperunoita",
-                "diets": [
-                  "G",
-                  "L",
-                  "M",
-                  "Veg"
-                ]
-              },
-              {
-                "title": "Paahdettua perunaa ja juureksia",
                 "diets": [
                   "G",
                   "L",
