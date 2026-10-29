@@ -1,5 +1,5 @@
 {
-  "updated": "28.10.2026 klo 10.48",
+  "updated": "29.10.2026 klo 07.10",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -1469,9 +1469,63 @@
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Iskender kebab buffe",
+                "diets": []
+              },
+              {
+                "title": "Kebabliha",
+                "diets": []
+              },
+              {
+                "title": "Rullakebab",
+                "diets": []
+              },
+              {
+                "title": "Kebab burritos",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Lohkoperunat",
+                "diets": []
+              },
+              {
+                "title": "Kebab kastike punainen",
+                "diets": []
+              },
+              {
+                "title": "Majoneesit",
+                "diets": []
+              },
+              {
+                "title": "Norm&pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Suklaa kakku",
+                "diets": []
+              }
+            ]
           }
         ],
         "4": [
