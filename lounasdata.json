@@ -1,5 +1,5 @@
 {
-  "updated": "29.10.2026 klo 10.49",
+  "updated": "30.10.2026 klo 07.11",
   "week": "2026-W44",
   "restaurants": [
     {
@@ -1512,9 +1512,55 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Uuni Lohi",
+                "diets": []
+              },
+              {
+                "title": "Pippuri kastike",
+                "diets": []
+              },
+              {
+                "title": "Juustoinen ja kebablihalla uuni pasta",
+                "diets": []
+              },
+              {
+                "title": "Kermaperuna",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Riisi",
+                "diets": []
+              },
+              {
+                "title": "Norm&pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33 Limsa",
+                "diets": []
+              },
+              {
+                "title": "Jälkiruoka",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
           }
         ]
       }
