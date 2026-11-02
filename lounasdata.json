@@ -1,5 +1,5 @@
 {
-  "updated": "02.11.2026 klo 07.27",
+  "updated": "02.11.2026 klo 10.24",
   "week": "2026-W45",
   "restaurants": [
     {
@@ -18,37 +18,164 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Makaronilaatikko",
+            "diets": [
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Makkarakastike",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Kermainen kanakeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Marry me kana",
+            "diets": [
+              "G"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Jauhelihakastike",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Spaghetti",
+            "diets": [
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Kermainen lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Kreikkalainen feta-lihamureke",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Kermaperunat",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Pasta carbonara",
+            "diets": [
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Porkkanasosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Kalapuikot ja kermaviilikastike",
+            "diets": [
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Lihakastike",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lehtipihvit ja pehmeä pippurikastike",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Ranskalaiset ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Tomaatti-mozzarellagratiini",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Jälkiruoka",
             "diets": [],
             "price": null
+          },
+          {
+            "title": "Koskenlaskija-kasvissosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ]
       }
@@ -225,37 +352,166 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Buffet: Savukassler pippurikastikkeessa, muusi, lämpimät kasvikset",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Buffet: Kanan paistileike, lohkoperunat, bearnaise kastike, lämpimät kasvikset",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Buffet: Smokey Roadin BBQ-Lasagne, lämpimät kasvikset",
+            "diets": [
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Buffet: Savustettu Brisket, valkosipuli-kermaperunat, uunijuurekset, BBQ-kastike",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Buffet: Uunilohi hollandaise kastikkeessa, riisi, lämpimät kasvikset",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,90 €"
+          },
+          {
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "diets": [
+              "L"
+            ],
+            "price": "15,90 €"
+          },
+          {
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "diets": [
+              "G",
+              "L",
+              "Veg"
+            ],
+            "price": "13,90 €"
           }
         ]
       }
@@ -964,44 +1220,86 @@
         "url": "https://panchovilla.fi/ravintolat/kokkola/"
       },
       "staticNote": [
-        "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (gluteeniton pyydettäessä)",
-        "Lounassalaatti (kana / halloumi / lohi) 14,50 €",
-        "Lounaspihvi (paneroitu kana / paneroitu porsaan pihvi) 14,50 €"
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
+        "Panchon poke (L,PG) 14,50 €",
+        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€"
       ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Tortillatasku paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Lö Cheese paneroidulla kanalla",
             "diets": [],
-            "price": null
+            "price": "15,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Juusto Quesadilla",
+            "diets": [
+              "PG"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Lö Cheese paneroidulla kanalla",
             "diets": [],
-            "price": null
+            "price": "15,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Kana Bocadillo",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Lö Cheese paneroidulla kanalla",
             "diets": [],
-            "price": null
+            "price": "15,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Burrito ylikypsällä porsaankyljellä",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Lö Cheese paneroidulla kanalla",
             "diets": [],
-            "price": null
+            "price": "15,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Loaded Fries pekoni & aurajuusto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Lö Cheese paneroidulla kanalla",
             "diets": [],
-            "price": null
+            "price": "15,00 €"
           }
         ]
       }

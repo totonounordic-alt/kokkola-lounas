@@ -1,5 +1,5 @@
 {
-  "updated": "02.11.2026 klo 07.27",
+  "updated": "02.11.2026 klo 10.24",
   "week": "2026-W45",
   "restaurants": [
     {
@@ -1742,6 +1742,14 @@
             "price": null,
             "parts": [
               {
+                "title": "Paahdettuja juureksia",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
                 "title": "Uunipaahdettuja yrttiperunoita",
                 "diets": [
                   "G",
@@ -1828,13 +1836,6 @@
             "price": null,
             "parts": [
               {
-                "title": "Uuniperuna kylmäsavulohitäytteellä",
-                "diets": [
-                  "G",
-                  "L"
-                ]
-              },
-              {
                 "title": "Paistettu kirjolohi",
                 "diets": [
                   "G",
@@ -1873,9 +1874,25 @@
             "price": null,
             "parts": [
               {
+                "title": "Paahdettuja juureksia",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
                 "title": "Ruohosipuli-perunamuusi",
                 "diets": [
                   "G"
+                ]
+              },
+              {
+                "title": "Riisiä",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
                 ]
               }
             ]
@@ -1982,6 +1999,14 @@
             ],
             "price": null,
             "parts": [
+              {
+                "title": "Paahdettua porkkanaa ja palsternakkaa",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
               {
                 "title": "Perunaa",
                 "diets": [
@@ -2096,6 +2121,14 @@
             ],
             "price": null,
             "parts": [
+              {
+                "title": "Paahdettuja juureksia",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
               {
                 "title": "Meillä tehtyä perunamuusia",
                 "diets": [
@@ -2218,6 +2251,14 @@
             ],
             "price": null,
             "parts": [
+              {
+                "title": "Paahdettuja paprikaperunoita",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
               {
                 "title": "Jasmiiniriisiä",
                 "diets": [
@@ -2570,11 +2611,10 @@
                 ]
               },
               {
-                "title": "Paahdettuja satokauden kasviksia",
+                "title": "Timjamikasvikset",
                 "diets": [
                   "G",
-                  "M",
-                  "Veg"
+                  "M"
                 ]
               }
             ]
@@ -2602,11 +2642,10 @@
                 ]
               },
               {
-                "title": "Paahdettuja satokauden kasviksia",
+                "title": "Timjamikasvikset",
                 "diets": [
                   "G",
-                  "M",
-                  "Veg"
+                  "M"
                 ]
               }
             ]
@@ -2633,7 +2672,7 @@
                 ]
               },
               {
-                "title": "Paahdettuja satokauden kasviksia",
+                "title": "Keitettyjä perunoita",
                 "diets": [
                   "G",
                   "M",
@@ -2641,11 +2680,10 @@
                 ]
               },
               {
-                "title": "Keitettyjä perunoita",
+                "title": "Timjamikasvikset",
                 "diets": [
                   "G",
-                  "M",
-                  "Veg"
+                  "M"
                 ]
               }
             ]
@@ -2670,7 +2708,7 @@
             "price": null,
             "parts": [
               {
-                "title": "Omena-persikkarahkaa",
+                "title": "Vadelmarahkaa",
                 "diets": [
                   "G",
                   "L"
@@ -2703,10 +2741,11 @@
                 ]
               },
               {
-                "title": "Timjamikasvikset",
+                "title": "Paahdettuja satokauden kasviksia",
                 "diets": [
                   "G",
-                  "M"
+                  "M",
+                  "Veg"
                 ]
               }
             ]
@@ -2738,10 +2777,11 @@
                 ]
               },
               {
-                "title": "Timjamikasvikset",
+                "title": "Paahdettuja satokauden kasviksia",
                 "diets": [
                   "G",
-                  "M"
+                  "M",
+                  "Veg"
                 ]
               }
             ]
@@ -2750,7 +2790,8 @@
             "title": "Roots vegan",
             "diets": [
               "G",
-              "M"
+              "M",
+              "Veg"
             ],
             "price": null,
             "parts": [
@@ -2780,10 +2821,11 @@
                 ]
               },
               {
-                "title": "Timjamikasvikset",
+                "title": "Paahdettuja satokauden kasviksia",
                 "diets": [
                   "G",
-                  "M"
+                  "M",
+                  "Veg"
                 ]
               }
             ]
