@@ -1,5 +1,5 @@
 {
-  "updated": "03.11.2026 klo 07.21",
+  "updated": "03.11.2026 klo 10.09",
   "week": "2026-W45",
   "restaurants": [
     {
@@ -2752,7 +2752,9 @@
           },
           {
             "title": "Cozy",
-            "diets": [],
+            "diets": [
+              "M"
+            ],
             "price": null,
             "parts": [
               {
@@ -2762,10 +2764,11 @@
                 ]
               },
               {
-                "title": "Tilli-jogurttikastiketta",
+                "title": "Aiolia",
                 "diets": [
                   "G",
-                  "L"
+                  "M",
+                  "Veg"
                 ]
               },
               {
