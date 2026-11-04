@@ -1,5 +1,5 @@
 {
-  "updated": "03.11.2026 klo 10.55",
+  "updated": "04.11.2026 klo 07.24",
   "week": "2026-W45",
   "restaurants": [
     {
@@ -1224,7 +1224,6 @@
         "Panchon poke (L,PG) 14,50 €",
         "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€"
       ],
       "menus": {
@@ -1382,7 +1381,7 @@
           {
             "title": "Lounasbuffet",
             "diets": [],
-            "price": "13,00 €",
+            "price": null,
             "parts": [
               {
                 "title": "Lihapullat pippuri kastikkeessa naudan",
@@ -1403,6 +1402,35 @@
               {
                 "title": "Maalaisranskalaiset",
                 "diets": []
+              }
+            ]
+          }
+        ],
+        "2": [
+          {
+            "title": "Lounasbuffet",
+            "diets": [],
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Kana sisäfileet Bernais kastikeessa¨",
+                "diets": []
+              },
+              {
+                "title": "Mac&Cheese",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Maalais ranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
               },
               {
                 "title": "Salaatti pöytä",
@@ -1413,7 +1441,7 @@
                 "diets": []
               },
               {
-                "title": "Porkkana kakku",
+                "title": "Jälkiruoka",
                 "diets": []
               },
               {
@@ -1421,13 +1449,6 @@
                 "diets": []
               }
             ]
-          }
-        ],
-        "2": [
-          {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
           }
         ],
         "3": [
