@@ -1,5 +1,5 @@
 {
-  "updated": "05.11.2026 klo 10.55",
+  "updated": "06.11.2026 klo 07.25",
   "week": "2026-W45",
   "restaurants": [
     {
@@ -1222,8 +1222,7 @@
       "staticNote": [
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€",
         "Panchon poke (L,PG) 14,50 €",
-        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13€ / 17€"
+        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €"
       ],
       "menus": {
         "0": [
@@ -1513,9 +1512,51 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Marinoitu uuni lohi",
+                "diets": []
+              },
+              {
+                "title": "Bernais kastike",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Hyvin maustetut toure kasvis mix",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "Jälkiruoka",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
           }
         ]
       }
