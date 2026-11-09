@@ -1,5 +1,5 @@
 {
-  "updated": "09.11.2026 klo 07.30",
+  "updated": "09.11.2026 klo 10.25",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -18,37 +18,164 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Rapea kana ja mangomajoneesi",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Jauheliha-spaghettivuoka",
+            "diets": [
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Texmex jauhelihakeitto ja creme fraiche",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Jauhemaksapihvit kastikkeessa ja puolukkahillo",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Muusi ja riisi",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Aurabroilerikastike",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": null
+          },
+          {
+            "title": "Kermainen lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lihapullat rosepippurikastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Paahdetut yrttiperunat",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Kana-pekoni pestopasta",
             "diets": [],
             "price": null
+          },
+          {
+            "title": "Feta-tomaattikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Karjalanpaisti ja puolukkaa",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Uunimakkara juustokuorrutteella",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Pulled pork (nyhtöpossua)",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Ranskalaiset ja majoneesi",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Cheddar-kasvisgratiini",
+            "diets": [
+              "G"
+            ],
+            "price": null
+          },
+          {
+            "title": "Jälkiruoka",
             "diets": [],
             "price": null
+          },
+          {
+            "title": "Kukkakaalisosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ]
       }
@@ -1074,44 +1201,90 @@
         "url": "https://panchovilla.fi/ravintolat/kokkola/"
       },
       "staticNote": [
-        "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (gluteeniton pyydettäessä)",
-        "Lounassalaatti (kana / halloumi / lohi) 14,50 €",
-        "Lounaspihvi (paneroitu kana / paneroitu porsaan pihvi) 14,50 €"
+        "Panchon burgerit (gluteeniton pyydettäessä) Norm. 14€ / Tupla 17,50€",
+        "Lounassalaatti – kana / halloumi / lohi (+2,50€) 14,50 €",
+        "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €"
       ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Crispy chicken Calzone",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Meksikolounas: Chili con Carne Pocket",
             "diets": [],
-            "price": null
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Bocadillo porsaankyljellä",
+            "diets": [
+              "PG"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Halloumi Burrito",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Loaded Fries Chili con Carne",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Ananas kuuluu burgeriin paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ]
       }
@@ -1237,7 +1410,7 @@
       "menus": {
         "0": [
           {
-            "title": "Lounas",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
@@ -1298,7 +1471,7 @@
         ],
         "1": [
           {
-            "title": "Lounas",
+            "title": "Buffasta",
             "diets": [],
             "price": null,
             "parts": [
@@ -1365,7 +1538,7 @@
         ],
         "2": [
           {
-            "title": "Lounas",
+            "title": "Buffasta",
             "diets": [],
             "price": null,
             "parts": [
@@ -1428,7 +1601,7 @@
         ],
         "3": [
           {
-            "title": "Lounas",
+            "title": "Buffasta",
             "diets": [
               "L"
             ],
@@ -1499,7 +1672,7 @@
         ],
         "4": [
           {
-            "title": "Lounas",
+            "title": "Buffasta",
             "diets": [],
             "price": null,
             "parts": [
