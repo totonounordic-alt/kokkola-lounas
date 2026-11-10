@@ -1,5 +1,5 @@
 {
-  "updated": "10.11.2026 klo 07.21",
+  "updated": "10.11.2026 klo 10.10",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -764,7 +764,7 @@
             "price": "13,60 €",
             "parts": [
               {
-                "title": "Rosmariini paahdettua broilerinfileetä",
+                "title": "Broileria",
                 "diets": [
                   "G",
                   "L",
@@ -797,7 +797,7 @@
             "price": null,
             "parts": [
               {
-                "title": "Mansikkarahkaa",
+                "title": "Puolukkarahkaa",
                 "diets": [
                   "G",
                   "L"
