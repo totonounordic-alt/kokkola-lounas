@@ -1,5 +1,5 @@
 {
-  "updated": "09.11.2026 klo 11.05",
+  "updated": "10.11.2026 klo 07.21",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -2206,9 +2206,54 @@
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Lounasbuffet",
+            "diets": [
+              "G"
+            ],
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Kermainen lohikeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Feta-kasvispihvit ja tzatzikia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Lihamureketta ja paahdettua sipulia, paahdettuja perunoita",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Broileria ja kasviksia teriyakikastikkeessa, riisiä",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Mustikkakiisseli ja kermavaahtoa",
+                "diets": [
+                  "G"
+                ]
+              }
+            ]
           }
         ],
         "2": [
@@ -2303,10 +2348,7 @@
           },
           {
             "title": "Roots vegan",
-            "diets": [
-              "M",
-              "Veg"
-            ],
+            "diets": [],
             "price": null,
             "parts": [
               {
@@ -2325,12 +2367,8 @@
                 ]
               },
               {
-                "title": "Vegaanista limemajoneesia",
-                "diets": [
-                  "G",
-                  "M",
-                  "Veg"
-                ]
+                "title": "Vegaanista limemajoneesia M, G, Veg (sis. soijaa)",
+                "diets": []
               }
             ]
           },
