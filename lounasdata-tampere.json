@@ -1,5 +1,5 @@
 {
-  "updated": "10.11.2026 klo 10.54",
+  "updated": "11.11.2026 klo 07.25",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -2258,9 +2258,48 @@
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Pinaattikeitto ja kananmuna",
+                "diets": []
+              },
+              {
+                "title": "Porkkanaohukaiset",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Mausteista kebabbia ja riisiä",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Kaalikääryleitä, kermakastiketta ja perunamuusi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Valkosuklaamousse",
+                "diets": [
+                  "G",
+                  "VL"
+                ]
+              }
+            ]
           }
         ],
         "3": [
