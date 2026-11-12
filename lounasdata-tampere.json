@@ -1,5 +1,5 @@
 {
-  "updated": "12.11.2026 klo 10.18",
+  "updated": "12.11.2026 klo 10.56",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -2944,18 +2944,18 @@
                 ]
               },
               {
-                "title": "Minifrikadellit kermaisessa pippurikastikkeessa",
-                "diets": [
-                  "G",
-                  "L"
-                ]
-              },
-              {
                 "title": "Paahdettuja kauden kasviksia ja juureksia",
                 "diets": [
                   "G",
                   "M",
                   "Veg"
+                ]
+              },
+              {
+                "title": "Minifrikadellit kermaisessa pippurikastikkeessa",
+                "diets": [
+                  "G",
+                  "L"
                 ]
               }
             ]
