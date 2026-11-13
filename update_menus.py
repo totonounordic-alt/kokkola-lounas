@@ -51,8 +51,9 @@ DIET_ORDER = ["G", "PG", "L", "VL", "M", "Veg"]
 
 DIET_TOKEN = r"(?:g|l|m|vl|veg|ve|pg|gv!|v\*?)"
 # Rivin lopussa olevat merkinnät, esim. "g,l", "l gv!", "(L, PG)"
+# Merkinnän pitää olla oma sanansa: "Falafel" ei ole "Falafe" + L
 TRAILING_DIETS_RE = re.compile(
-    rf"[\s,]*\(?\s*({DIET_TOKEN}(?:[\s,]+{DIET_TOKEN})*)\s*\)?\s*$", re.IGNORECASE
+    rf"[\s,]*\(?\s*(?<![^\s,(])({DIET_TOKEN}(?:[\s,]+{DIET_TOKEN})*)\s*\)?\s*$", re.IGNORECASE
 )
 PAREN_DIETS_RE = re.compile(rf"\(\s*({DIET_TOKEN}(?:[\s,]+{DIET_TOKEN})*)\s*\)", re.IGNORECASE)
 PRICE_RE = re.compile(r"(\d{1,2})(?:[.,](\d{1,2}))?\s*€")
