@@ -749,6 +749,24 @@ def parse_via_tribunali(today: date):
     return menus, info
 
 
+# Yhteislistan rivillä voi olla toimipistekohtainen vaihtoehto:
+# "Makkaramix (G,L) Jyvässeudun toimipisteissä Uunimakkaraa (G,L)"
+CAFFITELLA_LOCAL_RE = re.compile(
+    r"\s*\b([A-ZÅÄÖ][\wåäö-]*(?:\s+(?:ja|sekä)\s+[\wåäö-]+)*)\s+toimipiste\w*\s*:?\s*(.*)$"
+)
+CAFFITELLA_HERE_RE = re.compile(r"tampere|ratina|pirkanmaa", re.IGNORECASE)
+
+
+def caffitella_local_variant(line: str) -> str:
+    """Valitsee Ratinaa koskevan osan rivistä, jolla on toimipistekohtainen vaihtoehto."""
+    m = CAFFITELLA_LOCAL_RE.search(line)
+    if not m:
+        return line
+    if CAFFITELLA_HERE_RE.search(m.group(1)):
+        return m.group(2).strip()
+    return line[: m.start()].strip()
+
+
 def parse_caffitella(today: date) -> dict:
     """Caffitella Ratina: viikon lounasbuffet (Ratinan lista omana osionaan)."""
     menus = empty_week()
@@ -809,6 +827,9 @@ def parse_caffitella(today: date) -> dict:
             if not line:
                 continue
         line = re.sub(r"\(\s*annosruoka ei sis\.? buffettiin\s*\)", "", line, flags=re.IGNORECASE).strip()
+        line = caffitella_local_variant(line)
+        if not line:
+            continue
         if line.lower() == "salaattibuffet":
             buffet.append({"title": "Salaattibuffet", "diets": []})
             after_salad = True
@@ -823,6 +844,31 @@ def parse_caffitella(today: date) -> dict:
                 (alacarte if after_salad else buffet).append({"title": title, "diets": diets})
     flush()
     return menus
+
+
+# Merkkejä jäsennysvirheestä: toimipistekohtainen teksti, arvosanat, navigaatio tai hinta otsikossa
+SUSPICIOUS_RES = [
+    (re.compile(r"toimipiste", re.IGNORECASE), "toimipisteteksti"),
+    (re.compile(r"\d[,.]\d\s*/\s*5"), "arvosana"),
+    (re.compile(r"\b(etusivu|valikko|evästeet|lue lisää)\b", re.IGNORECASE), "navigaatioteksti"),
+    (re.compile(r"\d+[,.]\d{2}\s*(€|e\b|eur)", re.IGNORECASE), "hinta otsikossa"),
+]
+
+
+def quality_warnings(menus: dict) -> list:
+    """Palauttaa listan epäilyttävistä annosriveistä, esim. "pe: toimipisteteksti: Makkaramix …"."""
+    warnings = []
+    for key in sorted(menus):
+        for item in menus[key]:
+            for entry in [item, *item.get("parts", [])]:
+                title = entry.get("title", "")
+                reasons = [name for rx, name in SUSPICIOUS_RES if rx.search(title)]
+                if len(title) > 120:
+                    reasons.append("pitkä otsikko")
+                if reasons:
+                    day = WEEKDAYS_FI[int(key)][:2].lower()
+                    warnings.append(f"{day}: {', '.join(reasons)}: {title[:80]}")
+    return warnings
 
 
 def build_city(path: str, today: date, now_fi: datetime, restaurants: list):
@@ -879,6 +925,12 @@ def build_city(path: str, today: date, now_fi: datetime, restaurants: list):
             if value:
                 spec[key] = value
         spec["menus"] = ensure_menus(menus, spec["id"])
+        # Aamutarkistus raportoi nämä; sivusto ei näytä niitä
+        warnings = quality_warnings(spec["menus"])
+        if warnings:
+            spec["warnings"] = warnings
+            for w in warnings:
+                print(f"  VAROITUS ({spec['id']}): {w}")
         out.append(spec)
 
     data = {

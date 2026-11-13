@@ -58,6 +58,8 @@ c) **Sisältö, molemmat kaupungit:**
    - Merkitse ravintola, jos lista on pelkkä paikkamerkki ("Päivän lista ei ole saatavilla …"),
      tyhjä tai roskaa: navigaatiotekstiä, arvosanoja kuten "/5.0", toisten ravintoloiden nimiä
      tai hintoja otsikoissa.
+   - Hakuskripti merkitsee epäilyttävät rivit ravintolan kenttään `warnings`
+     (esim. "pe: toimipisteteksti: …"). Raportoi ne ravintolan rivillä ja ehdota jäsentimeen korjausta.
 
    Normaalia, ei vikoja:
    - Kokkola:
