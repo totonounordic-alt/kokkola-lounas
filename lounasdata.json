@@ -1,9 +1,10 @@
 {
-  "updated": "13.11.2026 klo 14.35",
+  "updated": "13.11.2026 klo 16.51",
   "week": "2026-W46",
   "restaurants": [
     {
       "id": "harjun-rinkeli",
+      "group": "Rantakatu",
       "name": "Harjun Rinkeli",
       "address": "Rantakatu 5",
       "hours": "10:30–14:00",
@@ -182,6 +183,7 @@
     },
     {
       "id": "hilda",
+      "group": "Rantakatu",
       "name": "Ravintola Hilda",
       "address": "Rantakatu 7",
       "hours": "10:30–14:00",
@@ -351,6 +353,7 @@
     },
     {
       "id": "smokey-road",
+      "group": "Rantakatu",
       "name": "Smokey Road Diner & Bar",
       "address": "Rantakatu 9",
       "hours": "10:30–14:00",
@@ -532,6 +535,7 @@
     },
     {
       "id": "kulma",
+      "group": "Rantakatu",
       "name": "Ravintola Kulma",
       "address": "Rantakatu 10",
       "hours": "10:45–14:00",

@@ -1,5 +1,5 @@
 {
-  "updated": "13.11.2026 klo 14.35",
+  "updated": "13.11.2026 klo 16.54",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -587,6 +587,7 @@
     },
     {
       "id": "caffitella-ratina",
+      "group": "Kauppakeskus",
       "name": "Caffitella Ratina",
       "address": "Vuolteenkatu 1 (Ratina, 1. krs)",
       "hours": "10:30–14:00",
@@ -872,6 +873,7 @@
     },
     {
       "id": "momento-ratina",
+      "group": "Kauppakeskus",
       "name": "Momento Ratina",
       "address": "Vuolteenkatu 1 (Ratina, 3. krs)",
       "hours": "10:30–15:00",
@@ -1051,6 +1053,7 @@
     },
     {
       "id": "john-scotts-ratina",
+      "group": "Kauppakeskus",
       "name": "John Scott's Ratina",
       "address": "Vuolteenkatu 1 (Ratina)",
       "hours": "11:00–14:00",
@@ -1300,6 +1303,7 @@
     },
     {
       "id": "via-tribunali",
+      "group": "Kauppakeskus",
       "name": "Pizzeria Via Tribunali",
       "address": "Vuolteenkatu 1 (Ratina, 1. krs)",
       "hours": "11:00–14:00",
@@ -1311,9 +1315,6 @@
         "label": "viatribunali.fi",
         "url": "https://viatribunali.fi/lounasmenu/"
       },
-      "info": [
-        "Gluteeniton pizzataikina +4 € (keittiö ei ole gluteeniton ympäristö)."
-      ],
       "menus": {
         "0": [
           {
@@ -1539,6 +1540,7 @@
     },
     {
       "id": "roberts-ratina",
+      "group": "Kauppakeskus",
       "name": "Robert's Coffee Ratina",
       "address": "Vuolteenkatu 5",
       "hours": "11:00–14:00",
@@ -1996,6 +1998,37 @@
             ]
           },
           {
+            "title": "Sides",
+            "diets": [
+              "G"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Hunajamausteisia uunijuureksia",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Meillä tehtyä perunamuusia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kurkumariisiä",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              }
+            ]
+          },
+          {
             "title": "My soup",
             "diets": [
               "G",
@@ -2094,6 +2127,41 @@
                 "diets": [
                   "G",
                   "L"
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Sides",
+            "diets": [
+              "G",
+              "M",
+              "Veg"
+            ],
+            "price": null,
+            "parts": [
+              {
+                "title": "Paahdettuja juureksia",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Lohkoperunat",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Jasmiiniriisiä",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
                 ]
               }
             ]
@@ -3060,6 +3128,1168 @@
                 "diets": []
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "burgers-wine-ratina",
+      "group": "Kauppakeskus",
+      "name": "Burgers & Wine Ratina",
+      "address": "Vuolteenkatu 1 (Ratina)",
+      "hours": "11:00–15:00",
+      "price": "14,00 €",
+      "lat": 61.49327,
+      "lon": 23.76734,
+      "url": "https://burgersandwine.fi/tampere-lounas/",
+      "source": {
+        "label": "burgersandwine.fi",
+        "url": "https://burgersandwine.fi/tampere-lounas/"
+      },
+      "info": [
+        "Päivän burger & fries 14 €. Myös lounasannokset 14–25 € (lihapullat, lohisalaatti, pihvit).",
+        "Lounaaseen sisältyy salaattipöytä, jäätelöbuffet ja kahvi."
+      ],
+      "menus": {
+        "0": [
+          {
+            "title": "Parmesan burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Dry Aged -häränlihapihvi, cheddar, paistettu pekoni, tomaatti, romainesalaatti, pikkelöity punasipuli, parmesaanimajoneesi"
+          },
+          {
+            "title": "Parmesan veggie burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Grillattu herneproteiinipihvi, cheddar, parmesaanikeksi, tomaatti, romainesalaatti,  pikkelöiyty punasipuli, parmesaanimajoneesi"
+          },
+          {
+            "title": "Big smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Seesamisämpylä, Talon Big Mac-majoneesi, 2 x 70 g smashpihvi, cheddar, romaine, pikkelöity punasipuli, myrttisen suolakurkku, kuivattu sipuli, ketsuppi ja sinappia"
+          }
+        ],
+        "1": [
+          {
+            "title": "Bacon dream burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Black Angus -pihvi, Monterey Jack -juustoa, rapeaa pekonia, makeansuolaista pekonihilloa, sinappia, pikkelöityä punasipulia, aiolia ja myrttisen suolakurkkua."
+          },
+          {
+            "title": "Black gold veggie burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Grillattu herneproteiinipihvi, Monterey Jack -juusto, grillattu punasipuli, rucola, punajuurirelish, valkosipulimajoneesi, mustavalkosipulimajoneesi"
+          },
+          {
+            "title": "Big smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Seesamisämpylä, Talon Big Mac-majoneesi, 2 x 70 g smashpihvi, cheddar, romaine, pikkelöity punasipuli, myrttisen suolakurkku, kuivattu sipuli, ketsuppi ja sinappia"
+          }
+        ],
+        "2": [
+          {
+            "title": "Havarti jalapeño smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "2 x 70 g smashpihvi, Havarti-Jalapeño-juusto, rapea kultakihara, paahdetut jalapeñot, marinoitu punasipuli, rapea valkosipuli, jalapeñomajoneesi"
+          },
+          {
+            "title": "Havarti jalapeño veggie burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Grillattu herneproteiinipihvi, Havarti-Jalapeño-juusto, rapea kultakihara, paahdetut jalapeñot, marinoitu punasipuli, rapea valkosipuli, jalapeñomajoneesi"
+          },
+          {
+            "title": "Big smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Seesamisämpylä, Talon Big Mac-majoneesi, 2 x 70 g smashpihvi, cheddar, romaine, pikkelöity punasipuli, myrttisen suolakurkku, kuivattu sipuli, ketsuppi ja sinappia"
+          }
+        ],
+        "3": [
+          {
+            "title": "Aura burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Black Angus -pihvi, Monterey jack juusto, Auranjuustomuru, majoneesi, pikkelöity punasipuli, pekoni, hunaja, fermentoitu pippuri majoneesi"
+          },
+          {
+            "title": "Aura veggie burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Grillattu herneproteiinipihvi, Monterey jack juusto, Auranjuustomuru, majoneesi, pikkelöity punasipuli, pekoni, hunaja, fermentoitu pippuri majoneesi"
+          },
+          {
+            "title": "Big smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Seesamisämpylä, Talon Big Mac-majoneesi, 2 x 70 g smashpihvi, cheddar, romaine, pikkelöity punasipuli, myrttisen suolakurkku, kuivattu sipuli, ketsuppi ja sinappia"
+          }
+        ],
+        "4": [
+          {
+            "title": "Double cheddar beast burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Dry Aged -häränlihapihvi, 2 x mature cheddar, grillattu punasipuli, Myrttisen suolakurkku, rucola, valkosipulimajoneesi, ketsuppi, sinappi"
+          },
+          {
+            "title": "Double cheddar beast veggie burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Grillattu herneproteiinipihvi, 2 x mature cheddar, grillattu punasipuli, Myrttisen suolakurkku, rucola, valkosipulimajoneesi, ketsuppi, sinappi"
+          },
+          {
+            "title": "Big smash burger & fries",
+            "diets": [],
+            "price": "14,00 €",
+            "desc": "Seesamisämpylä, Talon Big Mac-majoneesi, 2 x 70 g smashpihvi, cheddar, romaine, pikkelöity punasipuli, myrttisen suolakurkku, kuivattu sipuli, ketsuppi ja sinappia"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bistro-dindin",
+      "name": "Bistro DinDín",
+      "address": "Tuomiokirkonkatu 38",
+      "hours": "11:00–15:00",
+      "price": "14,00 €",
+      "lat": 61.49623,
+      "lon": 23.77056,
+      "url": "https://bistrodindin.com/lounasmenu/",
+      "source": {
+        "label": "bistrodindin.com",
+        "url": "https://bistrodindin.com/lounasmenu/"
+      },
+      "info": [
+        "Vietnamilainen lounas. Sisältää vegaanisen salaattipöydän sekä teen tai kahvin. Myös vegaanisena ja gluteenittomana."
+      ],
+      "menus": {
+        "0": [
+          {
+            "title": "Lounasmenu (valitse yksi)",
+            "diets": [],
+            "price": "14,00 €",
+            "parts": [
+              {
+                "title": "Phở-keitto: nauta / kana / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Phở on fire paistettua riisinuudelia: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Phở fun paistettua riisinuudelia kastikkeen kanssa: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Bò Kho - Vietnamilainen naudanlihapadan ja keiton mehevä risteytys",
+                "diets": []
+              },
+              {
+                "title": "Bún Bò Hue sitruunaruoholla maustettu riisinuudelikeitto - naudan potka- ja porsaanlihasiivuja",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Paistettua riisiä: kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Höyrystetty riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisin kanssa: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisinuudelikeitto: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "DinDín paistettua vehnänuudelia: nauta / kana / katkarapu / tofu",
+                "diets": []
+              },
+              {
+                "title": "Riisinuudelisalaatti: Grillattua possua / kanaa / Paistettua nautaa / kanaa / tofua sitruunaruohon kanssa",
+                "diets": [
+                  "PG"
+                ]
+              }
+            ]
+          }
+        ],
+        "1": [
+          {
+            "title": "Lounasmenu (valitse yksi)",
+            "diets": [],
+            "price": "14,00 €",
+            "parts": [
+              {
+                "title": "Phở-keitto: nauta / kana / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Phở on fire paistettua riisinuudelia: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Phở fun paistettua riisinuudelia kastikkeen kanssa: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Bò Kho - Vietnamilainen naudanlihapadan ja keiton mehevä risteytys",
+                "diets": []
+              },
+              {
+                "title": "Bún Bò Hue sitruunaruoholla maustettu riisinuudelikeitto - naudan potka- ja porsaanlihasiivuja",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Paistettua riisiä: kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Höyrystetty riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisin kanssa: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisinuudelikeitto: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "DinDín paistettua vehnänuudelia: nauta / kana / katkarapu / tofu",
+                "diets": []
+              },
+              {
+                "title": "Riisinuudelisalaatti: Grillattua possua / kanaa / Paistettua nautaa / kanaa / tofua sitruunaruohon kanssa",
+                "diets": [
+                  "PG"
+                ]
+              }
+            ]
+          }
+        ],
+        "2": [
+          {
+            "title": "Lounasmenu (valitse yksi)",
+            "diets": [],
+            "price": "14,00 €",
+            "parts": [
+              {
+                "title": "Phở-keitto: nauta / kana / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Phở on fire paistettua riisinuudelia: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Phở fun paistettua riisinuudelia kastikkeen kanssa: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Bò Kho - Vietnamilainen naudanlihapadan ja keiton mehevä risteytys",
+                "diets": []
+              },
+              {
+                "title": "Bún Bò Hue sitruunaruoholla maustettu riisinuudelikeitto - naudan potka- ja porsaanlihasiivuja",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Paistettua riisiä: kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Höyrystetty riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisin kanssa: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisinuudelikeitto: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "DinDín paistettua vehnänuudelia: nauta / kana / katkarapu / tofu",
+                "diets": []
+              },
+              {
+                "title": "Riisinuudelisalaatti: Grillattua possua / kanaa / Paistettua nautaa / kanaa / tofua sitruunaruohon kanssa",
+                "diets": [
+                  "PG"
+                ]
+              }
+            ]
+          }
+        ],
+        "3": [
+          {
+            "title": "Lounasmenu (valitse yksi)",
+            "diets": [],
+            "price": "14,00 €",
+            "parts": [
+              {
+                "title": "Phở-keitto: nauta / kana / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Phở on fire paistettua riisinuudelia: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Phở fun paistettua riisinuudelia kastikkeen kanssa: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Bò Kho - Vietnamilainen naudanlihapadan ja keiton mehevä risteytys",
+                "diets": []
+              },
+              {
+                "title": "Bún Bò Hue sitruunaruoholla maustettu riisinuudelikeitto - naudan potka- ja porsaanlihasiivuja",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Paistettua riisiä: kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Höyrystetty riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisin kanssa: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisinuudelikeitto: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "DinDín paistettua vehnänuudelia: nauta / kana / katkarapu / tofu",
+                "diets": []
+              },
+              {
+                "title": "Riisinuudelisalaatti: Grillattua possua / kanaa / Paistettua nautaa / kanaa / tofua sitruunaruohon kanssa",
+                "diets": [
+                  "PG"
+                ]
+              }
+            ]
+          }
+        ],
+        "4": [
+          {
+            "title": "Lounasmenu (valitse yksi)",
+            "diets": [],
+            "price": "14,00 €",
+            "parts": [
+              {
+                "title": "Phở-keitto: nauta / kana / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Phở on fire paistettua riisinuudelia: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Phở fun paistettua riisinuudelia kastikkeen kanssa: nauta / kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Bò Kho - Vietnamilainen naudanlihapadan ja keiton mehevä risteytys",
+                "diets": []
+              },
+              {
+                "title": "Bún Bò Hue sitruunaruoholla maustettu riisinuudelikeitto - naudan potka- ja porsaanlihasiivuja",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Paistettua riisiä: kana / katkarapu / tofu",
+                "diets": [
+                  "PG"
+                ]
+              },
+              {
+                "title": "Höyrystetty riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisin kanssa: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Curry riisinuudelikeitto: kana / katkarapu / tofu",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "DinDín paistettua vehnänuudelia: nauta / kana / katkarapu / tofu",
+                "diets": []
+              },
+              {
+                "title": "Riisinuudelisalaatti: Grillattua possua / kanaa / Paistettua nautaa / kanaa / tofua sitruunaruohon kanssa",
+                "diets": [
+                  "PG"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "aloha-ramen",
+      "name": "Aloha Ramen",
+      "address": "Tuomiokirkonkatu 40",
+      "hours": "10:30–15:00",
+      "price": null,
+      "lat": 61.49591,
+      "lon": 23.77052,
+      "url": "https://aloharamentampere.com/",
+      "source": {
+        "label": "lounaat.info",
+        "url": "https://www.lounaat.info/lounas/aloha-ramen/tampere"
+      },
+      "menus": {
+        "0": [
+          {
+            "title": "Pork ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Shio chicken ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Vegan ramen",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu bowl",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke salad",
+            "diets": [],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke salad",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu salad",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          }
+        ],
+        "1": [
+          {
+            "title": "Pork ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Shio chicken ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Vegan ramen",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu bowl",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke salad",
+            "diets": [],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke salad",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu salad",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          }
+        ],
+        "2": [
+          {
+            "title": "Pork ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Shio chicken ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Vegan ramen",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu bowl",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke salad",
+            "diets": [],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke salad",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu salad",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          }
+        ],
+        "3": [
+          {
+            "title": "Pork ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Shio chicken ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Vegan ramen",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu bowl",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke salad",
+            "diets": [],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke salad",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu salad",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          }
+        ],
+        "4": [
+          {
+            "title": "Pork ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Shio chicken ramen",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Vegan ramen",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke",
+            "diets": [
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu bowl",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          },
+          {
+            "title": "Salmon poke salad",
+            "diets": [],
+            "price": "14,90 €"
+          },
+          {
+            "title": "Eggplant poke salad",
+            "diets": [
+              "G",
+              "L",
+              "M",
+              "Veg"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Chicken katsu salad",
+            "diets": [
+              "L",
+              "M"
+            ],
+            "price": "12,90 €"
+          },
+          {
+            "title": "Lunch combo with dumplings",
+            "diets": [],
+            "price": "4,50 €"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2hk",
+      "name": "2h+k",
+      "address": "Aleksanterinkatu 33",
+      "hours": "11:00–15:00",
+      "price": null,
+      "lat": 61.49673,
+      "lon": 23.76928,
+      "url": "https://www.2hk.fi/",
+      "source": {
+        "label": "lounaat.info",
+        "url": "https://www.lounaat.info/lounas/2hk/tampere"
+      },
+      "info": [
+        "Lounas salaatit sisältävät paprikaa, tomaattia, marinoitua punasipulia, makeita rypäleitä ja basilika-vinaigrette kastikkeen sekä leipää tapenaden kera",
+        "Lämpimät lounaat sisältävät alkuun vihreän salaatin ja leipää tapenaden kera",
+        "Ruoan päälle tarjoamme kahvin"
+      ],
+      "menus": {
+        "0": [
+          {
+            "title": "Pariloitua lohifileetä, lohkoperunaa, juureksia & hollandaisekastiketta",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "17,80 €"
+          },
+          {
+            "title": "Pasta Cacio e Pepe",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Lounassalaatti, valitse: vuohenjuusto, halloumi tai broilerin sisäfilee",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,30 €"
+          },
+          {
+            "title": "Lounas tarjoilun aikaan jälkiherkkuna kaksion tiramisu",
+            "diets": [],
+            "price": "5,90 €"
+          },
+          {
+            "title": "Lisäksi tarjolla talon puna/valkoviinilasi 12cl",
+            "diets": [],
+            "price": "5,90 €"
+          }
+        ],
+        "1": [
+          {
+            "title": "Pariloitua lohifileetä, lohkoperunaa, juureksia & hollandaisekastiketta",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "17,80 €"
+          },
+          {
+            "title": "Pasta Fetalla ja kirsikkatomaateilla",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Lounassalaatti, valitse: vuohenjuusto, halloumi tai broilerin sisäfilee",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,30 €"
+          },
+          {
+            "title": "Lounas tarjoilun aikaan jälkiherkkuna kaksion tiramisu",
+            "diets": [],
+            "price": "5,90 €"
+          },
+          {
+            "title": "Lisäksi tarjolla talon puna/valkoviinilasi 12cl",
+            "diets": [],
+            "price": "5,90 €"
+          }
+        ],
+        "2": [
+          {
+            "title": "Pariloitua lohifileetä, lohkoperunaa, juureksia & hollandaisekastiketta",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "17,80 €"
+          },
+          {
+            "title": "Pasta All Amatriciano",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Lounassalaatti, valitse: vuohenjuusto, halloumi tai broilerin sisäfilee",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,30 €"
+          },
+          {
+            "title": "Lounas tarjoilun aikaan jälkiherkkuna kaksion tiramisu",
+            "diets": [],
+            "price": "5,90 €"
+          },
+          {
+            "title": "Lisäksi tarjolla talon puna/valkoviinilasi 12cl",
+            "diets": [],
+            "price": "5,90 €"
+          }
+        ],
+        "3": [
+          {
+            "title": "Pariloitua lohifileetä, lohkoperunaa, juureksia & hollandaisekastiketta",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "17,80 €"
+          },
+          {
+            "title": "Pasta Alfredo kanalla",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Lounassalaatti, valitse: vuohenjuusto, halloumi tai broilerin sisäfilee",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,30 €"
+          },
+          {
+            "title": "Lounas tarjoilun aikaan jälkiherkkuna kaksion tiramisu",
+            "diets": [],
+            "price": "5,90 €"
+          },
+          {
+            "title": "Lisäksi tarjolla talon puna/valkoviinilasi 12cl",
+            "diets": [],
+            "price": "5,90 €"
+          }
+        ],
+        "4": [
+          {
+            "title": "Pariloitua lohifileetä, lohkoperunaa, juureksia & hollandaisekastiketta",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "17,80 €"
+          },
+          {
+            "title": "Pasta Diavola",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Lounassalaatti, valitse: vuohenjuusto, halloumi tai broilerin sisäfilee",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,30 €"
+          },
+          {
+            "title": "Lounas tarjoilun aikaan jälkiherkkuna kaksion tiramisu",
+            "diets": [],
+            "price": "5,90 €"
+          },
+          {
+            "title": "Lisäksi tarjolla talon puna/valkoviinilasi 12cl",
+            "diets": [],
+            "price": "5,90 €"
           }
         ]
       }

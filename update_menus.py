@@ -213,7 +213,9 @@ def parse_harjun_rinkeli(today: date) -> dict:
 # --------------------------------------------------------------------------
 # Rivit, jotka eivät ole annoksia (maksutavat, puuttuva lista ym.)
 LOUNAAT_INFO_SKIP = re.compile(
-    r"^(meillä käy|maksutavat|lounaslista puuttuu|päivän lounaslista puuttuu|lounas kello|tervetuloa)", re.IGNORECASE
+    r"^(meillä käy|maksutavat|lounaslista puuttuu|päivän lounaslista puuttuu|lounas kello|tervetuloa)"
+    r"|^(epassi|smartum|edenred)\b",
+    re.IGNORECASE,
 )
 
 
@@ -329,7 +331,104 @@ def parse_lounaat_info(url: str, today: date, package_title: str = None):
                 "parts": day_items,
             }]
         menus[str(day_idx)] = day_items
+    if not package_title:
+        tidy_lounaat_info(menus, info)
     return menus, info
+
+
+TRAILING_NUMBER_PRICE_RE = re.compile(r"\s(\d{1,2})[,.](\d{2})$")
+PRICE_NOTE_RE = re.compile(r"\bhinta(an)?\b", re.IGNORECASE)
+
+
+def _is_caps(text: str) -> bool:
+    letters = [c for c in text if c.isalpha()]
+    return len(letters) >= 3 and all(c.isupper() for c in letters)
+
+
+def tidy_lounaat_info(menus: dict, info: list):
+    """Siistii lounaat.infoon vapaasti kirjoitettuja listoja.
+
+    - "Pork ramen 12,90" -> hinta erilleen, "Vegan ramen veg" -> merkintä Veg
+    - "LOHIKEITTO" + "Savustettua kermaista kalalientä ..." -> annos ja sen kuvaus
+    - hintarivit ("Lounasbuffetin hinta 13,80 €") ja joka päivä toistuvat tekstit
+      ilman merkintöjä ja hintaa siirretään lisätietoihin
+    """
+    def note(text):
+        text = re.sub(r"\s{2,}", " ", text).strip()
+        if text and text not in info:
+            info.append(text)
+
+    for key, items in menus.items():
+        tidied = []
+        for item in items:
+            title = item["title"]
+            m = TRAILING_NUMBER_PRICE_RE.search(title)
+            if m:
+                title = title[: m.start()].strip()
+                item["price"] = item.get("price") or format_price(m)
+            title, more_diets, _ = parse_dish_line(title)
+            title = re.sub(r"\s*,?\s+k$", "", title).strip(" ,")
+            item["title"] = title
+            item["diets"] = normalize_diets(item["diets"] + more_diets)
+            if not title:
+                continue
+            if PRICE_NOTE_RE.search(title) and item.get("price") and not item["diets"]:
+                note(re.sub(r"\b(hinta(?:an)?)\s*\.?", rf"\1 {item['price']}.", title, count=1))
+                continue
+            if len(title) > 120 and not item["diets"] and not item.get("price"):
+                note(title)
+                continue
+            tidied.append(item)
+        # Isoilla kirjaimilla kirjoitettu annoksen nimi ja sitä seuraava kuvausrivi
+        merged = []
+        i = 0
+        while i < len(tidied):
+            item = tidied[i]
+            nxt = tidied[i + 1] if i + 1 < len(tidied) else None
+            if _is_caps(item["title"]) and not item["diets"] and nxt and not _is_caps(nxt["title"]):
+                if re.search(r"\d", item["title"]):
+                    note(item["title"].capitalize())
+                    i += 1
+                    continue
+                merged.append({
+                    "title": item["title"].capitalize(),
+                    "diets": nxt["diets"],
+                    "price": item.get("price") or nxt.get("price"),
+                    "desc": nxt["title"],
+                })
+                i += 2
+                continue
+            merged.append(item)
+            i += 1
+        menus[key] = merged
+
+    # Osa ravintoloista kirjoittaa koko viikon lisätiedot viimeisen päivän perään:
+    # tavallista pidemmän viimeisen päivän ylimääräiset rivit ilman merkintöjä ja hintaa
+    filled = [k for k in sorted(menus) if menus[k]]
+    if len(filled) >= 3:
+        last = filled[-1]
+        others = sorted(len(menus[k]) for k in filled[:-1])
+        usual = others[len(others) // 2]
+        if len(menus[last]) > usual + 2:
+            keep = menus[last][:usual]
+            for it in menus[last][usual:]:
+                if it["diets"] or it.get("price") or it.get("desc"):
+                    keep.append(it)
+                else:
+                    note(it["title"])
+            menus[last] = keep
+
+    # Teksti, joka toistuu vähintään kolmena päivänä ilman merkintöjä ja hintaa, on lisätieto
+    counts = {}
+    for items in menus.values():
+        for t in {it["title"] for it in items if not it["diets"] and not it.get("price") and not it.get("desc")}:
+            counts[t] = counts.get(t, 0) + 1
+    repeated = {t for t, n in counts.items() if n >= 3}
+    for t in sorted(repeated, key=lambda t: min(
+            (k, i) for k, items in menus.items() for i, it in enumerate(items) if it["title"] == t)):
+        note(t)
+    for key in menus:
+        menus[key] = [it for it in menus[key] if it["title"] not in repeated]
 
 
 # --------------------------------------------------------------------------
@@ -958,6 +1057,7 @@ def kokkola_restaurants(today: date) -> list:
     return [
         {
             "id": "harjun-rinkeli",
+            "group": "Rantakatu",
             "name": "Harjun Rinkeli",
             "address": "Rantakatu 5",
             "hours": "10:30–14:00",
@@ -970,6 +1070,7 @@ def kokkola_restaurants(today: date) -> list:
         },
         {
             "id": "hilda",
+            "group": "Rantakatu",
             "name": "Ravintola Hilda",
             "address": "Rantakatu 7",
             "hours": "10:30–14:00",
@@ -982,6 +1083,7 @@ def kokkola_restaurants(today: date) -> list:
         },
         {
             "id": "smokey-road",
+            "group": "Rantakatu",
             "name": "Smokey Road Diner & Bar",
             "address": "Rantakatu 9",
             "hours": "10:30–14:00",
@@ -997,6 +1099,7 @@ def kokkola_restaurants(today: date) -> list:
         },
         {
             "id": "kulma",
+            "group": "Rantakatu",
             "name": "Ravintola Kulma",
             "address": "Rantakatu 10",
             "hours": "10:45–14:00",
@@ -1049,6 +1152,113 @@ def kokkola_restaurants(today: date) -> list:
     ]
 
 
+# --------------------------------------------------------------------------
+# Bistro DinDín (kiinteä lounasmenu)
+# --------------------------------------------------------------------------
+DINDIN_DIETS = {"G": "G", "GP": "PG", "V": "Veg"}
+
+
+def parse_dindin(url: str) -> dict:
+    """Bistro DinDín: sama numeroitu lounasmenu joka arkipäivä, yksi lounashinta.
+
+    "1. Phở-keitto: nauta / kana / tofu (riisinuudeli, ...) (sis.kalaa, mereneläviä, VP, G)"
+    -> annos "Phở-keitto: nauta / kana / tofu", kuvaus = raaka-aineet, merkinnät G/GP/V.
+    """
+    menus = empty_week()
+    html = fetch_html(url)
+    if not html:
+        return menus
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup(["script", "style", "noscript", "svg", "header", "footer", "nav"]):
+        tag.decompose()
+    lines = [l.strip() for l in soup.get_text("\n").splitlines() if l.strip()]
+    price = None
+    for i, line in enumerate(lines):
+        if line.lower() == "lounas" and i + 1 < len(lines):
+            pm = re.match(r"^(\d{1,2})(?:[.,](\d{1,2}))?\s*€?$", lines[i + 1])
+            if pm:
+                price = format_price(pm)
+                break
+    blocks = []
+    for line in lines:
+        if re.match(r"^\d{1,2}\.\s", line):
+            blocks.append(line)
+        elif blocks and not re.match(r"^(V|G)\s*=", line):
+            if re.match(r"^lihojen alkuperä", line, re.IGNORECASE):
+                break
+            blocks[-1] += " " + line
+    items = []
+    for block in blocks:
+        text = re.sub(r"^\d{1,2}\.\s*", "", re.sub(r"\s+", " ", block))
+        parens = re.findall(r"\(([^()]*)\)", text)
+        title = re.sub(r"\([^()]*\)", "", text).strip(" :•")
+        title = re.sub(r"\s*•\s*", " / ", re.sub(r"\s{2,}", " ", title))
+        # "Riisinuudelisalaatti tarjoillaan talon kalakastikkeella ... Grillattua possua" -> "Riisinuudelisalaatti: grillattua possua"
+        title = re.sub(r"\s+tarjoillaan\b[^A-ZÅÄÖ]*\s(?=[A-ZÅÄÖ])", ": ", title)
+        diets, desc = [], []
+        for p in parens:
+            codes = [c.strip().upper() for c in p.split(",")]
+            if p.lower().startswith("sis") or all(c in ("VP", "G", "GP", "V") for c in codes):
+                diets += [DINDIN_DIETS[c] for c in codes if c in DINDIN_DIETS]
+            else:
+                desc.append(p.strip())
+        if not title:
+            continue
+        item = {"title": title, "diets": normalize_diets(diets), "price": price}
+        if desc:
+            item["desc"] = "; ".join(desc).capitalize()
+        items.append(item)
+    if items:
+        # Yksi kokonaisuus: menusta valitaan yksi annos lounashintaan
+        parts = [{"title": i["title"], "diets": i["diets"]} for i in items]
+        for d in range(5):
+            menus[str(d)] = [package("Lounasmenu (valitse yksi)", [dict(p) for p in parts], price)]
+    return menus
+
+
+def parse_burgers_wine(url: str, today: date) -> dict:
+    """Burgers & Wine: päivän lounasburgerit ("MAANANTAI 2.11." ja sen alla annos + kuvaus).
+
+    Sivu päivittyy joskus myöhässä, joten vain tämän viikon päivät otetaan mukaan.
+    """
+    menus = empty_week()
+    html = fetch_html(url)
+    if not html:
+        return menus
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup(["script", "style", "noscript", "svg", "header", "footer", "nav"]):
+        tag.decompose()
+    lines = [l.strip() for l in soup.get_text("\n").splitlines() if l.strip()]
+    # "Päivän vaihtuva lounasburger & Fries 14€"
+    price_line = next((l for l in lines if re.search(r"päivän vaihtuva lounasburger", l, re.IGNORECASE)), "")
+    pm = PRICE_RE.search(price_line)
+    price = format_price(pm) if pm else None
+    dates = week_dates(today)
+    current = None
+    for line in lines:
+        m = re.match(r"^(maanantai|tiistai|keskiviikko|torstai|perjantai)\s+(\d{1,2})\.(\d{1,2})\.?$", line, re.IGNORECASE)
+        if m:
+            idx = WEEKDAYS_FI.index(m.group(1).lower())
+            d = dates[idx]
+            current = idx if (int(m.group(2)), int(m.group(3))) == (d.day, d.month) else None
+            continue
+        if re.match(r"^(lauantai|sunnuntai)\b", line, re.IGNORECASE):
+            current = None
+            continue
+        if current is None:
+            continue
+        # Päivän annokset ovat isoilla kirjoitettuja burgereita, joita seuraa yksi kuvausrivi.
+        # Muu teksti (esim. toisen toimipisteen buffet) päättää päivän osion.
+        letters = [c for c in line if c.isalpha()]
+        if letters and all(c.isupper() for c in letters) and "BURGER" in line:
+            menus[str(current)].append({"title": line.capitalize(), "diets": [], "price": price})
+        elif menus[str(current)] and "desc" not in menus[str(current)][-1]:
+            menus[str(current)][-1]["desc"] = line
+        else:
+            current = None
+    return menus
+
+
 def tampere_restaurants(today: date) -> list:
     def johnscotts():
         menus, static = parse_johnscotts(today)
@@ -1060,6 +1270,10 @@ def tampere_restaurants(today: date) -> list:
 
     def roberts():
         menus, info = parse_lounaat_info("https://www.lounaat.info/lounas/roberts-coffee-ratina/tampere", today)
+        return {"menus": menus, "info": info}
+
+    def lounaat(url):
+        menus, info = parse_lounaat_info(url, today)
         return {"menus": menus, "info": info}
 
     ratina = {"lat": 61.49327, "lon": 23.76734}  # Kauppakeskus Ratina, Vuolteenkatu 1
@@ -1080,6 +1294,7 @@ def tampere_restaurants(today: date) -> list:
         },
         {
             "id": "caffitella-ratina",
+            "group": "Kauppakeskus",
             "name": "Caffitella Ratina",
             "address": "Vuolteenkatu 1 (Ratina, 1. krs)",
             "hours": "10:30–14:00",
@@ -1092,6 +1307,7 @@ def tampere_restaurants(today: date) -> list:
         },
         {
             "id": "momento-ratina",
+            "group": "Kauppakeskus",
             "name": "Momento Ratina",
             "address": "Vuolteenkatu 1 (Ratina, 3. krs)",
             "hours": "10:30–15:00",
@@ -1104,6 +1320,7 @@ def tampere_restaurants(today: date) -> list:
         },
         {
             "id": "john-scotts-ratina",
+            "group": "Kauppakeskus",
             "name": "John Scott's Ratina",
             "address": "Vuolteenkatu 1 (Ratina)",
             "hours": "11:00–14:00",
@@ -1116,6 +1333,7 @@ def tampere_restaurants(today: date) -> list:
         },
         {
             "id": "via-tribunali",
+            "group": "Kauppakeskus",
             "name": "Pizzeria Via Tribunali",
             "address": "Vuolteenkatu 1 (Ratina, 1. krs)",
             "hours": "11:00–14:00",
@@ -1127,6 +1345,7 @@ def tampere_restaurants(today: date) -> list:
         },
         {
             "id": "roberts-ratina",
+            "group": "Kauppakeskus",
             "name": "Robert's Coffee Ratina",
             "address": "Vuolteenkatu 5",
             "hours": "11:00–14:00",
@@ -1173,6 +1392,59 @@ def tampere_restaurants(today: date) -> list:
             "url": "https://juvenes.fi/restaurant-dynamo/",
             "source": {"label": "Juvenes / Jamix", "url": "https://juvenes.fi/restaurant-dynamo/"},
             "fetch": lambda: {"menus": parse_jamix(54, today)},
+        },
+        {
+            "id": "burgers-wine-ratina",
+            "group": "Kauppakeskus",
+            "name": "Burgers & Wine Ratina",
+            "address": "Vuolteenkatu 1 (Ratina)",
+            "hours": "11:00–15:00",
+            "price": "14,00 €",
+            **ratina,
+            "url": "https://burgersandwine.fi/tampere-lounas/",
+            "source": {"label": "burgersandwine.fi", "url": "https://burgersandwine.fi/tampere-lounas/"},
+            "info": [
+                "Päivän burger & fries 14 €. Myös lounasannokset 14–25 € (lihapullat, lohisalaatti, pihvit).",
+                "Lounaaseen sisältyy salaattipöytä, jäätelöbuffet ja kahvi.",
+            ],
+            "fetch": lambda: {"menus": parse_burgers_wine("https://burgersandwine.fi/tampere-lounas/", today)},
+        },
+        {
+            "id": "bistro-dindin",
+            "name": "Bistro DinDín",
+            "address": "Tuomiokirkonkatu 38",
+            "hours": "11:00–15:00",
+            "price": "14,00 €",
+            "lat": 61.49623,
+            "lon": 23.77056,
+            "url": "https://bistrodindin.com/lounasmenu/",
+            "source": {"label": "bistrodindin.com", "url": "https://bistrodindin.com/lounasmenu/"},
+            "info": ["Vietnamilainen lounas. Sisältää vegaanisen salaattipöydän sekä teen tai kahvin. Myös vegaanisena ja gluteenittomana."],
+            "fetch": lambda: {"menus": parse_dindin("https://bistrodindin.com/lounasmenu/")},
+        },
+        {
+            "id": "aloha-ramen",
+            "name": "Aloha Ramen",
+            "address": "Tuomiokirkonkatu 40",
+            "hours": "10:30–15:00",
+            "price": None,
+            "lat": 61.49591,
+            "lon": 23.77052,
+            "url": "https://aloharamentampere.com/",
+            "source": {"label": "lounaat.info", "url": "https://www.lounaat.info/lounas/aloha-ramen/tampere"},
+            "fetch": lambda: lounaat("https://www.lounaat.info/lounas/aloha-ramen/tampere"),
+        },
+        {
+            "id": "2hk",
+            "name": "2h+k",
+            "address": "Aleksanterinkatu 33",
+            "hours": "11:00–15:00",
+            "price": None,
+            "lat": 61.49673,
+            "lon": 23.76928,
+            "url": "https://www.2hk.fi/",
+            "source": {"label": "lounaat.info", "url": "https://www.lounaat.info/lounas/2hk/tampere"},
+            "fetch": lambda: lounaat("https://www.lounaat.info/lounas/2hk/tampere"),
         },
     ]
 

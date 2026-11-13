@@ -438,7 +438,8 @@
       margin-bottom: 0.95rem;
     }
 
-    .day-btn {
+    .day-btn,
+    .group-btn {
       appearance: none;
       border: none;
       background: transparent;
@@ -455,14 +456,37 @@
       gap: 0.3rem;
     }
 
-    .day-btn:hover {
+    .day-btn:hover,
+    .group-btn:hover {
       color: var(--primary-dark);
     }
 
-    .day-btn.active {
+    .day-btn.active,
+    .group-btn.active {
       background: var(--surface);
       color: var(--primary-dark);
       box-shadow: 0 2px 8px rgba(20, 50, 100, 0.08);
+    }
+
+    /* Aluevalitsin (esim. Kaikki | Tullintori | Muut lähellä), näkyy vain jos ravintoloilla on ryhmä */
+    .group-segmented {
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+      gap: 0.35rem;
+      background: var(--surface-Tint);
+      padding: 0.32rem;
+      border-radius: var(--radius-control);
+      margin-bottom: 0.9rem;
+    }
+
+    .group-segmented[hidden] {
+      display: none;
+    }
+
+    .group-btn .group-count {
+      font-weight: 500;
+      opacity: 0.65;
     }
 
     .today-indicator {
@@ -1579,6 +1603,9 @@
         </button>
       </div>
 
+      <!-- Aluevalitsin: luodaan datan ryhmistä (update_menus.py: group) -->
+      <div class="group-segmented" id="groupTabs" role="radiogroup" aria-label="Valitse alue" hidden></div>
+
       <!-- Ruokavaliosuodattimet -->
       <div class="diet-pills-row" id="dietFilters">
         <button type="button" class="diet-pill active" data-diet="ALL">Kaikki</button>
@@ -1675,6 +1702,7 @@
         icons: { svg: "assets/favicon.svg", png: "assets/favicon-32.png", touch: "assets/apple-touch-icon.png" },
         themeColor: "#163b6d",
         center: { lat: 63.8369, lon: 23.1325 },
+        groups: { label: "Alue", other: "Muut" },
       },
       tampere: {
         data: "./lounasdata-tampere.json",
@@ -1688,6 +1716,7 @@
         icons: { svg: "assets/favicon-ratina.svg", png: "assets/ratina-favicon-32.png", touch: "assets/ratina-apple-touch-icon.png" },
         themeColor: "#1b2228",
         center: { lat: 61.4933, lon: 23.7673 },
+        groups: { label: "Alue", other: "Muut" },
       },
     };
     let currentCity = CITIES[document.documentElement.dataset.city] ? document.documentElement.dataset.city : "kokkola";
@@ -1700,6 +1729,7 @@
     const todayIndex = getTodayWeekdayIndex();
     let selectedDay = todayIndex;
     let activeDiet = "ALL";
+    let activeGroup = "ALL"; // ALL | ryhmän nimi | OTHER
     let searchQuery = "";
     let favorites = loadSavedFavorites();
     let userLocation = null;
@@ -1769,6 +1799,11 @@
       const cfg = CITIES[city];
       currentCity = city;
       document.documentElement.dataset.city = city;
+      try {
+        activeGroup = localStorage.getItem("lounas_group_" + city) || "ALL";
+      } catch (e) {
+        activeGroup = "ALL";
+      }
       if (save) {
         try {
           localStorage.setItem("lounas_city", city);
@@ -1870,6 +1905,28 @@
       } else {
         text.textContent = `${day} • Lounasaika on päättynyt`;
       }
+    }
+
+    // Aluevalitsin näytetään, kun osalla ravintoloista on ryhmä (esim. Tullintori)
+    function renderGroupTabs() {
+      const el = document.getElementById("groupTabs");
+      const groups = [...new Set(appData.restaurants.map((r) => r.group).filter(Boolean))];
+      if (!groups.length || !CITIES[currentCity].groups) {
+        el.hidden = true; // muistettu valinta säilyy, kunnes data on ladattu
+        return;
+      }
+      if (activeGroup !== "ALL" && activeGroup !== "OTHER" && !groups.includes(activeGroup)) activeGroup = "ALL";
+      const count = (g) =>
+        appData.restaurants.filter((r) => (g === "ALL" ? true : g === "OTHER" ? !r.group : r.group === g)).length;
+      const tabs = [["ALL", "Kaikki"], ...groups.map((g) => [g, g]), ["OTHER", CITIES[currentCity].groups.other || "Muut"]];
+      el.hidden = false;
+      el.setAttribute("aria-label", CITIES[currentCity].groups.label || "Valitse alue");
+      el.innerHTML = tabs
+        .map(
+          ([key, label]) =>
+            `<button type="button" class="group-btn${key === activeGroup ? " active" : ""}" role="radio" aria-checked="${key === activeGroup}" data-group="${esc(key)}">${esc(label)} <span class="group-count">${count(key)}</span></button>`
+        )
+        .join("");
     }
 
     function renderDayButtons() {
@@ -2096,6 +2153,7 @@
     function renderAll() {
       updateHeaderStatus();
       renderDayButtons();
+      renderGroupTabs();
       renderHero();
 
       const container = document.getElementById("restaurantsContainer");
@@ -2149,6 +2207,8 @@
 
       list.forEach((rest) => {
         if (activeDiet === "FAV" && !rest.isFav) return;
+        const groupsShown = !document.getElementById("groupTabs").hidden;
+        if (groupsShown && (activeGroup === "OTHER" ? rest.group : activeGroup !== "ALL" && rest.group !== activeGroup)) return;
 
         const dayItems = getItemsForDay(rest);
         const q = searchQuery.trim().toLowerCase();
@@ -2328,6 +2388,17 @@
       clearSearchBtnEl.classList.remove("visible");
       renderAll();
       searchInputEl.focus();
+    });
+
+    document.getElementById("groupTabs").addEventListener("click", (e) => {
+      const btn = e.target.closest(".group-btn");
+      if (!btn) return;
+      activeGroup = btn.dataset.group;
+      try {
+        localStorage.setItem("lounas_group_" + currentCity, activeGroup);
+      } catch (err) {}
+      coinPickId = null;
+      renderAll();
     });
 
     document.getElementById("dietFilters").addEventListener("click", (e) => {

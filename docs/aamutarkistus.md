@@ -6,8 +6,8 @@ muutetaan muokkaamalla tätä tiedostoa. Raportti kirjoitetaan suomeksi.
 
 Sivut:
 - Kokkola: https://rantakadunlounas.aihio.fyi (`lounasdata.json`, 7 ravintolaa)
-- Tampere, Ratina: https://ratinanlounas.aihio.fyi (`lounasdata-tampere.json`, 9 ravintolaa)
-- Tampere, Pinninkatu: https://pinninkatu.aihio.fyi (repo `ruokis`, `data/pinninkatu.json`, 13 ravintolaa)
+- Tampere, Ratina: https://ratinanlounas.aihio.fyi (`lounasdata-tampere.json`, 13 ravintolaa)
+- Tampere, Pinninkatu: https://pinninkatu.aihio.fyi (repo `ruokis`, `data/pinninkatu.json`, 23 ravintolaa)
 
 ## Sallitut toimet
 
@@ -80,7 +80,15 @@ c) **Sisältö, kaikki sivut:**
        Viikon aiemmat päivät voivat olla aiemmista ajoista tai paikkamerkkejä.
      - Neste Hatanpää (Huili) tulee viikon PDF:stä ja huilipiste.fi:n päivän listasta. Päivän
        paikkamerkki aamulla korjautuu usein myöhemmässä ajossa.
+     - Bistro DinDín on kiinteä lounasmenu (sama joka päivä).
+     - Burgers & Winen päivän burgerit päivittyvät joskus myöhässä. Vanhan viikon listaa ei
+       näytetä, joten paikkamerkki voi olla normaali.
    - Pinninkatu:
+     - Tullintorin Pizza Hut, Zhuang Yuan Lou, Marco, Baba's Kitchen ja K-Market ovat kiinteitä
+       tarjouksia (tullintori.fi). Marcolla ei ole lounasta maanantaisin.
+     - Pancho Villa Tullintori julkaisee vain päivän listan; Brander näyttää perjantaisin jo
+       seuraavaa viikkoa, joten perjantain paikkamerkki on normaali.
+     - Bistro DinDín on kiinteä lounasmenu.
      - Maltti Taproom on kiinteä buffet-kuvaus joka päivä (päivän ruokia ei julkaista).
      - Aloha Ramenilla, Zarillolla ja Schnitzelhausilla on lähes samat annokset koko viikon.
      - Ravintolat on järjestetty etäisyyden mukaan (`distance` metreinä Pinninkadulta).
