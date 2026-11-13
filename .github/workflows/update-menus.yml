@@ -5,9 +5,10 @@ on:
   # kesäaikaan klo 7.30, 10.00 ja 11.00 ja talviaikaan klo 6.30, 9.00 ja 10.00.
   # Myöhemmät ajot poimivat listat, jotka ravintolat julkaisevat vasta aamulla.
   schedule:
-    - cron: "30 4 * * 1-5"
-    - cron: "0 7 * * 1-5"
-    - cron: "0 8 * * 1-5"
+  - cron: "17 4 * * 1-5"
+  - cron: "43 6 * * 1-5"
+  - cron: "51 7 * * 1-5"
+  - cron: "23 9 * * 1-5"
 
   # Mahdollistaa päivityksen käynnistämisen myös käsin GitHubin Actions-välilehdeltä
   workflow_dispatch:
