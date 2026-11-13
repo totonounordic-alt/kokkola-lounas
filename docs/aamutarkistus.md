@@ -85,7 +85,25 @@ c) **Sisältö, kaikki sivut:**
      - Aloha Ramenilla, Zarillolla ja Schnitzelhausilla on lähes samat annokset koko viikon.
      - Ravintolat on järjestetty etäisyyden mukaan (`distance` metreinä Pinninkadulta).
 
-d) **Julkaisu (Cloudflare):** ei tarkistettavissa täältä. Älä raportoi sitä ongelmana.
+d) **Julkaisu (live-sivut):** tarkista, että jokainen julkaistu osoite vastaa ja näyttää oikean
+   sivun. Jos verkkoyhteys sivuille ei toimi tästä ympäristöstä (esim. proxy estää), kirjoita
+   yksi rivi "Live-sivuja ei voitu tarkistaa" äläkä pidä sitä sivujen vikana.
+   - Vanhat sivut: `https://rantakadunlounas.aihio.fyi/` ja `https://ratinanlounas.aihio.fyi/`.
+     Tarkista HTTP 200 ja `<title>` (Rantakadun / Ratinan lounas) sekä datatiedostot
+     `/lounasdata.json` ja `/lounasdata-tampere.json`: `updated` sama kuin repossa.
+   - Uusi pohja (`ruokis`): käy läpi `sites.json`-tiedoston jokainen toimipiste, jolla on
+     `published: true`. Tarkista sen jokainen osoite `hosts`-listasta (`https://<host>/`) sekä
+     polku `https://<host>/<toimipiste>`. Jos `sites.json`-tiedostossa on yhteinen osoite
+     (`commonHost`), tarkista myös `https://<commonHost>/<toimipiste>`. Odotettu tulos:
+     HTTP 200, `<html … data-site="<toimipiste>">` ja oikea `<title>`. Tarkista myös
+     `https://<host>/<data>` (sites.json:n `data`-kenttä): `updated` sama kuin repossa.
+   - Esimerkki:
+     ```
+     curl -sS -m 20 -o page.html -w '%{http_code}' https://pinninkatu.aihio.fyi/
+     grep -o '<html[^>]*>' page.html; grep -o '<title>[^<]*' page.html
+     ```
+   - Jos osoite vastaa muulla kuin 200 tai näyttää väärän toimipisteen, raportoi se ongelmana
+     (todennäköisesti Cloudflaren julkaisu tai aladomainin asetus).
 
 e) **Puuttuvan ajon käynnistys (ainoa sallittu muutos):**
    - Jos on ma–pe eikä tältä päivältä ole yhtään botin datacommitia, käynnistä päivitys kerran
@@ -138,6 +156,7 @@ Kentässä `version` on sen datan aikaleima, jonka käyttäjä näki.
   - Sivun `updated`-aikaleima.
   - Rivi per ravintola: nimi, tila (OK / paikkamerkki / puuttuu / roskaa) ja tämän päivän
     ruokien määrä.
+- **Live-sivut:** yksi rivi: tarkistetut osoitteet ja tulos (esim. "7/7 osoitetta OK").
 - **Päivitysajot tänään:** botin commitien ajat Suomen aikaa. Mainitse myös mahdollinen
   käynnistetty ajo.
 - **Palaute:** sivuittain, jokainen uusi viesti omalla rivillään:
