@@ -99,7 +99,9 @@ automaattisesti. Siksi pyynnössä ei ole Authorization-otsaketta. Jos ympärist
 
 ```
 URL="https://palaute.aihio.fyi/api/raportti?projects=lounas-kokkola,lounas-tampere&hours=24"
-if [ -n "$AIHIO_PALAUTE_TOKEN" ]; then curl -sS -m 20 -H "Authorization: Bearer $AIHIO_PALAUTE_TOKEN" "$URL"; else curl -sS -m 20 "$URL"; fi
+# Siistitään muuttujasta mahdollinen Bearer-sana ja välilyönnit
+T=$(printf '%s' "${AIHIO_PALAUTE_TOKEN:-}" | sed -E 's/^[[:space:]]*([Bb]earer[[:space:]]+)*//; s/[[:space:]]+$//')
+if [ -n "$T" ]; then curl -sS -m 20 -H "Authorization: Bearer $T" "$URL"; else curl -sS -m 20 "$URL"; fi
 ```
 
 Vastauksen muoto on `{"count": N, "rows": [{"ts": <ms>, "project", "message", "version", "device", "page", "has_contact"}]}`.
