@@ -1,14 +1,16 @@
 name: Päivitä lounaslistat (Kokkola ja Tampere)
 
 on:
-  # Ajetaan arkisin (ma-pe) 04:30, 07:00 ja 08:00 UTC eli
-  # kesäaikaan klo 7.30, 10.00 ja 11.00 ja talviaikaan klo 6.30, 9.00 ja 10.00.
+  # Ajetaan arkisin (ma-pe) 04:17, 06:43, 07:51 ja 09:23 UTC eli
+  # talviaikaan noin klo 6.17, 8.43, 9.51 ja 11.23 (kesäaikaan tunnin myöhemmin).
   # Myöhemmät ajot poimivat listat, jotka ravintolat julkaisevat vasta aamulla.
+  # Ajat ovat tarkoituksella muualla kuin tasatunneilla: GitHub viivästää ja
+  # joskus jättää väliin tasatunnin ajoja. Viimeinen ajo on varmistus.
   schedule:
-  - cron: "17 4 * * 1-5"
-  - cron: "43 6 * * 1-5"
-  - cron: "51 7 * * 1-5"
-  - cron: "23 9 * * 1-5"
+    - cron: "17 4 * * 1-5"
+    - cron: "43 6 * * 1-5"
+    - cron: "51 7 * * 1-5"
+    - cron: "23 9 * * 1-5"
 
   # Mahdollistaa päivityksen käynnistämisen myös käsin GitHubin Actions-välilehdeltä
   workflow_dispatch:
@@ -17,9 +19,15 @@ on:
 permissions:
   contents: write
 
+# Vain yksi päivitys kerrallaan, jotta kaksi ajoa ei yritä tallentaa samaan aikaan
+concurrency:
+  group: lounasdata
+  cancel-in-progress: false
+
 jobs:
   update-lunch-data:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Haetaan repositorion tiedostot
@@ -41,4 +49,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add lounasdata.json lounasdata-tampere.json
-          git diff --staged --quiet || (git commit -m "Automaattinen lounaslistojen päivitys" && git pull --rebase && git push)
+          git diff --staged --quiet && exit 0
+          git commit -m "Automaattinen lounaslistojen päivitys"
+          # Uusi yritys, jos main muuttui ajon aikana
+          for i in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            sleep $((i * 10))
+          done
+          exit 1

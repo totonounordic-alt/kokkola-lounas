@@ -22,6 +22,9 @@ käynnillä kaupunki päätellään osoitteesta, ja `?kaupunki=tampere` pakottaa
    `index.html` muuttuu. Siinä on Ratinan otsikko ja esikatselukuva, ja Worker
    tarjoilee sen osoitteen ratinanlounas.aihio.fyi etusivuna. Näin somepalvelujen
    linkkiesikatselu näyttää oikean kaupungin. Älä muokkaa tiedostoa käsin.
+5. **Aamutarkistus:** Clauden ajastettu tehtävä tarkistaa ma–la klo 10.45, että data
+   päivittyi, ja raportoi uudet palautteet. Sen ohje on tiedostossa
+   [`docs/aamutarkistus.md`](docs/aamutarkistus.md).
 
 ## Palaute
 
