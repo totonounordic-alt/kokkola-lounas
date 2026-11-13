@@ -1,5 +1,5 @@
 {
-  "updated": "12.11.2026 klo 10.56",
+  "updated": "13.11.2026 klo 10.51",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -2348,9 +2348,50 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Herkkusienikeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Vönerpannu TexMex",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "BBQ luuton ribs ja kermaperunoita",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Taco-paahdettua broileria, tacojogurttikastiketta ja riisiä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Omena-kanelirahka",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -2944,18 +2985,18 @@
                 ]
               },
               {
+                "title": "Minifrikadellit kermaisessa pippurikastikkeessa",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
                 "title": "Paahdettuja kauden kasviksia ja juureksia",
                 "diets": [
                   "G",
                   "M",
                   "Veg"
-                ]
-              },
-              {
-                "title": "Minifrikadellit kermaisessa pippurikastikkeessa",
-                "diets": [
-                  "G",
-                  "L"
                 ]
               }
             ]

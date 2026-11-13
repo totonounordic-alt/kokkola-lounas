@@ -1,5 +1,5 @@
 {
-  "updated": "12.11.2026 klo 10.56",
+  "updated": "13.11.2026 klo 10.51",
   "week": "2026-W46",
   "restaurants": [
     {
@@ -502,7 +502,7 @@
             "diets": [
               "L"
             ],
-            "price": null
+            "price": "13,90 €"
           },
           {
             "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
@@ -923,13 +923,15 @@
           {
             "title": "Kasvislounas buffasta",
             "diets": [
+              "G",
               "L"
             ],
             "price": "13,60 €",
             "parts": [
               {
-                "title": "Meidän keittiön pinaattiohukaisia",
+                "title": "Feta-kikhernepihvejä",
                 "diets": [
+                  "G",
                   "L"
                 ]
               },
@@ -959,7 +961,7 @@
                 ]
               },
               {
-                "title": "Meidän keittiön savujuusto-pekonilihamureketta",
+                "title": "Jauhelihapihvejä",
                 "diets": [
                   "PG",
                   "L"
@@ -1032,24 +1034,8 @@
             "price": null,
             "parts": [
               {
-                "title": "Meidän keittiön pannukakkua",
+                "title": "Mokkapaloja",
                 "diets": [
-                  "L"
-                ]
-              },
-              {
-                "title": "Hillottua marjaa",
-                "diets": [
-                  "G",
-                  "L",
-                  "M",
-                  "Veg"
-                ]
-              },
-              {
-                "title": "Vaniljakermavaahtoa",
-                "diets": [
-                  "G",
                   "L"
                 ]
               }
@@ -1517,9 +1503,55 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Uuni Lohi",
+                "diets": []
+              },
+              {
+                "title": "Kana fajita",
+                "diets": []
+              },
+              {
+                "title": "Bernais kastike",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Hyvin maustettu Uuni kasvikset",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Jälkiruoka",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/Tee",
+                "diets": []
+              }
+            ]
           }
         ]
       }
