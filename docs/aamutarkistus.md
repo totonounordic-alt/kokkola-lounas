@@ -6,7 +6,8 @@ muutetaan muokkaamalla tätä tiedostoa. Raportti kirjoitetaan suomeksi.
 
 Sivut:
 - Kokkola: https://rantakadunlounas.aihio.fyi (`lounasdata.json`, 7 ravintolaa)
-- Tampere: https://ratinanlounas.aihio.fyi (`lounasdata-tampere.json`, 9 ravintolaa)
+- Tampere, Ratina: https://ratinanlounas.aihio.fyi (`lounasdata-tampere.json`, 9 ravintolaa)
+- Tampere, Pinninkatu: https://pinninkatu.aihio.fyi (repo `ruokis`, `data/pinninkatu.json`, 13 ravintolaa)
 
 ## Sallitut toimet
 
@@ -33,6 +34,12 @@ Tiedostot:
 - `lounasdata.json` ja `lounasdata-tampere.json`: data
 - `.github/workflows/update-menus.yml`: päivitysajot ma–pe klo 04:17, 06:43, 07:51 ja 09:23 UTC
 
+Pinninkatu on uudessa yhteisessä pohjassa, repossa `totonounordic-alt/ruokis` (julkinen).
+Kloonaa se samoin: `git clone --depth 50 https://github.com/totonounordic-alt/ruokis`.
+Siinä `scraper/update.py` hakee listat tiedostoihin `data/<toimipiste>.json`. Toimipisteet ovat
+`sites.json`-tiedostossa (vain `published: true` tarkistetaan). Päivitysajot ovat samoina
+aikoina, ja botin commitin viesti on sama.
+
 Jokainen onnistunut päivitysajo tekee commitin, jonka tekijä on `github-actions[bot]` ja viesti
 "Automaattinen lounaslistojen päivitys". Aikaleima `updated` muuttuu joka ajossa, joten
 onnistunut ajo tekee aina commitin. Muut botin commitit ("Päivitä Tampereen sivuversio") ovat
@@ -48,11 +55,13 @@ a) **Päivitysajot:** `git log --format='%ci | %an | %s' -20`.
    - Jos tämän päivän botin commit puuttuu, ajastettu ajo ei käynnistynyt tai epäonnistui.
      Jos `gh` toimii, katso syy komennolla `gh run list -L 10`.
 
-b) **Tuoreus, molemmat tiedostot:**
+   - Tee sama tarkistus `ruokis`-repolle.
+
+b) **Tuoreus, kaikki datatiedostot:**
    - `updated` ("PP.KK.VVVV klo HH.MM", Suomen aikaa) on ma–pe tämä päivä ja lauantaina perjantai.
    - `week` (esim. "2026-W46") on kuluva ISO-viikko.
 
-c) **Sisältö, molemmat kaupungit:**
+c) **Sisältö, kaikki sivut:**
    - Katso kunkin ravintolan `menus[str(viikonpäivä)]` (ma = 0 … pe = 4). Lauantaina katso
      perjantai ja käy läpi myös koko viikko. Laske mukaan myös `parts`-listan osat.
    - Merkitse ravintola, jos lista on pelkkä paikkamerkki ("Päivän lista ei ole saatavilla …"),
@@ -71,24 +80,29 @@ c) **Sisältö, molemmat kaupungit:**
        Viikon aiemmat päivät voivat olla aiemmista ajoista tai paikkamerkkejä.
      - Neste Hatanpää (Huili) tulee viikon PDF:stä ja huilipiste.fi:n päivän listasta. Päivän
        paikkamerkki aamulla korjautuu usein myöhemmässä ajossa.
+   - Pinninkatu:
+     - Maltti Taproom on kiinteä buffet-kuvaus joka päivä (päivän ruokia ei julkaista).
+     - Aloha Ramenilla, Zarillolla ja Schnitzelhausilla on lähes samat annokset koko viikon.
+     - Ravintolat on järjestetty etäisyyden mukaan (`distance` metreinä Pinninkadulta).
 
 d) **Julkaisu (Cloudflare):** ei tarkistettavissa täältä. Älä raportoi sitä ongelmana.
 
 e) **Puuttuvan ajon käynnistys (ainoa sallittu muutos):**
    - Jos on ma–pe eikä tältä päivältä ole yhtään botin datacommitia, käynnistä päivitys kerran
-     komennolla `gh workflow run update-menus.yml --ref main`.
+     komennolla `gh workflow run update-menus.yml --ref main` (Pinninkadulle lisäksi
+     `-R totonounordic-alt/ruokis`).
    - Odota noin 2 minuuttia ja tarkista `git pull` ja kohdat b ja c uudelleen.
    - Kerro raportissa, että ajo käynnistettiin ja onnistuiko se.
    - Jos `gh` ei toimi (esim. 403), älä yritä muuta. Kirjoita raporttiin: "Päivitysajo puuttuu.
      Käynnistä se käsin GitHubin Actions-välilehdeltä (Päivitä lounaslistat → Run workflow)."
 
-f) **Epäonnistunut ravintola:** katso `update_menus.py` ja ravintolan lähdesivu ja kerro
+f) **Epäonnistunut ravintola:** katso `update_menus.py` (Pinninkatu: `ruokis`-repon `scraper/`) ja ravintolan lähdesivu ja kerro
    todennäköinen syy (esim. lähdesivun rakenne muuttui). Älä korjaa.
 
 ## 3. Palaute
 
-Sivut lähettävät palautteen palautepalveluun palaute.aihio.fyi projekteihin `lounas-kokkola` ja
-`lounas-tampere`. Lue uusi palaute edellisen tarkistuksen jälkeen:
+Sivut lähettävät palautteen palautepalveluun palaute.aihio.fyi projekteihin `lounas-kokkola`,
+`lounas-tampere` ja `lounas-pinninkatu`. Lue uusi palaute edellisen tarkistuksen jälkeen:
 - maanantaina hours=48, jolloin mukana on viikonloppu lauantain tarkistuksesta lähtien
 - muina päivinä hours=24
 - jos eilen oli ohitettu pyhäpäivä, lisää 24 tuntia
@@ -98,7 +112,7 @@ automaattisesti. Siksi pyynnössä ei ole Authorization-otsaketta. Jos ympärist
 `AIHIO_PALAUTE_TOKEN` on asetettu, käytä sitä:
 
 ```
-URL="https://palaute.aihio.fyi/api/raportti?projects=lounas-kokkola,lounas-tampere&hours=24"
+URL="https://palaute.aihio.fyi/api/raportti?projects=lounas-kokkola,lounas-tampere,lounas-pinninkatu&hours=24"
 # Siistitään muuttujasta mahdollinen Bearer-sana ja välilyönnit
 T=$(printf '%s' "${AIHIO_PALAUTE_TOKEN:-}" | sed -E 's/^[[:space:]]*([Bb]earer[[:space:]]+)*//; s/[[:space:]]+$//')
 if [ -n "$T" ]; then curl -sS -m 20 -H "Authorization: Bearer $T" "$URL"; else curl -sS -m 20 "$URL"; fi
@@ -120,13 +134,13 @@ Kentässä `version` on sen datan aikaleima, jonka käyttäjä näki.
 
 - **Ensimmäinen rivi:** "✅ Kaikki kunnossa" tai "⚠️ Ongelmia löytyi" (lounasdata).
   Jos uutta palautetta on, lisää perään " · 💬 N uutta palautetta".
-- **Kaupungit:** osio kummallekin, Kokkolalle ja Tampereelle.
-  - Kaupungin `updated`-aikaleima.
+- **Sivut:** osio jokaiselle: Kokkola, Tampere (Ratina) ja Tampere (Pinninkatu).
+  - Sivun `updated`-aikaleima.
   - Rivi per ravintola: nimi, tila (OK / paikkamerkki / puuttuu / roskaa) ja tämän päivän
     ruokien määrä.
 - **Päivitysajot tänään:** botin commitien ajat Suomen aikaa. Mainitse myös mahdollinen
   käynnistetty ajo.
-- **Palaute:** kaupungeittain, jokainen uusi viesti omalla rivillään:
+- **Palaute:** sivuittain, jokainen uusi viesti omalla rivillään:
   - aika (Suomen aikaa)
   - ravintolatagi, jos on
   - viesti lainausmerkeissä, enintään noin 200 merkkiä
@@ -137,5 +151,5 @@ Kentässä `version` on sen datan aikaleima, jonka käyttäjä näki.
   näkee osoitteesta https://palaute.aihio.fyi/admin.
 - **Ongelmat:** todennäköinen syy ja korjausehdotus, 1–2 virkettä kumpikin.
 
-Pidä raportti tiiviinä: jos kaikki on kunnossa, noin 20–25 riviä. Lähetä tasan yksi
+Pidä raportti tiiviinä: jos kaikki on kunnossa, noin 30–35 riviä. Lähetä tasan yksi
 push-ilmoitus ja mainitse siinä uusi palaute.
