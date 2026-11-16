@@ -1,5 +1,5 @@
 {
-  "updated": "16.11.2026 klo 14.53",
+  "updated": "16.11.2026 klo 18.24",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -1315,9 +1315,43 @@
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Naudan lihapullat pippuri kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "BBQ Marinoitu kanan siivet",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Jälkiruoka",
+                "diets": []
+              }
+            ]
           }
         ],
         "2": [
