@@ -1,5 +1,5 @@
 {
-  "updated": "17.11.2026 klo 20.40",
+  "updated": "18.11.2026 klo 15.11",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -2485,9 +2485,52 @@
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Nakkikeitto",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Halloumi-juurespaistos",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Jauhelihalasagnette",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Maustetut broilerin siivet, BBQ- majoneesi ja harissa-paahdettua perunaa",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Mustikka-valkosuklaamousse",
+                "diets": [
+                  "G",
+                  "VL"
+                ]
+              }
+            ]
           }
         ],
         "3": [
