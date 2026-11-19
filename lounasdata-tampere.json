@@ -1,5 +1,5 @@
 {
-  "updated": "18.11.2026 klo 20.13",
+  "updated": "19.11.2026 klo 15.26",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -2105,7 +2105,7 @@
                 ]
               },
               {
-                "title": "Sriracha-jogirttikastiketta",
+                "title": "Sriracha-jogurttikastiketta",
                 "diets": [
                   "G",
                   "L"
@@ -2535,9 +2535,50 @@
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Hernekeitto",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Kasvis-kookoscurry",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Sinappinen uunimakkara ja perunamuusia",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Paholaisen broileria ja riisiä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Pannukakku, kermavaahtoa ja mansikkahilloa",
+                "diets": []
+              }
+            ]
           }
         ],
         "4": [
