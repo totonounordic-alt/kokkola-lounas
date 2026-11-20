@@ -1,5 +1,5 @@
 {
-  "updated": "20.11.2026 klo 15.07",
+  "updated": "20.11.2026 klo 17.44",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -1313,9 +1313,6 @@
         "label": "viatribunali.fi",
         "url": "https://viatribunali.fi/lounasmenu/"
       },
-      "info": [
-        "Gluteeniton pizzataikina +4 € (keittiö ei ole gluteeniton ympäristö)."
-      ],
       "menus": {
         "0": [
           {
