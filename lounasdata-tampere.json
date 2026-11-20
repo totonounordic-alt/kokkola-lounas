@@ -1,5 +1,5 @@
 {
-  "updated": "19.11.2026 klo 20.24",
+  "updated": "20.11.2026 klo 15.07",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -2583,9 +2583,51 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Jauhelihakeitto",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Kasvislasagnettea",
+                "diets": [
+                  "L"
+                ]
+              },
+              {
+                "title": "Rapeaa Hot Honey -leikettä, chilimajoneesia ja riisiä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Kinkkukiusausta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Mangojogurttipannacotta",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ]
       }

@@ -1,5 +1,5 @@
 {
-  "updated": "19.11.2026 klo 20.24",
+  "updated": "20.11.2026 klo 15.07",
   "week": "2026-W47",
   "restaurants": [
     {
@@ -1051,7 +1051,7 @@
                 ]
               },
               {
-                "title": "Pulled Pork burger",
+                "title": "Pulled Pork burger (pyydettäessä Glut burger)",
                 "diets": [
                   "L"
                 ]
@@ -1146,8 +1146,7 @@
       "staticNote": [
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€",
         "Panchon poke (L,G) 14,50 €",
-        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) norm. 13€ / Tupla 17€"
+        "Lounaspihvi – Broilerin rintafilee / Porsaan lehtipihvi 14,50 €"
       ],
       "menus": {
         "0": [
