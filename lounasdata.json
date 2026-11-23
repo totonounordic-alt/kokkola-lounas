@@ -1,5 +1,5 @@
 {
-  "updated": "23.11.2026 klo 11.16",
+  "updated": "23.11.2026 klo 16.53",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -1129,44 +1129,97 @@
         "url": "https://panchovilla.fi/ravintolat/kokkola/"
       },
       "staticNote": [
-        "Panchon burgerit (juusto / pekoni / kana / valkosipuli / chili / kasvis) 14,00 €, tupla 17,50 € (gluteeniton pyydettäessä)",
-        "Lounassalaatti (kana / halloumi / lohi) 14,50 €",
-        "Lounaspihvi (paneroitu kana / paneroitu porsaan pihvi) 14,50 €"
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
+        "Lounassalaatti – Kana / halloumi / lohi (+2,50€) (gluteeniton pyydettäessä) 14,50 €",
+        "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
+        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€"
       ],
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Chili con Carne Calzone",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Aura Jr. paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Nachokana Pocket",
+            "diets": [
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Aura Jr. paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Halloumi Bocadillo",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Aura Jr. paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Nachokana Burrito",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Aura Jr. paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
-            "price": null
+            "title": "Meksikolounas: Loaded Fries ylikypsällä porsaankyljellä",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": "13,00 €"
+          },
+          {
+            "title": "Viikon Special Burger: Aura Jr. paneroidulla kanalla",
+            "diets": [
+              "L"
+            ],
+            "price": "15,00 €"
           }
         ]
       }
