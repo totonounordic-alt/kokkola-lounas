@@ -1,5 +1,5 @@
 {
-  "updated": "23.11.2026 klo 16.53",
+  "updated": "23.11.2026 klo 20.44",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -1301,9 +1301,47 @@
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "KANA SCHNITZEL",
+                "diets": []
+              },
+              {
+                "title": "DEMI GLACE KASTIKE",
+                "diets": []
+              },
+              {
+                "title": "PENNE PASTA TOMAATTI KASTIKKEESSA",
+                "diets": []
+              },
+              {
+                "title": "NORM&PANNU PIZZAT",
+                "diets": []
+              },
+              {
+                "title": "MAALAISRANSKALAISET",
+                "diets": []
+              },
+              {
+                "title": "SALAATTI PÖYTÄ",
+                "diets": []
+              },
+              {
+                "title": "0.33 LIMSA",
+                "diets": []
+              },
+              {
+                "title": "ERIKOIS SUKLAA KAKKU",
+                "diets": []
+              },
+              {
+                "title": "KAHVI/TEE",
+                "diets": []
+              }
+            ]
           }
         ],
         "2": [
