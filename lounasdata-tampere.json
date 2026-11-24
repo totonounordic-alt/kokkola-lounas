@@ -1,5 +1,5 @@
 {
-  "updated": "23.11.2026 klo 23.32",
+  "updated": "24.11.2026 klo 16.57",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -717,9 +717,10 @@
                 ]
               },
               {
-                "title": "Pariisinperunoita Kasvissosekeitto",
+                "title": "Pariisinperunoita",
                 "diets": [
-                  "G"
+                  "G",
+                  "M"
                 ]
               },
               {
@@ -1946,18 +1947,12 @@
           },
           {
             "title": "Dessert",
-            "diets": [
-              "G",
-              "L"
-            ],
+            "diets": [],
             "price": null,
             "parts": [
               {
-                "title": "Appelsiiniposset",
-                "diets": [
-                  "G",
-                  "L"
-                ]
+                "title": "Marjaposset G,L",
+                "diets": []
               }
             ]
           }
@@ -2419,9 +2414,51 @@
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Kermainen Lohikeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Intialainen Vegecurry",
+                "diets": [
+                  "G",
+                  "M",
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Kananpoikaa punaviini-pekonikastikkeessa ja riisi",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Porsasta sinappikastikkeessa ja paahdettuja perunoita",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Vatkattua puolukkavispipuuroa",
+                "diets": [
+                  "M"
+                ]
+              }
+            ]
           }
         ],
         "2": [

@@ -1,5 +1,5 @@
 {
-  "updated": "23.11.2026 klo 23.32",
+  "updated": "24.11.2026 klo 16.57",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -19,37 +19,171 @@
       "menus": {
         "0": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Paneroidut lohipalat ja kurkkumajoneesi",
+            "diets": [
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Paistetut yrttiperunat",
+            "diets": [
+              "G",
+              "M"
+            ],
             "price": null
+          },
+          {
+            "title": "Nacho-jauhelihavuoka",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Nakkikeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "1": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Rinkelin pizzat",
             "diets": [],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Lohkoperunat ja majoneesi",
+            "diets": [
+              "M"
+            ],
             "price": null
+          },
+          {
+            "title": "Kinkku-pekonikiusaus",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Lohikeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "12,00 €"
           }
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Lihamureke kermaisessa pippurikastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Broilerin paistileike teryakikastikkeessa",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Riisi ja muusi",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Tomaatti-vuohenjuustokeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
-            "diets": [],
+            "title": "Pippurinen possunlihakastike",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "13,40 €"
+          },
+          {
+            "title": "Kaalikääryleet ja puolukkaa",
+            "diets": [
+              "G",
+              "L"
+            ],
             "price": null
+          },
+          {
+            "title": "Pannukakku hillo ja kermavaahto",
+            "diets": [
+              "PG",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Hernekeitto",
+            "diets": [
+              "G",
+              "M"
+            ],
+            "price": "11,00 €"
           }
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Possun ulkofilee bearnaisekastikkeessa",
+            "diets": [
+              "G",
+              "VL"
+            ],
+            "price": "14,00 €"
+          },
+          {
+            "title": "Ranskalaiset ja majoneesi",
+            "diets": [
+              "M"
+            ],
+            "price": null
+          },
+          {
+            "title": "Aurajuustoinen kasvisgratiini",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": null
+          },
+          {
+            "title": "Jälkiruoka",
             "diets": [],
             "price": null
+          },
+          {
+            "title": "Kukkakaali-parsakaalisosekeitto",
+            "diets": [
+              "G",
+              "L"
+            ],
+            "price": "11,00 €"
           }
         ]
       }
@@ -1132,7 +1266,6 @@
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
         "Lounassalaatti – Kana / halloumi / lohi (+2,50€) (gluteeniton pyydettäessä) 14,50 €",
         "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€"
