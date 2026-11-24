@@ -1,5 +1,5 @@
 {
-  "updated": "24.11.2026 klo 16.57",
+  "updated": "24.11.2026 klo 20.17",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -1479,9 +1479,47 @@
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,00 €",
+            "parts": [
+              {
+                "title": "Naudan Liha pullat pippuri kastikkeessa",
+                "diets": []
+              },
+              {
+                "title": "Kana fajita",
+                "diets": []
+              },
+              {
+                "title": "Norm&Pannu pizzat",
+                "diets": []
+              },
+              {
+                "title": "Maalaisranskalaiset",
+                "diets": []
+              },
+              {
+                "title": "Voilla keitetty riisi",
+                "diets": []
+              },
+              {
+                "title": "Salaatti pöytä",
+                "diets": []
+              },
+              {
+                "title": "0.33Limsa",
+                "diets": []
+              },
+              {
+                "title": "Erikois suklaa kakku",
+                "diets": []
+              },
+              {
+                "title": "Kahvi/tee",
+                "diets": []
+              }
+            ]
           }
         ],
         "3": [
