@@ -1,5 +1,5 @@
 {
-  "updated": "24.11.2026 klo 22.14",
+  "updated": "25.11.2026 klo 16.33",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -2463,9 +2463,49 @@
         ],
         "2": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Pinaattikeitto ja kananmuna",
+                "diets": []
+              },
+              {
+                "title": "Feta-kasvistäytteiset paprikat",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Broileria harissa-kookoskastikeessa ja riisiä",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Bolognesekastiketta ja pastaa",
+                "diets": [
+                  "M"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Suklaamousse",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ],
         "3": [
