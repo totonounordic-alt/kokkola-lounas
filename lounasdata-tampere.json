@@ -1,5 +1,5 @@
 {
-  "updated": "25.11.2026 klo 21.26",
+  "updated": "26.11.2026 klo 15.59",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -2510,9 +2510,46 @@
         ],
         "3": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Hernekeitto",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Paahdettu uuniperuna ja Välimerellinen juustotäyte",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Jauhelihakaalilaatikko",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Kiovan kanaa, currymajoneesia ja riisiä",
+                "diets": []
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Pannukakku, kermavaahtoa ja mansikkahilloa",
+                "diets": []
+              }
+            ]
           }
         ],
         "4": [
