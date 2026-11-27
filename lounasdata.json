@@ -1,5 +1,5 @@
 {
-  "updated": "26.11.2026 klo 21.09",
+  "updated": "27.11.2026 klo 15.58",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -379,21 +379,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -412,21 +412,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -445,21 +445,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -478,21 +478,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -511,21 +511,21 @@
             "price": "13,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Double Smash Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
+            "title": "Tilauksesta: Crispy Chicken Burger & ranskalaiset tai bataatit",
             "diets": [
               "L"
             ],
             "price": "15,90 €"
           },
           {
-            "title": "Buffet: Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
+            "title": "Tilauksesta: BBQ-tofu bataattiranskalaisilla & Vegan Ranch -majoneesilla",
             "diets": [
               "G",
               "L",
@@ -1169,7 +1169,7 @@
                 ]
               },
               {
-                "title": "Valkosipuli-persiljavoita",
+                "title": "Persiljavoita",
                 "diets": [
                   "G",
                   "L"
@@ -1177,15 +1177,6 @@
               },
               {
                 "title": "Lohkoperunoita",
-                "diets": [
-                  "G",
-                  "L",
-                  "M",
-                  "Veg"
-                ]
-              },
-              {
-                "title": "Paahdettua perunaa ja juureksia",
                 "diets": [
                   "G",
                   "L",
@@ -1238,7 +1229,7 @@
             "price": null,
             "parts": [
               {
-                "title": "Puolukkarahkaa",
+                "title": "Vadelmarahkaa",
                 "diets": [
                   "G",
                   "L"
@@ -1265,8 +1256,7 @@
       "staticNote": [
         "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€",
         "Lounassalaatti – Kana / halloumi / lohi (+2,50€) (gluteeniton pyydettäessä) 14,50 €",
-        "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €",
-        "Lounasburgerit (gluteeniton ja laktoositon pyydettäessä) Norm/Tupla 13 € / 17€"
+        "Lounaspihvi – Paneroitu kana / paneroitu porsaan pihvi 14,50 €"
       ],
       "menus": {
         "0": [

@@ -1,5 +1,5 @@
 {
-  "updated": "26.11.2026 klo 21.09",
+  "updated": "27.11.2026 klo 15.58",
   "week": "2026-W48",
   "restaurants": [
     {
@@ -2554,9 +2554,48 @@
         ],
         "4": [
           {
-            "title": "Päivän lista ei ole saatavilla – katso ravintolan omilta sivuilta",
+            "title": "Lounasbuffet",
             "diets": [],
-            "price": null
+            "price": "13,90 €",
+            "parts": [
+              {
+                "title": "Kana-currykeitto",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              },
+              {
+                "title": "Kevätkääryleitä ja chilikastiketta",
+                "diets": [
+                  "Veg"
+                ]
+              },
+              {
+                "title": "Paneroitua porsaanleikettä, BBQ-majoneesia ja valkosipuli-kermaperunoita",
+                "diets": []
+              },
+              {
+                "title": "Mausteista kananpoikaa ja riisiä",
+                "diets": [
+                  "G"
+                ]
+              },
+              {
+                "title": "Lämmin kasvislisäke",
+                "diets": [
+                  "G",
+                  "M"
+                ]
+              },
+              {
+                "title": "Puolukka-kinuskirahka",
+                "diets": [
+                  "G",
+                  "L"
+                ]
+              }
+            ]
           }
         ]
       }
